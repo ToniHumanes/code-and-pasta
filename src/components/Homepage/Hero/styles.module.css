@@ -1,0 +1,51 @@
+.heroBanner {
+  padding: 3rem 0 1rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+}
+
+.hero__title {
+  font-size: 3rem;
+  margin-bottom: 0;
+  @media screen and (max-width: 996px) {
+    font-size: 2rem;
+  }
+}
+
+.hero__subtitle {
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: 700;
+  @media screen and (max-width: 996px) {
+    font-size: 1.25rem;
+  }
+}
+
+.hero__image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+
+.hero__content {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  column-gap: 2rem;
+  align-items: center;
+  text-align: left;
+
+  @media screen and (max-width: 996px) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
