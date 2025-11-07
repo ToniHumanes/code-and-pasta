@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
-import HomepageHeader from "../components/Homepage/Hero";
-import HomepageFeatures from "../components/Homepage/Cards";
+import HomepageHeader from "../components/feature/Homepage/Hero";
+import HomepageFeatures from "../components/feature/Homepage/Cards";
 
 export default function Home(): ReactNode {
   const { siteConfig } = useDocusaurusContext();

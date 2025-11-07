@@ -1,0 +1,27 @@
+.label {
+  padding: 4px 8px;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
+
+  &--red {
+    background-color: #ffdddd;
+    color: #cc0000;
+  }
+
+  &--green {
+    background-color: #ddffdd;
+    color: #009900;
+  }
+
+  &--blue {
+    background-color: #ddddff;
+    color: #0000cc;
+  }
+
+  &--yellow {
+    background-color: #ffffcc;
+    color: #999900;
+  }
+}
