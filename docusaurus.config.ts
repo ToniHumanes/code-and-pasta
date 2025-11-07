@@ -85,11 +85,11 @@ const config: Config = {
           type: "docSidebar",
           sidebarId: "tutorialSidebar",
           position: "left",
-          label: "Tutorial",
+          label: "Apuntes técnicos",
         },
         { to: "/blog", label: "Blog", position: "left" },
         {
-          href: "https://github.com/facebook/docusaurus",
+          href: "https://github.com/ToniHumanes/code-and-pasta",
           label: "GitHub",
           position: "right",
         },
@@ -99,20 +99,15 @@ const config: Config = {
       style: "dark",
       links: [
         {
-          title: "Docs",
+          title: "Contacto",
           items: [
             {
-              label: "Tutorial",
-              to: "/docs/intro",
+              label: "Linkedin",
+              href: "https://www.linkedin.com/in/antoniohumanes/",
             },
-          ],
-        },
-        {
-          title: "Community",
-          items: [
             {
-              label: "Stack Overflow",
-              href: "https://stackoverflow.com/questions/tagged/docusaurus",
+              label: "Email",
+              href: "mailto:antoniohumanespacheco@gmail.com",
             },
           ],
         },
@@ -121,7 +116,11 @@ const config: Config = {
           items: [
             {
               label: "GitHub",
-              href: "https://github.com/facebook/docusaurus",
+              href: "https://github.com/ToniHumanes/",
+            },
+            {
+              label: "Codepen",
+              href: "https://codepen.io/Antoniofront",
             },
           ],
         },
