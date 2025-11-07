@@ -18,12 +18,12 @@ const config: Config = {
   url: "https://ToniHumanes.github.io",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/my-dev-journal/",
+  baseUrl: "/code-and-pasta/",
   trailingSlash: false,
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "ToniHumanes", // Usually your GitHub org/user name.
-  projectName: "my-dev-journal", // Usually your repo name.
+  projectName: "code-and-pasta", // Usually your repo name.
 
   onBrokenLinks: "throw",
 
@@ -75,9 +75,9 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: "My Dev Journal",
+      title: "Código & Pasta",
       logo: {
-        alt: "My Dev Journal Logo",
+        alt: "Code & Pasta Logo",
         src: "img/logo.png",
       },
       items: [

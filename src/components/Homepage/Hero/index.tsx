@@ -20,7 +20,12 @@ function HomepageHeader() {
               {siteConfig.title}
             </Heading>
             <p className={styles.hero__subtitle}>
-              Software & Frontend Developer
+              Product-Oriented Frontend & Software Developer
+            </p>
+            <p className={styles.hero__description}>
+              <span>🍝 Código & Pasta</span>: Un blog sobre desarrollo,
+              aprendizaje y cómo no morirse de hambre mientras se escribe buen
+              código.
             </p>
           </div>
         </section>

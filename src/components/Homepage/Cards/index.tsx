@@ -14,36 +14,46 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: "Documentación técnica y blog",
+    title: "Documentar para comprender.",
     image: intro,
     description: (
       <>
-        Documento la trayectoria de mi camino como desarrollador que aprende,
-        cuestiona y construye con propósito. Uso este espacio para ordenar mis
-        ideas y seguir creciendo como desarrollador
+        Uso este sitio como mi cuaderno de aprendizaje: un lugar donde ordeno
+        mis ideas, explico conceptos con mis propias palabras y transformo lo
+        aprendido en conocimiento aplicable. En este espacio llamado Código &
+        Pasta 🍝 encontrarás apuntes técnicos, reflexiones sobre arquitectura y
+        producto, y mi viaje continuo en el mundo del desarrollo.
       </>
     ),
   },
   {
-    title: "Mi trabajo como desarrollador",
+    title: "Frontend con visión de producto.",
     image: workSuchAs,
     description: (
       <>
-        Trabajo en frontend (React, TypeScript, arquitectura) aunque actualmente
-        estoy expandiendome en backend y este sitio es mi espacio para
-        reflexionar, practicar y documentar lo que voy aprendiendo
+        Trabajo principalmente con React, TypeScript, arquitectura hexagonal,
+        microfrontends y TDD, pero también estoy ampliando mi enfoque hacia
+        backend y diseño de sistemas completos. Me interesa entender no solo
+        cómo se construye un producto, sino por qué ciertas decisiones generan
+        más valor.
       </>
     ),
   },
   {
-    title: "Formato del sitio",
+    title: "Estructura del sitio",
     image: format,
     description: (
       <>
-        <p>/docs → mis apuntes técnicos organizados.</p>
+        <ul className="text--left">
+          <li>/docs → mis apuntes técnicos organizados por áreas.</li>
+          <li>
+            /blog → artículos breves con ideas, aprendizajes o debates que me
+            hacen pensar.
+          </li>
+        </ul>
         <p>
-          /blog → artículos breves con ideas, aprendizajes o dudas que me hacen
-          pensar
+          Este blog evoluciona conmigo. No es un portfolio; es mi espacio para
+          seguir aprendiendo, escribiendo y construyendo mejor software.
         </p>
       </>
     ),
