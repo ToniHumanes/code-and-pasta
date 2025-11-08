@@ -44,17 +44,9 @@ const FeatureList: FeatureItem[] = [
     image: format,
     description: (
       <>
-        <ul className="text--left">
-          <li>/docs → mis apuntes técnicos organizados por áreas.</li>
-          <li>
-            /blog → artículos breves con ideas, aprendizajes o debates que me
-            hacen pensar.
-          </li>
-        </ul>
-        <p>
-          Este blog evoluciona conmigo. No es un portfolio; es mi espacio para
-          seguir aprendiendo, escribiendo y construyendo mejor software.
-        </p>
+        /docs → mis apuntes técnicos organizados por áreas. <br /> /blog →
+        artículos breves con ideas, aprendizajes o reflexiones sobre desarrollo.
+        Nos dudéis en visitar las diferentes secciones, nos vemos 👋
       </>
     ),
   },

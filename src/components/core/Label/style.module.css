@@ -1,27 +1,27 @@
 .label {
   padding: 4px 8px;
-  border-radius: 50%;
+  border-radius: 24px;
   font-size: 0.8rem;
   font-weight: 600;
   display: inline-block;
+}
 
-  &--red {
-    background-color: #ffdddd;
-    color: #cc0000;
-  }
+.red {
+  background-color: #e34444;
+  color: #ffffff;
+}
 
-  &--green {
-    background-color: #ddffdd;
-    color: #009900;
-  }
+.green {
+  background-color: #238723;
+  color: #ffffff;
+}
 
-  &--blue {
-    background-color: #ddddff;
-    color: #0000cc;
-  }
+.blue {
+  background-color: #5555c0;
+  color: #ffffff;
+}
 
-  &--yellow {
-    background-color: #ffffcc;
-    color: #999900;
-  }
+.yellow {
+  background-color: #eba21b;
+  color: #ffffff;
 }

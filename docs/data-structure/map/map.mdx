@@ -1,0 +1,307 @@
+---
+sidebar_position: 1
+---
+
+import { MapDemo } from "./mapDemo";
+
+# Estructura de Datos con Map
+
+Empecemos por el principio. ¿Qué es `Map`?
+
+`Map` es un objeto en JavaScript (como casi todo 😅) que se basa en una colección de pares clave-valor donde tanto las claves como los valores pueden ser de cualquier tipo. A diferencia de los objetos tradicionales, las claves en un `Map` pueden ser objetos, funciones o cualquier otro tipo de dato.
+Vamos a ver todos los métodos que nos ofrece esta estructura de datos y al final de toda esta explicación pondré un ejemplo real de cada uno de los usos.
+
+Lo primero que vamos a tener que hacer es instanciar un nuevo `Map`:
+
+```js
+const map = new Map();
+```
+
+Esta instancia de la clase `Map` nos permite utilizar varios métodos para manipular los datos que contiene. Vamos a ver algunos de los más comunes.
+
+### get()
+
+El método `get` nos permite acceder al valor asociado a una clave específica en el `Map`.
+
+```js
+const map = new Map([
+  [1, "Juan"],
+  [2, "María"],
+]);
+console.log(map.get(1)); // "Juan"
+console.log(map.get(2)); // "María"
+
+const map2 = new Map([["nombre", "Carlos"]]);
+console.log(map2.get("nombre")); // "Carlos"
+```
+
+Aquí, estamos utilizando el método `get` para obtener los valores asociados a las claves. El resultado será `"Juan"`, `"María"` y `Carlos`.
+Como veis la importancia está en la clave que utilicemos para acceder al valor.
+
+### set()
+
+El método `set` nos permite agregar un nuevo par clave-valor al `Map`. Si la clave ya existe, el valor asociado se actualizará. (no permite tener claves duplicadas).
+
+```js
+const map = new Map();
+map.set(1, "Juan");
+map.set(2, "María");
+map.set(3, "Ana");
+map.set(4, "Pedro");
+console.log(map);
+
+> Resultado:
+[
+    [1,"Juan"],
+    [2,"María"],
+    [3,"Ana"],
+    [4,"Pedro"]
+]
+
+map.set(4, "Pedrito"); // actualiza el valor asociado a la clave 4
+console.log(map);
+
+> Resultado:
+[
+    [1,"Juan"],
+    [2,"María"],
+    [3,"Ana"],
+    [4,"Pedrito"]
+]
+```
+
+Si hacemos un `console.log` del `Map`, veremos que contiene los pares clave-valor que hemos agregado.
+Pero no es un objeto común, sino una estructura de datos específica.
+Por lo tanto no se muestra como un objeto literal, sino como una lista de pares clave-valor.
+Ahora veremos como acceder a estos valores, modificarlos y eliminarlos.
+Pero antes un inciso:
+
+### Encadenar set()
+
+Algo muy interesante del método `set` es que devuelve el propio `Map`, lo que permite encadenar múltiples llamadas a `set` en una sola línea.
+
+```js
+const map = new Map();
+map.set(1, "Juan").set(2, "María").set(3, "Ana").set(4, "Pedro");
+console.log(map);
+
+> Resultado:
+[
+    [1,"Juan"],
+    [2,"María"],
+    [3,"Ana"],
+    [4,"Pedro"]
+]
+```
+
+Mismo resultado que antes, pero en una sola línea.
+
+### has()
+
+El método `has` nos permite verificar si una clave específica existe en el `Map`.
+
+```js
+const map = new Map();
+map.set(1, "Juan");
+console.log(map.has(1)); // true
+console.log(map.has(2)); // false
+```
+
+Aquí, estamos utilizando el método `has` para verificar si las claves `1` y `2` existen en el `Map`. El resultado será `true` para la clave `1` y `false` para la clave `2`.
+
+### delete()
+
+El método `delete` nos permite eliminar un par clave-valor específico del `Map`.
+
+```js
+const map = new Map();
+map.set(1, "Juan");
+map.delete(1);
+console.log(map.has(1)); // false
+```
+
+Aquí, estamos utilizando el método `delete` para eliminar el par clave-valor asociado a la clave `1`. Luego, verificamos si la clave `1` todavía existe en el `Map` utilizando el método `has`, y el resultado será `false`.
+
+### size
+
+El método `size` nos permite obtener el número de pares clave-valor en el `Map`.
+
+```js
+const map = new Map();
+map.set(1, "Juan");
+map.set(2, "María");
+console.log(map.size); // 2
+```
+
+Aquí, estamos utilizando la propiedad `size` para obtener el número de pares clave-valor en el `Map`. El resultado será `2`, ya que hemos agregado dos pares clave-valor.
+
+### clear()
+
+El método `clear` nos permite eliminar todos los pares clave-valor del `Map`.
+
+```js
+const map = new Map();
+map.set(1, "Juan");
+map.set(2, "María");
+map.clear();
+console.log(map.size); // 0
+```
+
+### claves con más tipos de datos
+
+Como hemos mencionado al principio, las claves en un `Map` pueden ser de cualquier tipo de dato, incluyendo objetos y funciones. Veamos un ejemplo:
+
+```js
+const map = new Map();
+const objKey = { id: 1 };
+const funcKey = function () {
+  return "función";
+};
+map.set(objKey, "Valor asociado a un objeto");
+map.set(funcKey, "Valor asociado a una función");
+console.log(map.get(objKey)); // "Valor asociado a un objeto"
+console.log(map.get(funcKey)); // "Valor asociado a una función"
+```
+
+### Recorrido de un Map
+
+Podemos recorrer un `Map` utilizando un bucle `for...of` o los métodos `forEach`, `keys`, `values` y `entries`.
+
+```js
+const map = new Map();
+map.set(1, "Juan");
+map.set(2, "María");
+map.set(3, "Ana");
+
+// Usando for...of
+for (const [key, value] of map) {
+  console.log(`${key}: ${value}`);
+}
+
+// Usando forEach
+map.forEach((value, key) => {
+  console.log(`${key}: ${value}`);
+});
+
+// Usando keys
+for (const key of map.keys()) {
+  console.log(`Clave: ${key}`);
+}
+
+// Usando values
+for (const value of map.values()) {
+  console.log(`Valor: ${value}`);
+}
+
+// Usando entries
+for (const [key, value] of map.entries()) {
+  console.log(`${key}: ${value}`);
+}
+
+// Usando Array.from() --> Muy útil sobre todo en React
+const entriesArray = Array.from(map);
+Array.from(entriesArray).map(([key, value]) => {
+  console.log(`${key}: ${value}`);
+});
+```
+
+Aquí, estamos utilizando diferentes métodos para recorrer el `Map` y acceder a sus claves y valores.
+Cada uno de estos métodos nos permite iterar sobre el `Map` de diferentes maneras, dependiendo de nuestras necesidades.
+
+### Ejemplo práctico
+
+Vamos con el ejemplo práctico, usando `Map` vamos a realizar un modelo de relaciones.
+Imaginemos que tenemos una lista de personas en una aplicación para hacer networking, vamos a emparejar a estas personas en base a su profesión y ubicación geográfica.
+
+Tenemos los siguientes datos:
+
+```json
+[
+  {
+    id: "1",
+    name: "Carol",
+    age: 18,
+    city: "Los Angeles",
+    profession: "trainee",
+  },
+  {
+    id: "2",
+    name: "Alice",
+    age: 25,
+    city: "New York",
+    profession: "Designer",
+  },
+  {
+    id: "3",
+    name: "Lucas",
+    age: 30,
+    city: "New York",
+    profession: "Designer",
+  },
+  {
+    id: "4",
+    name: "Camilo",
+    age: 27,
+    city: "New York",
+    profession: "Designer",
+  },
+  {
+    id: "5",
+    name: "Charlie",
+    age: 28,
+    city: "Los Angeles",
+    profession: "Teacher",
+  },
+  {
+    id: "6",
+    name: "Diana",
+    age: 17,
+    city: "Los Angeles",
+    profession: "trainee",
+  },
+];
+```
+
+Con la siguiente implementación en TypeScript vamos a crear un `Map` que relacione a las personas por su profesión y ciudad:
+
+```tsx title="docs/data-structure/map/mapDemo.tsx"
+const matches = new Map<string, string[]>();
+
+for (const key in people) {
+  const currentPerson = people[key];
+
+  for (const innerKey in people) {
+    const nextPerson = people[innerKey];
+
+    if (
+      currentPerson.id !== nextPerson.id &&
+      currentPerson.city.toLowerCase() === nextPerson.city.toLowerCase() &&
+      currentPerson.profession.toLowerCase() ===
+        nextPerson.profession.toLowerCase()
+    ) {
+      matches.set(
+        currentPerson.name,
+        matches.has(currentPerson.name)
+          ? [...matches.get(currentPerson.name), nextPerson.name]
+          : [nextPerson.name]
+      );
+    }
+  }
+}
+
+> Resultado:
+[
+  ["Alice", ["Lucas", "Camilo"]],
+  ["Lucas", ["Alice", "Camilo"]],
+  ["Camilo", ["Alice", "Lucas"]],
+  ["Carol", ["Diana"]],
+  ["Diana", ["Carol"]]
+]
+```
+
+### Demo
+
+Puedes modificar el JSON para ver cómo se actualizan las relaciones en tiempo real. <br/>
+Ejercicio: Charlie no tiene ninguna relación, ¿puedes modificar sus datos para que tenga alguna relación con otra persona?
+
+<MapDemo />

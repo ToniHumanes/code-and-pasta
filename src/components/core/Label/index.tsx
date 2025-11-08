@@ -1,14 +1,13 @@
+import styles from "./style.module.css";
+
 type LabelProps = {
   text: string;
   color?: "red" | "blue" | "green" | "yellow";
-  className?: string;
 };
 
-const Label = ({ text, color, className }: LabelProps) => {
+export const Label = ({ text, color }: LabelProps) => {
   return (
-    <span
-      className={`label ${color ? `label--${color}` : ""} ${className ?? ""}`}
-    >
+    <span className={`${styles.label} ${color ? styles[color] : ""}`}>
       {text}
     </span>
   );

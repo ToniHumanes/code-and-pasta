@@ -128,7 +128,7 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} Antonio Humanes Pacheco.`,
     },
     prism: {
-      theme: prismThemes.github,
+      theme: prismThemes.dracula,
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
