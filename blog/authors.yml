@@ -1,9 +1,9 @@
 antoniohumanes:
   name: Antonio Humanes
-  title: Frontend & Software Developer
+  title: Product-Oriented Frontend & Software Developer
   url: https://www.linkedin.com/in/antoniohumanes/
-  image_url: "@site/static/img/profile-image.jpg"
-  page: true
+  image_url: https://media.licdn.com/dms/image/v2/D4D03AQGzXbRKHNkVqw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1669832223704?e=1764201600&v=beta&t=AHZw7bJV30jprnFmeuJcJ3nj-ppjUnKAhC92GSTth-c
+  page: false
   socials:
     linkedin: https://www.linkedin.com/in/antoniohumanes/
     github: https://github.com/ToniHumanes/

@@ -18,11 +18,11 @@ const FeatureList: FeatureItem[] = [
     image: intro,
     description: (
       <>
-        Uso este sitio como mi cuaderno de aprendizaje: un lugar donde ordeno
-        mis ideas, explico conceptos con mis propias palabras y transformo lo
-        aprendido en conocimiento aplicable. En este espacio llamado Código &
-        Pasta 🍝 encontrarás apuntes técnicos, reflexiones sobre arquitectura y
-        producto, y mi viaje continuo en el mundo del desarrollo.
+        Este es mi cuaderno de aprendizaje: un lugar donde ordeno mis ideas,
+        explico conceptos y transformo lo aprendido en conocimiento aplicable.
+        En este espacio llamado Código & Pasta 🍝 encontrarás apuntes técnicos,
+        reflexiones sobre arquitectura y producto, y mi viaje continuo en el
+        mundo del desarrollo.
       </>
     ),
   },
@@ -44,9 +44,10 @@ const FeatureList: FeatureItem[] = [
     image: format,
     description: (
       <>
-        /docs → mis apuntes técnicos organizados por áreas. <br /> /blog →
-        artículos breves con ideas, aprendizajes o reflexiones sobre desarrollo.
-        Nos dudéis en visitar las diferentes secciones, nos vemos 👋
+        /docs → mis apuntes técnicos organizados por áreas y ejemplos de código
+        de la vida real. <br />
+        /blog → artículos con ideas, aprendizajes o reflexiones sobre
+        desarrollo. Nos dudéis en visitar las diferentes secciones, nos vemos 👋
       </>
     ),
   },
