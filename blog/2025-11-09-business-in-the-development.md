@@ -2,12 +2,15 @@
 authors: antoniohumanes
 title: "El valor de entender el negocio como desarrollador"
 tags:
+  - Producto
   - Negocio
   - Desarrollo
   - Features
 ---
 
-**¿Sabes de donde sale tu sueldo?** 💶
+<img src={require("@site/blog/img/money.jpg").default} style={{margin: "1rem 0px 1rem"}}/>
+
+**¿Sabes de donde sale tu sueldo?** 💵
 
 Cuando empecé en esto del desarrollo de software me enfocaba en aprender lo que más pudiera técnicamente, con el tiempo me di cuenta de que es importante, pero quizás estaba dejando a un lado otras cosas que también lo son, en este articulo quiero hablar sobre esas cosas.
 
