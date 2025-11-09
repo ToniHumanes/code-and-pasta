@@ -7,13 +7,13 @@
 /* You can override the default Infima variables here. */
 :root {
   /* Primary (brand) color */
-  --ifm-color-primary: #ffdb63; /* principal */
-  --ifm-color-primary-dark: #f0c84f;
-  --ifm-color-primary-darker: #d4aa3f;
+  --ifm-color-primary: #f0ba0c;
+  --ifm-color-primary-dark: #efbb21;
+  --ifm-color-primary-darker: #cd9f2b;
   --ifm-color-primary-darkest: #b7862f;
-  --ifm-color-primary-light: #ffd98a;
-  --ifm-color-primary-lighter: #ffe9a8;
-  --ifm-color-primary-lightest: #fff4d6;
+  --ifm-color-primary-light: #d4ad58;
+  --ifm-color-primary-lighter: #d8b23e;
+  --ifm-color-primary-lightest: #d3b359;
 
   /* Secondary / accent colors */
   --ifm-color-secondary: #3889e0;
