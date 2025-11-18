@@ -4,8 +4,7 @@ title: "Todo comienza con un Excel"
 tags: [data, product, business, development, features]
 ---
 
-![Imagen de un ordenador con una aplicación de finanzas abierta en el navegador](@site/blog/img/excel.jpg)  
-<sub>Foto de Carlos Muza en Unsplash</sub>
+![Imagen de un ordenador con una aplicación de finanzas abierta en el navegador](@site/blog/img/excel.jpg)
 
 Hoy quiero hablar de algo que aprendes con la observación y, quizá, con los años: **la mayoría de aplicaciones nacen de un Excel**.  
 Y normalmente de un _Excel chapucero_, como decía un antiguo compañero 😆.

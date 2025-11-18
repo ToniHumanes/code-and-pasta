@@ -5,7 +5,6 @@ tags: [product, business, development, features]
 ---
 
 ![Imagen de dinero en dolares sobre una mesa](@site/blog/img/money.jpg)
-<sub>Foto de [Alexander Grey](https://unsplash.com/es/@sharonmccutcheon?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) en [Unsplash](https://unsplash.com/es/fotos/billetes-de-1-dolar-estadounidense-8lnbXtxFGZw?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)</sub>
 
 La mayoría de developers saben escribir código.
 Muy pocos saben por qué ese código genera dinero.
