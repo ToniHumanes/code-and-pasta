@@ -6,11 +6,11 @@ tags: [data, product, business, development, features]
 
 ![Imagen de un ordenador con una aplicación de finanzas abierta en el navegador](@site/blog/img/excel.jpg)
 
-Hoy quiero hablar de algo que aprendes con la observación y, quizá, con los años: **la mayoría de aplicaciones nacen de un Excel**.  
-Y normalmente de un _Excel chapucero_, como decía un antiguo compañero 😆.
+Hoy quiero hablar de algo que aprendes con la observación y de ciertos patrones que se dan en las empresas: **la mayoría de aplicaciones nacen de un Excel**.  
+Y normalmente de un _Excel guarro (refiriéndose a chapucero)_, como decía un antiguo compañero 😆.
 
 Equipos de negocio, tecnología, ventas, diseño… da igual el área.  
-Si necesitan guardar datos, modificarlos, analizarlos o simplemente “jugar” con ellos, tarde o temprano acaban creando un Excel.
+Si necesitan guardar datos, modificarlos, analizarlos o simplemente extraerlos, tarde o temprano acaban creando un Excel.
 
 Desde el punto de vista de gobierno del dato es casi un sacrilegio, pero la realidad es así:  
 al principio nadie tiene claro qué hará con esos datos, si serán útiles o si llegarán a algún sitio.  
@@ -33,7 +33,7 @@ Aquí entra el equipo de gobierno del dato.
 Sus responsabilidades suelen ser:
 
 - Analizar la información disponible.
-- Identificar stakeholders a los que también les interesa.
+- Identificar stakeholders a los que también les interesan.
 - Unificar y clasificar esa información.
 - Diseñar la base de datos y comenzar la aplicación.
 - Definir cómo disponibilizar los datos de forma sencilla.
@@ -50,6 +50,7 @@ Dos Excels que uso a diario y que son súper importantes para mí:
 
 ### 1. Mi Excel de cursos, libros y rutas de aprendizaje
 
+Es el Excel que utilizo para seguir aprendiendo, registrando cursos, libros, artículos que tengo pendientes y que ya he realizado.
 Lo tengo todo clasificado por temas, estado (Sin empezar / En curso / Finalizado) y con detalles de cada recurso.  
 No he creado una app… todavía.  
 Es un Excel muy candidato, aunque ahora mismo no me da la vida.
@@ -64,8 +65,8 @@ Me imagino que apps como Fintonic empezaron exactamente así: alguien con su Exc
 
 Muy simple, y muy relacionado con estar alineados con negocio como desarrolladores:
 
-1. **Observa los Excel de tu empresa**.  
-   Son pistas claras de necesidades reales, muchas veces urgentes.
+1. **Observa las necesidades de los equipos con los que trabajas**.  
+   Si tienen un Excel puede ser una pista clara de que tienen necesidades reales, muchas veces urgentes.
 
 2. **Todo Excel es un candidato potencial a convertirse en una aplicación**.  
    Quién sabe, ahí puede estar tu próxima idea millonaria (ya me pasarás acciones 😉).
