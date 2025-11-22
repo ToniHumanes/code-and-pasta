@@ -20,14 +20,6 @@ jobs:
           node-version: 20
           cache: npm
 
-      - name: Check node and npm versions
-        run: |
-          node -v
-          npm -v
-
-      - name: Ensure npm@11
-        run: |
-          npm install -g npm@11
       - name: Install dependencies
         run: npm ci
       - name: Test build website
