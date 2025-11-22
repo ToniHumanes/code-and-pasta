@@ -39,7 +39,7 @@ Mi jefe me dijo después que solo esos cuatro ajustes generaron unos 80.000€.
 
 Más de lo que muchos cobran en un año.
 
-Cuando todos entendimos el negocio, se cometieron menos errores, menos funcionalidades que luego irían a la basura, pudimos crear más valor. Realmente útiles para el usuario.
+Cuando todos entendimos el negocio, se cometieron menos errores, menos funcionalidades que luego irían a la basura, pudimos crear más valor.
 Esto no es infalible, pero mejora mucho la calidad y la visión del proyecto.
 
 En tecnología, todo suele ser un caos: cambios de prioridades, visión sesgada, MVPs, salidas rápidas con deuda técnica.
@@ -76,7 +76,7 @@ La mejora en eficiencia, brutal.
 :::note[Lección aprendida:]
 
 1.  **Entiende el negocio** antes de tocar una línea de código.
-2.  **Habla con tus usuarios**, da igual quien seas, delivery manager o developer, puede ser complicado en empresas grandes, pero por lo menos levanta la mano.
+2.  **Habla con tus usuarios**, entiende sus necesidades.
     :::
 
 ## Conclusión
@@ -89,4 +89,4 @@ Eso no es lo que se nos pide a los desarrolladores, pero sí se pide que entiend
 
 Es saber por qué escribes lo que escribes.
 
-Y cuando entiendes ese porqué, programas mejor y haces mejores productos.
+Y cuando entiendes ese porqué, haces mejores productos y aportas más valor.
