@@ -1,7 +1,7 @@
 import { Button } from "@site/src/components/core/Button/Button";
 import { Input } from "@site/src/components/core/Input/Input";
 import Table from "@site/src/components/core/Table";
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 enum Endpoint {
   USERS = "users",
@@ -50,13 +50,13 @@ const transformUserData = (data: UserDTO[]): User[] => {
 const usedEmails = new Set<string>();
 
 export const SetDemo = () => {
-  const [users, setUsers] = React.useState<User[]>([]);
+  const [users, setUsers] = useState<User[]>([]);
 
-  const [userName, setUserName] = React.useState<string>("");
-  const [userEmail, setUserEmail] = React.useState<string>("");
+  const [userName, setUserName] = useState<string>("");
+  const [userEmail, setUserEmail] = useState<string>("");
 
-  const [userError, setUserError] = React.useState<string>("");
-  const [emailError, setEmailError] = React.useState<string>("");
+  const [userError, setUserError] = useState<string>("");
+  const [emailError, setEmailError] = useState<string>("");
 
   useEffect(() => {
     saveData(Endpoint.USERS);

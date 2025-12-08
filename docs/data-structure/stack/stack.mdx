@@ -1,0 +1,225 @@
+---
+sidebar_position: 3
+---
+
+import { StackDemo } from "./stackDemo";
+
+# Stack (Pila)
+
+¿Qué es una pila (stack)?
+
+Una pila es una estructura de datos que sigue el principio LIFO (Last In, First Out), lo que significa que el último elemento en entrar es el primero en salir.
+
+Imagina una pila de platos: solo puedes agregar o quitar el plato que está en la parte superior.
+
+## Métodos principales de una pila
+
+Realmente al ser nuestra propia implementación podríamos definir los métodos que quisiéramos, pero hay algunos que son bastante comunes en la mayoría de los casos.
+
+### push()
+
+El método `push` se utiliza para agregar un elemento a la parte superior de la pila.
+Estamos utilizando el método `push` de `js`, lo encapsulamos en nuestro propio método `push`.
+
+```js {6-8}
+class Stack {
+  constructor() {
+    this.items = [];
+  }
+
+  push(element) {
+    this.items.push(element);
+  }
+}
+```
+
+### pop()
+
+El método `pop` se utiliza para eliminar el elemento en la parte superior de la pila y devolverlo.
+Pasa lo mismo que con `push`, usamos el método `pop` de `js` dentro de nuestro propio método `pop`.
+
+```js {6-8}
+class Stack {
+  constructor() {
+    this.items = [];
+  }
+
+  pop() {
+    return this.items.pop();
+  }
+}
+```
+
+### getItems()
+
+El método `getItems` devuelve todos los elementos de la pila.
+
+```js {6-8}
+class Stack {
+  constructor() {
+    this.items = [];
+  }
+
+  getItems() {
+    return this.items;
+  }
+}
+```
+
+### peek()
+
+El método `peek` permite ver el último elemento de la pila sin eliminarlo.
+
+```js {6-8}
+class Stack {
+  constructor() {
+    this.items = [];
+  }
+
+  peek() {
+    return this.items[this.items.length - 1];
+  }
+}
+```
+
+### size()
+
+El método `size` devuelve el número de elementos en la pila.
+
+```js {6-8}
+class Stack {
+  constructor() {
+    this.items = [];
+  }
+
+  size() {
+    return this.items.length;
+  }
+}
+```
+
+### isEmpty()
+
+El método `isEmpty` verifica si la pila está vacía.
+
+```js {6-8}
+class Stack {
+  constructor() {
+    this.items = [];
+  }
+
+  isEmpty() {
+    return this.items.length === 0;
+  }
+}
+```
+
+### clear()
+
+El método `clear` elimina todos los elementos de la pila.
+
+```js {6-8}
+class Stack {
+  constructor() {
+    this.items = [];
+  }
+
+  clear() {
+    this.items = [];
+  }
+}
+```
+
+### Ejemplo practico
+
+Vamos a ver un ejemplo práctico, en este caso vamos a implementar una pila para manejar el historial de navegación hacia atrás/adelante como en un navegador.
+
+Por un lado creamos la clase Stack con los métodos que hemos visto antes:
+
+```js
+class Stack {
+  private items: string[] = [];
+
+  push(item: string): void {
+    this.items.push(item);
+  }
+
+  pop(): string | undefined {
+    return this.items.pop();
+  }
+
+  getItems(): string[] {
+    return this.items;
+  }
+
+  peek(): string | undefined {
+    return this.items[this.items.length - 1];
+  }
+
+  size(): number {
+    return this.items.length;
+  }
+
+  isEmpty(): boolean {
+    return this.items.length === 0;
+  }
+
+  clear(): void {
+    this.items = [];
+  }
+}
+```
+
+Después podemos usar la instancia del Stack para manejar el historial de navegación:
+
+```js
+const stack = new Stack();
+
+stack.push("home");
+stack.push("about");
+stack.push("contact");
+
+console.log(stack.getItems()); // ["home", "about", "contact"]
+console.log(stack.pop()); // "contact"
+console.log(stack.peek()); // "about"
+console.log(stack.size()); // 2
+console.log(stack.isEmpty()); // false
+stack.clear();
+console.log(stack.isEmpty()); // true
+```
+
+Así es como muestro los datos en la demo:
+
+```js
+- Historial de navegación: {stack.getItems().join(" > ")}
+- Página actual: {stack.peek() || "Ninguna"}
+- Tamaño del stack: {stack.size()}
+- ¿El stack está vacío? {stack.isEmpty() ? "Sí" : "No"}
+```
+
+En una implementación podemos crear estos métodos para manejar los enlaces, añadiendo rutas al stack cuando navegamos a una nueva página, eliminando la última ruta cuando navegamos hacia atrás y borrando el historial:
+
+```js
+const addRoute = (route: string) => {
+  if (stack.peek() === route) return;
+  stack.push(route);
+};
+
+const removeRoute = () => {
+  if (stack.isEmpty()) return;
+  stack.pop();
+};
+
+const clearHistory = () => {
+  if (stack.isEmpty()) return;
+  stack.clear();
+};
+```
+
+A continuación, te dejo una demo interactiva para que puedas ver cómo funciona una pila en la práctica.
+
+### Demo
+
+Podemos ir viendo como la pila va almacenando las páginas visitadas cuando hagamos click en los diferentes enlaces que simulan páginas.
+
+<StackDemo />
