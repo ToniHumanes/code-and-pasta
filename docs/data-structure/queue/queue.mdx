@@ -1,0 +1,218 @@
+---
+sidebar_position: 4
+---
+
+import { QueueDemo } from "./queueDemo";
+
+# Queue (Cola)
+
+¿Qué es una cola (queue)?
+
+Una cola es una estructura de datos que sigue el principio FIFO (First In, First Out), lo que significa que el primer elemento en entrar es el primero en salir.
+
+## Métodos principales de una cola
+
+Realmente al ser nuestra propia implementación podríamos definir los métodos que quisiéramos, pero hay algunos que son bastante comunes en la mayoría de los casos.
+
+### enqueue()
+
+El método `enqueue` se utiliza para agregar un elemento al final de la cola.
+
+```js {6-8}
+class Queue {
+  constructor() {
+    this.items = [];
+  }
+
+  enqueue(element) {
+    this.items.push(element);
+  }
+}
+```
+
+### dequeue()
+
+El método `dequeue` se utiliza para eliminar el primer elemento de la cola y devolverlo.
+Para eso utilizamos el método `shift` de `js`.
+
+```js {6-8}
+class Queue {
+  constructor() {
+    this.items = [];
+  }
+
+  dequeue() {
+    return this.items.shift();
+  }
+}
+```
+
+### getItems()
+
+El método `getItems` devuelve todos los elementos de la cola.
+
+```js {6-8}
+class Queue {
+  constructor() {
+    this.items = [];
+  }
+
+  getItems() {
+    return this.items;
+  }
+}
+```
+
+### peek()
+
+El método `peek` devuelve el primer elemento de la cola sin eliminarlo.
+
+```js {6-8}
+class Queue {
+  constructor() {
+    this.items = [];
+  }
+
+  peek() {
+    return this.items[0];
+  }
+}
+```
+
+### size()
+
+El método `size` devuelve el número de elementos en la cola.
+
+```js {6-8}
+class Queue {
+  constructor() {
+    this.items = [];
+  }
+
+  size() {
+    return this.items.length;
+  }
+}
+```
+
+### isEmpty()
+
+El método `isEmpty` verifica si la cola está vacía.
+
+```js {6-8}
+class Queue {
+  constructor() {
+    this.items = [];
+  }
+
+  isEmpty() {
+    return this.items.length === 0;
+  }
+}
+```
+
+### clear()
+
+El método `clear` elimina todos los elementos de la cola.
+
+```js {6-8}
+class Queue {
+  constructor() {
+    this.items = [];
+  }
+
+  clear() {
+    this.items = [];
+  }
+}
+```
+
+### Ejemplo práctico
+
+En este ejemplo vamos a implementar un sistema de notificaciones que hay normalmente en las aplicaciones web, como por ejemplo, en el icono de la campana de notificaciones.
+
+La cola es perfecta para este caso porque las notificaciones deben procesarse en el orden en que llegan (FIFO), asegurando que las más antiguas se muestren o eliminen primero.
+
+Por simplicidad, cada notificación será un string con un id único (timestamp). También habrá un botón para agregar una nueva notificación (enqueue) y un botón para eliminar la notificación más antigua o la que primero entró (dequeue).
+
+Primero debemos crear la clase Queue con los métodos que hemos visto antes:
+
+```js
+class Queue<T> {
+  private items: T[] = [];
+
+  enqueue(element: T): void {
+    this.items.push(element);
+  }
+
+  dequeue(): T | undefined {
+    return this.items.shift();
+  }
+
+  peek(): T | undefined {
+    return this.items[0];
+  }
+
+  isEmpty(): boolean {
+    return this.items.length === 0;
+  }
+
+  size(): number {
+    return this.items.length;
+  }
+
+  clear(): void {
+    this.items = [];
+  }
+
+  getItems(): T[] {
+    return this.items;
+  }
+}
+```
+
+Luego, dentro del componente de React, creamos una instancia de la clase Queue y manejamos el estado de las notificaciones:
+
+```js
+const queue = new Queue<string>();
+```
+
+Después dentro del componente, podemos usar la instancia del Queue para manejar las notificaciones, cada botón llamará a los métodos correspondientes:
+
+- Botón de crear notificación: `enqueue`
+
+```js
+const addQueueItem = () => {
+  queue.enqueue(new Date().getTime().toString());
+};
+```
+
+- Botón de eliminar notificación: `dequeue`
+
+```js
+const removeQueueItem = () => {
+  if (queue.isEmpty()) return;
+  queue.dequeue();
+};
+```
+
+Para saber que notificación es la primera en la cola y cuántas notificaciones hay, usamos los métodos `peek` y `size`:
+
+```js
+Primera notificación (actual) en la cola: {queue.peek()}
+Número de Notificaciones en la cola: {queue.size()}
+```
+
+Con `getItems` obtenemos todas las notificaciones para mostrarlas en pantalla:
+
+```js
+queue.getItems().map((item: string) => (
+  <div>
+    <Label text={`Nueva notificación con id: ${item}`} />
+  </div>
+));
+```
+
+### Demo
+
+<QueueDemo />
