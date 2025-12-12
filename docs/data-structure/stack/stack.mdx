@@ -134,6 +134,20 @@ class Stack {
 
 Vamos a ver un ejemplo práctico, en este caso vamos a implementar una pila para manejar el historial de navegación hacia atrás/adelante como en un navegador.
 
+El siguiente diagrama muestra cómo funciona el principio LIFO en un stack:
+
+```mermaid
+graph TD
+    A[Stack vacío] --> B[push: home]
+    B --> C[push: about]
+    C --> D[push: contact]
+    D --> E[Stack: home > about > contact]
+    E --> F[pop: contact]
+    F --> G[Stack: home > about]
+    G --> H[pop: about]
+    H --> I[Stack: home]
+```
+
 Por un lado creamos la clase Stack con los métodos que hemos visto antes:
 
 ```js

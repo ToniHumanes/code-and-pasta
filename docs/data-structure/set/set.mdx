@@ -120,6 +120,18 @@ Vamos a ver un ejemplo práctico donde podemos utilizar `set` para crear un cont
 
 Podemos utilizar un `Set` para almacenar los correos electrónicos de los usuarios y asegurarnos de que no se repitan. Con esta comprobación podemos evitar llamadas innecesarias a la api y validar nuestro formulario.
 
+El siguiente diagrama muestra el flujo de validación que implementaremos:
+
+```mermaid
+graph TD
+    A[Formulario] --> B{Email existe en Set?}
+    B -->|Sí| C[Mostrar error]
+    B -->|No| D[Agregar email al Set]
+    D --> E[Guardar usuario]
+    C --> F[Fin]
+    E --> F
+```
+
 Seguramente estéis pensando que esto se hace a traves de librerías de formularios como `react-hook-form` o `formik`, y tenéis razón, pero el objetivo de este ejemplo es entender el funcionamiento de los `Set`.
 
 La clave es utilizar el `Set` para comprobar datos únicos y ver que es más sencillo y más eficiente que cuando usamos un array, después de este ejemplo explico por qué es más eficiente.

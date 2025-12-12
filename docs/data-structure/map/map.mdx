@@ -214,6 +214,22 @@ Cada uno de estos métodos nos permite iterar sobre el `Map` de diferentes maner
 Vamos con el ejemplo práctico, usando `Map` vamos a realizar un modelo de relaciones.
 Imaginemos que tenemos una lista de personas en una aplicación para hacer networking, vamos a emparejar a estas personas en base a su profesión y ubicación geográfica.
 
+El siguiente diagrama muestra las relaciones que queremos crear usando un `Map`:
+
+```mermaid
+graph LR
+    A[Map] --> B[key: Alice]
+    A --> C[key: Lucas]
+    A --> D[key: Camilo]
+    A --> E[key: Carol]
+    A --> F[key: Diana]
+    B --> G[value: Lucas, Camilo]
+    C --> H[value: Alice, Camilo]
+    D --> I[value: Alice, Lucas]
+    E --> J[value: Diana]
+    F --> K[value: Carol]
+```
+
 Tenemos los siguientes datos:
 
 ```json
