@@ -133,6 +133,20 @@ En este ejemplo vamos a implementar un sistema de notificaciones que hay normalm
 
 La cola es perfecta para este caso porque las notificaciones deben procesarse en el orden en que llegan (FIFO), asegurando que las más antiguas se muestren o eliminen primero.
 
+El siguiente diagrama muestra cómo funciona el principio FIFO en una cola:
+
+```mermaid
+graph TD
+    A[Cola vacía] --> B[enqueue: Notificación 1]
+    B --> C[enqueue: Notificación 2]
+    C --> D[enqueue: Notificación 3]
+    D --> E[Cola: N1, N2, N3]
+    E --> F[dequeue: Notificación 1]
+    F --> G[Cola: N2, N3]
+    G --> H[dequeue: Notificación 2]
+    H --> I[Cola: N3]
+```
+
 Por simplicidad, cada notificación será un string con un id único (timestamp). También habrá un botón para agregar una nueva notificación (enqueue) y un botón para eliminar la notificación más antigua o la que primero entró (dequeue).
 
 Primero debemos crear la clase Queue con los métodos que hemos visto antes:
