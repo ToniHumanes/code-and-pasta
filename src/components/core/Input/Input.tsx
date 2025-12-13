@@ -6,6 +6,8 @@ type Props = {
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   errorMessage?: string;
+  className?: string;
+  name?: string;
 };
 
 export const Input = ({
@@ -14,10 +16,13 @@ export const Input = ({
   value,
   onChange,
   errorMessage,
+  className,
+  name,
 }: Props) => {
   return (
-    <div>
+    <div className={`${className || ""}`}>
       <input
+        name={name}
         type={type}
         placeholder={placeholder}
         value={value}
