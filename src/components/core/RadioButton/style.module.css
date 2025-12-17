@@ -1,0 +1,16 @@
+.radioButton {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.radioButton__input {
+  margin-right: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+.radioButton__label {
+  font-size: 1rem;
+  color: var(--ifm-color-primary);
+}

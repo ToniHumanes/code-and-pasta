@@ -47,7 +47,7 @@ class Node {
   }
 }
 
-class DoblyLinkedList {
+class DoublyLinkedList {
   head: Node | null;
   tail: Node | null;
   length: number;
@@ -103,10 +103,10 @@ class DoblyLinkedList {
   }
 }
 
-export const DoblyLinkedListDemo = () => {
+export const DoublyLinkedListDemo = () => {
   const emptyText = "No hay canciones en la lista.";
-  const [list] = useState<DoblyLinkedList>(() => {
-    const newList = new DoblyLinkedList();
+  const [list] = useState<DoublyLinkedList>(() => {
+    const newList = new DoublyLinkedList();
     data.forEach((item) => newList.add(item));
     return newList;
   });
@@ -135,7 +135,7 @@ export const DoblyLinkedListDemo = () => {
 
   return (
     <section>
-      <div style={{ width: "50%" }}>
+      <div style={{ width: "100%", maxWidth: "300px" }}>
         {currentNode ? (
           <Card
             title={currentNode.value.title}

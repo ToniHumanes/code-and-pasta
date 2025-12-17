@@ -2,9 +2,9 @@
 sidebar_position: 6
 ---
 
-import { DoblyLinkedListDemo } from "./DoblyLinkedListDemo";
+import { DoublyLinkedListDemo } from "./doublyLinkedListDemo";
 
-# Dobly Linked List (Lista Doblemente Enlazada)
+# Doubly Linked List (Lista Doblemente Enlazada)
 
 ¿Qué es una lista doblemente enlazada?
 
@@ -28,14 +28,14 @@ class Node {
 }
 ```
 
-## DoblyLinkedList (con `head` y `tail`)
+## DoublyLinkedList (con `head` y `tail`)
 
 La lista solo necesita saber dónde empieza y dónde termina. Con eso puede encadenar todos los nodos.
 
 Con `length` llevamos la cuenta de cuántos nodos hay en la lista.
 
 ```js
-class DoblyLinkedList {
+class DoublyLinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -44,7 +44,7 @@ class DoblyLinkedList {
 }
 ```
 
-### Cómo funciona una Dobly Linked List
+### Cómo funciona una Doubly Linked List
 
 - `head`: referencia a la primera ficha; `null` si no hay nada.
 - `tail`: referencia a la última ficha; `null` si no hay nada.
@@ -147,7 +147,7 @@ Vamos a crear un reproductor de canciones donde puedas navegar hacia adelante y 
 La demo usa un estado `currentNode` que apunta al nodo actual en la lista.
 
 ```js
-const list = new DoblyLinkedList();
+const list = new DoublyLinkedList();
 const currentNode = list.head; // nodo actual
 ```
 
@@ -187,4 +187,4 @@ const deleteSong = () => {
 
 ### Demo
 
-<DoblyLinkedListDemo />
+<DoublyLinkedListDemo />
