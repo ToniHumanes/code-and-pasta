@@ -1,6 +1,8 @@
 ---
 authors: antoniohumanes
 title: "Todo comienza con un Excel"
+description: "Cómo muchas aplicaciones reales nacen de una hoja de cálculo y qué señales merece la pena observar para convertir necesidad en producto."
+image: ./img/excel.jpg
 tags: [data, product, business, development, features]
 ---
 

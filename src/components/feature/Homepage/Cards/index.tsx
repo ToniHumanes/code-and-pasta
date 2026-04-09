@@ -5,8 +5,10 @@ import styles from "./styles.module.css";
 import intro from "@site/static/img/intro.png";
 import workSuchAs from "@site/static/img/workSuchAs.png";
 import format from "@site/static/img/format.png";
+import { useRevealOnView } from "../useRevealOnView";
 
 type FeatureItem = {
+  eyebrow: string;
   title: string;
   image: string;
   description: ReactNode;
@@ -14,66 +16,86 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
+    eyebrow: "Sobre mí",
     title: "Documentar para comprender.",
     image: intro,
     description: (
       <>
-        Este es mi cuaderno de aprendizaje: un lugar donde ordeno mis ideas,
-        explico conceptos y transformo lo aprendido en conocimiento aplicable.
-        En este espacio llamado Código & Pasta 🍝 encontrarás apuntes técnicos,
-        reflexiones sobre arquitectura y producto, y mi viaje continuo en el
-        mundo del desarrollo.
+        Este espacio nace como un cuaderno de aprendizaje donde ordeno ideas,
+        convierto conceptos en explicaciones útiles y doy contexto a lo que voy
+        descubriendo mientras trabajo y construyo productos.
       </>
     ),
   },
   {
+    eyebrow: "Mi trabajo",
     title: "Frontend con visión de producto.",
     image: workSuchAs,
     description: (
       <>
-        Trabajo principalmente con React, TypeScript, arquitectura hexagonal,
-        microfrontends y TDD, pero también estoy ampliando mi enfoque hacia
-        backend y diseño de sistemas completos. Me interesa entender no solo
-        cómo se construye un producto, sino por qué ciertas decisiones generan
-        más valor.
+        Trabajo con React, TypeScript y arquitectura frontend, pero me interesa
+        tanto la implementación como el criterio detrás de cada decisión:
+        negocio, experiencia de usuario y sostenibilidad técnica.
       </>
     ),
   },
   {
+    eyebrow: "Qué encontrarás",
     title: "Estructura del sitio",
     image: format,
     description: (
       <>
-        /docs → mis apuntes técnicos organizados por áreas y ejemplos de código
-        de la vida real. <br />
-        /blog → artículos con ideas, aprendizajes o reflexiones sobre
-        desarrollo. Nos dudéis en visitar las diferentes secciones, nos vemos 👋
+        Aquí conviven dos formatos. Los <strong>docs</strong> para apuntes
+        técnicos más estructurados, y el <strong>blog</strong> para artículos
+        con reflexiones sobre desarrollo, producto y aprendizaje continuo.
       </>
     ),
   },
 ];
 
-function Feature({ title, image, description }: FeatureItem) {
+function Feature({
+  eyebrow,
+  title,
+  image,
+  description,
+  index,
+  isVisible,
+}: FeatureItem & { index: number; isVisible: boolean }) {
   return (
-    <div className={clsx("col col--4")}>
-      <div className="text--center">
-        <img className={styles.featureImg} src={image} />
+    <article
+      className={clsx(styles.featureCard, isVisible && styles.featureCardVisible)}
+      style={{ transitionDelay: `${index * 120}ms` }}
+    >
+      <div className={styles.featureVisual}>
+        <img className={styles.featureImg} src={image} alt={title} />
       </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
+      <div className={styles.featureBody}>
+        <p className={styles.featureEyebrow}>{eyebrow}</p>
+        <Heading as="h3" className={styles.featureTitle}>
+          {title}
+        </Heading>
+        <p className={styles.featureDescription}>{description}</p>
       </div>
-    </div>
+    </article>
   );
 }
 
 export default function HomepageFeatures(): ReactNode {
+  const { ref, isVisible } = useRevealOnView<HTMLElement>(0.18);
+
   return (
-    <section className={styles.features}>
+    <section className={styles.features} ref={ref}>
       <div className="container">
-        <div className="row">
+        <div className={styles.featuresHeader}>
+          <p className={styles.featuresEyebrow}>Presentación</p>
+          <Heading as="h2" className={styles.featuresTitle}>
+            Una portada más cercana a cómo trabajo: criterio, producto y código.
+          </Heading>
+        </div>
+
+        <div className={styles.featuresGrid}>
           {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
+            <Feature key={idx} index={idx} isVisible={isVisible} {...props} />
           ))}
         </div>
       </div>

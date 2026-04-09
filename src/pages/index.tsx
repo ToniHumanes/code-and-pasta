@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Layout from "@theme/Layout";
 import HomepageHeader from "../components/feature/Homepage/Hero";
 import HomepageFeatures from "../components/feature/Homepage/Cards";
+import HomepageLatestPosts from "../components/feature/Homepage/LatestPosts";
 
 export default function Home(): ReactNode {
   return (
@@ -12,6 +13,7 @@ export default function Home(): ReactNode {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
+        <HomepageLatestPosts />
       </main>
     </Layout>
   );

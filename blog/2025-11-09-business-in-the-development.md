@@ -1,6 +1,8 @@
 ---
 authors: antoniohumanes
 title: "¿Sabes de dónde sale tu salario?"
+description: "Una reflexión sobre por qué entender el negocio cambia la calidad del software que construimos y el valor que aportamos."
+image: ./img/money.jpg
 tags: [product, business, development, features]
 ---
 
