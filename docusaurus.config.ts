@@ -4,6 +4,15 @@ import type * as Preset from "@docusaurus/preset-classic";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
+// Docusaurus supports custom navbar item types at runtime, but its TS config
+// types don't include them yet.
+const techNotesNavbarItem = {
+  type: "custom-tech-notes",
+  sidebarId: "tutorialSidebar",
+  position: "left",
+  label: "Apuntes técnicos",
+} as any;
+
 const config: Config = {
   title: "Antonio Humanes",
   favicon: "img/favicon.ico",
@@ -86,12 +95,7 @@ const config: Config = {
         src: "img/logo.png",
       },
       items: [
-        {
-          type: "docSidebar",
-          sidebarId: "tutorialSidebar",
-          position: "left",
-          label: "Apuntes técnicos",
-        },
+        techNotesNavbarItem,
         { to: "/blog", label: "Blog", position: "left" },
         {
           href: "https://github.com/ToniHumanes/code-and-pasta",
