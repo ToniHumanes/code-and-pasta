@@ -1,0 +1,40 @@
+.ctaLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 11.5rem;
+  min-height: 3rem;
+  padding: 0.8rem 1.35rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #0d2a42 0%, #1b5476 100%);
+  color: #fff;
+  font-size: 0.98rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 18px 38px rgba(18, 42, 63, 0.18);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+.ctaLink:hover,
+.ctaLink:focus-visible {
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 22px 44px rgba(18, 42, 63, 0.24);
+  filter: saturate(1.06);
+}
+
+:global([data-theme="dark"]) .ctaLink {
+  background: linear-gradient(135deg, #f0ba0c 0%, #d68f13 100%);
+  color: #08131d;
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.24);
+}
+
+:global([data-theme="dark"]) .ctaLink:hover,
+:global([data-theme="dark"]) .ctaLink:focus-visible {
+  color: #08131d;
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.3);
+}

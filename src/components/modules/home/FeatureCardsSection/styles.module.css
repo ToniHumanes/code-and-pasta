@@ -1,0 +1,23 @@
+.features {
+  padding: 3rem 0 4rem;
+}
+
+.featuresHeader {
+  margin-bottom: 2rem;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+@media screen and (max-width: 996px) {
+  .features {
+    padding: 2.5rem 0 3rem;
+  }
+
+  .featuresGrid {
+    grid-template-columns: 1fr;
+  }
+}

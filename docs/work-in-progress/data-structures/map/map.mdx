@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-import { MapDemo } from "./mapDemo";
+import { MapDemo } from "@site/src/demos/tech-notes";
 
 # Estructura de Datos con Map
 
@@ -281,7 +281,7 @@ Tenemos los siguientes datos:
 
 Con la siguiente implementación en TypeScript vamos a crear un `Map` que relacione a las personas por su profesión y ciudad:
 
-```tsx title="docs/data-structure/map/mapDemo.tsx"
+```tsx title="src/demos/tech-notes/data-structures/map/index.tsx"
 const matches = new Map<string, string[]>();
 
 for (const key in people) {

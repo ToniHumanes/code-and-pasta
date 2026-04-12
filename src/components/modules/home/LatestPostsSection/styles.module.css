@@ -1,0 +1,24 @@
+.latestPosts {
+  padding: 3rem 0 5rem;
+}
+
+.sectionHeading {
+  margin-bottom: 3rem;
+}
+
+.postList {
+  display: grid;
+  gap: 2rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+@media screen and (max-width: 996px) {
+  .latestPosts {
+    padding: 2rem 0 4rem;
+  }
+}

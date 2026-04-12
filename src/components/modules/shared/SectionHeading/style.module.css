@@ -1,0 +1,31 @@
+.heading {
+  max-width: 44rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.eyebrowPrimary {
+  color: var(--ifm-color-primary);
+}
+
+.eyebrowAccent {
+  color: var(--ifm-color-primary-darkest);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.08;
+}
+
+.description {
+  margin: 1rem 0 0;
+  color: var(--ifm-font-color-secondary);
+  line-height: 1.75;
+}

@@ -1,0 +1,30 @@
+.theme-layout-main.main-wrapper {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--site-page-background);
+}
+
+.theme-layout-main.main-wrapper::before,
+.theme-layout-main.main-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: var(--site-layout-ambient-inset);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.theme-layout-main.main-wrapper::before {
+  background: var(--site-page-background-before);
+  opacity: var(--site-page-background-before-opacity);
+}
+
+.theme-layout-main.main-wrapper::after {
+  background: var(--site-page-background-after);
+  opacity: var(--site-page-background-after-opacity);
+}
+
+.theme-layout-main.main-wrapper > * {
+  position: relative;
+  z-index: 1;
+}
