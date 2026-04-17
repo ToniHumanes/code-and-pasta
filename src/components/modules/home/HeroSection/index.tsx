@@ -32,7 +32,8 @@ function HomepageHeader() {
               {siteConfig.title}
             </Heading>
             <p className={styles.heroSubtitle}>
-              Product-Oriented Frontend & Software Developer
+              Senior Frontend Developer | Product Mindset | Building Scalable
+              Web Applications
             </p>
             <p className={styles.heroDescription}>
               Construyo productos digitales con foco en claridad técnica,
@@ -44,7 +45,13 @@ function HomepageHeader() {
               <span>Arquitectura frontend</span>
             </div>
             <div className={styles.heroActions}>
-              <CtaLink to="/blog">Ver el blog</CtaLink>
+              <CtaLink to="/blog">Ir al blog</CtaLink>
+              <CtaLink
+                to="https://www.linkedin.com/in/antoniohumanes/"
+                kind="secondary"
+              >
+                ¿Hablamos en LinkedIn?
+              </CtaLink>
             </div>
           </div>
         </section>

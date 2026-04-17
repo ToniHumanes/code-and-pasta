@@ -42,7 +42,7 @@ function getLatestPosts(fallbackPostImage: string): PostItem[] {
     .sort(
       (current, next) =>
         new Date(next.metadata.date).getTime() -
-        new Date(current.metadata.date).getTime()
+        new Date(current.metadata.date).getTime(),
     )
     .slice(0, 2)
     .map((post) => ({
@@ -83,7 +83,7 @@ export default function HomepageLatestPosts(): ReactNode {
         </div>
 
         <div className={styles.actions}>
-          <CtaLink to="/blog">Ver el blog</CtaLink>
+          <CtaLink to="/blog">Ver más</CtaLink>
         </div>
       </div>
     </section>
