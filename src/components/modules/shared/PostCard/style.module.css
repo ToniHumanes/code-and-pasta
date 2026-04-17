@@ -22,7 +22,7 @@
   order: 1;
 }
 
-.postCard.postCardVisible {
+.postCardVisible {
   opacity: 1;
   transform: translateY(0);
 }
