@@ -1,0 +1,157 @@
+/* Global design tokens */
+:root {
+  /* Brand palette */
+  --site-color-brand-500: #f0ba0c;
+  --site-color-brand-600: #efbb21;
+  --site-color-brand-700: #cd9f2b;
+  --site-color-brand-800: #b7862f;
+  --site-color-brand-300: #d4ad58;
+  --site-color-brand-200: #d8b23e;
+  --site-color-brand-100: #d3b359;
+
+  /* Accent palette */
+  --site-color-accent-500: #3889e0;
+  --site-color-accent-500-rgb: 56 137 224;
+  --site-color-accent-glow-rgb: 94 194 255;
+  --site-color-tertiary-500: #7852f2;
+  --site-color-info-soft-rgb: 132 180 236;
+
+  /* Neutral palette */
+  --site-color-surface-0: #ffffff;
+  --site-color-surface-50: #fbfcfe;
+  --site-color-surface-100: #f4f9ff;
+  --site-color-surface-200: #eef5fb;
+  --site-color-ink-950: #061019;
+  --site-color-ink-900: #08131d;
+  --site-color-ink-850: #09151f;
+  --site-color-ink-800: #0b1722;
+  --site-color-footer-title: #fff3d2;
+  --site-color-footer-link-rgb: 235 243 250;
+
+  /* Infima mappings */
+  --ifm-color-primary: var(--site-color-brand-500);
+  --ifm-color-primary-dark: var(--site-color-brand-600);
+  --ifm-color-primary-darker: var(--site-color-brand-700);
+  --ifm-color-primary-darkest: var(--site-color-brand-800);
+  --ifm-color-primary-light: var(--site-color-brand-300);
+  --ifm-color-primary-lighter: var(--site-color-brand-200);
+  --ifm-color-primary-lightest: var(--site-color-brand-100);
+  --ifm-color-secondary: var(--site-color-accent-500);
+  --ifm-color-tertiary: var(--site-color-tertiary-500);
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgb(0 0 0 / 0.1);
+
+  /* Layout tokens */
+  --site-layout-content-max-width: 76rem;
+  --site-layout-ambient-inset: -12%;
+
+  /* Footer tokens */
+  --site-footer-border-color: rgb(255 255 255 / 0.08);
+  --site-footer-link-color: rgb(var(--site-color-footer-link-rgb) / 0.84);
+  --site-footer-link-color-hover: #ffd97a;
+  --site-footer-copyright-color: rgb(var(--site-color-footer-link-rgb) / 0.58);
+
+  /* Page background tokens */
+  --site-page-background:
+    radial-gradient(
+      circle at 18% 14%,
+      rgb(255 201 120 / 0.12),
+      transparent 18%
+    ),
+    radial-gradient(
+      circle at top right,
+      rgb(var(--site-color-accent-glow-rgb) / 0.1),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 72% 28%,
+      rgb(var(--site-color-info-soft-rgb) / 0.08),
+      transparent 20%
+    ),
+    linear-gradient(
+      180deg,
+      var(--site-color-surface-200) 0%,
+      var(--site-color-surface-100) 16%,
+      var(--site-color-surface-0) 52%,
+      var(--site-color-surface-50) 100%
+    );
+  --site-page-background-before:
+    radial-gradient(
+      circle at 22% 24%,
+      rgb(var(--site-color-accent-glow-rgb) / 0.14),
+      transparent 18%
+    ),
+    radial-gradient(
+      circle at 76% 18%,
+      rgb(255 201 120 / 0.12),
+      transparent 16%
+    ),
+    radial-gradient(
+      circle at 58% 72%,
+      rgb(var(--site-color-info-soft-rgb) / 0.08),
+      transparent 20%
+    );
+  --site-page-background-before-opacity: 0.9;
+  --site-page-background-after:
+    radial-gradient(
+      circle at 82% 22%,
+      rgb(var(--site-color-accent-glow-rgb) / 0.08),
+      transparent 16%
+    ),
+    radial-gradient(circle at 16% 68%, rgb(255 201 120 / 0.08), transparent 18%);
+  --site-page-background-after-opacity: 0.72;
+}
+
+[data-theme="dark"] {
+  /* Dark theme brand mappings */
+  --site-color-brand-500: #ffd97a;
+  --site-color-brand-600: #ffcf66;
+  --site-color-brand-700: #ffbf4d;
+  --site-color-brand-800: #e6a833;
+  --site-color-brand-300: #ffe89d;
+  --site-color-brand-200: #fff2bf;
+  --site-color-brand-100: #fff9df;
+  --site-color-accent-500: #2e82e1;
+  --site-color-tertiary-500: #8f6cf6;
+  --docusaurus-highlighted-code-line-bg: rgb(0 0 0 / 0.3);
+
+  --site-page-background:
+    radial-gradient(circle at 16% 12%, rgb(255 201 120 / 0.06), transparent 16%),
+    radial-gradient(
+      circle at top right,
+      rgb(var(--site-color-accent-glow-rgb) / 0.08),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 72% 24%,
+      rgb(var(--site-color-accent-glow-rgb) / 0.08),
+      transparent 18%
+    ),
+    linear-gradient(
+      180deg,
+      var(--site-color-ink-950) 0%,
+      var(--site-color-ink-850) 32%,
+      var(--site-color-ink-800) 100%
+    );
+  --site-page-background-before:
+    radial-gradient(
+      circle at 22% 24%,
+      rgb(var(--site-color-accent-glow-rgb) / 0.12),
+      transparent 16%
+    ),
+    radial-gradient(circle at 76% 18%, rgb(255 201 120 / 0.08), transparent 14%),
+    radial-gradient(
+      circle at 58% 72%,
+      rgb(var(--site-color-accent-glow-rgb) / 0.06),
+      transparent 18%
+    );
+  --site-page-background-before-opacity: 0.78;
+  --site-page-background-after:
+    radial-gradient(
+      circle at 82% 22%,
+      rgb(var(--site-color-accent-glow-rgb) / 0.08),
+      transparent 14%
+    ),
+    radial-gradient(circle at 16% 68%, rgb(255 201 120 / 0.05), transparent 16%);
+  --site-page-background-after-opacity: 0.62;
+}
