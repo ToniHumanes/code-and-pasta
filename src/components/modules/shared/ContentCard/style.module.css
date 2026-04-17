@@ -15,7 +15,7 @@
     border-color 0.25s ease;
 }
 
-.cardVisible {
+.featureCard.featureCardVisible {
   opacity: 1;
   transform: translateY(0);
 }
