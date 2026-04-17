@@ -17,12 +17,12 @@
 
 .heroCopy {
   max-width: 44rem;
-  color: #102131;
+  color: var(--site-color-ink-900);
 }
 
 .heroEyebrow {
   margin: 0 0 1rem;
-  color: #a5750b;
+  color: var(--ifm-color-primary-darkest);
   font-size: 0.88rem;
   font-weight: 800;
   letter-spacing: 0.18em;
@@ -31,14 +31,14 @@
 
 .heroTitle {
   margin: 0;
-  color: #0d2233;
+  color: var(--site-color-ink-900);
   font-size: clamp(3rem, 7vw, 5.75rem);
   line-height: 0.95;
 }
 
 .heroSubtitle {
   margin: 1rem 0 0;
-  color: #8c6511;
+  color: var(--ifm-color-primary-darkest);
   font-size: clamp(1.1rem, 2vw, 1.6rem);
   font-weight: 700;
 }
@@ -46,7 +46,7 @@
 .heroDescription {
   max-width: 38rem;
   margin: 1.35rem 0 0;
-  color: rgba(16, 33, 49, 0.8);
+  color: rgb(var(--site-color-ink-900-rgb) / 0.8);
   font-size: 1.12rem;
   line-height: 1.8;
 }
@@ -63,54 +63,27 @@
   align-items: center;
   min-height: 2.4rem;
   padding: 0.55rem 0.95rem;
-  border: 1px solid rgba(16, 33, 49, 0.1);
+  border: 1px solid rgb(var(--site-color-ink-900-rgb) / 0.1);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.62);
-  color: #183147;
+  background: rgb(var(--site-color-surface-0-rgb) / 0.62);
+  color: var(--site-color-ink-900);
   font-size: 0.95rem;
   backdrop-filter: blur(10px);
 }
 
 .heroActions {
   margin-top: 1.75rem;
-}
-
-.heroCta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 11.5rem;
-  min-height: 3rem;
-  padding: 0.8rem 1.35rem;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #0d2a42 0%, #1b5476 100%);
-  color: #fff;
-  font-size: 0.98rem;
-  font-weight: 700;
-  text-decoration: none;
-  box-shadow: 0 18px 38px rgba(18, 42, 63, 0.18);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    filter 0.2s ease;
-}
-
-.heroCta:hover,
-.heroCta:focus-visible {
-  color: #fff;
-  text-decoration: none;
-  transform: translateY(-2px);
-  box-shadow: 0 22px 44px rgba(18, 42, 63, 0.24);
-  filter: saturate(1.06);
+  display: flex;
+  gap: 1rem;
 }
 
 .heroProfileCard {
   display: grid;
   gap: 1.1rem;
   padding: 1.35rem;
-  border: 1px solid rgba(16, 33, 49, 0.08);
+  border: 1px solid rgb(var(--site-color-ink-900-rgb) / 0.08);
   border-radius: 1.75rem;
-  background: rgba(255, 255, 255, 0.72);
+  background: rgb(var(--site-color-surface-0-rgb) / 0.72);
   box-shadow: 0 24px 80px rgba(18, 42, 63, 0.12);
   backdrop-filter: blur(12px);
 }
@@ -129,7 +102,7 @@
 
 .heroProfileLabel {
   margin: 0;
-  color: #a5750b;
+  color: var(--ifm-color-primary-darkest);
   font-size: 0.8rem;
   font-weight: 800;
   letter-spacing: 0.14em;
@@ -138,25 +111,25 @@
 
 .heroProfileText {
   margin: 0;
-  color: rgba(16, 33, 49, 0.8);
+  color: rgb(var(--site-color-ink-900-rgb) / 0.8);
   font-size: 1.02rem;
   line-height: 1.7;
 }
 
 :global([data-theme="dark"]) .heroCopy {
-  color: #fff7ec;
+  color: var(--site-color-footer-title);
 }
 
 :global([data-theme="dark"]) .heroEyebrow {
-  color: #ffd280;
+  color: var(--ifm-color-primary-dark);
 }
 
 :global([data-theme="dark"]) .heroTitle {
-  color: #fff;
+  color: var(--site-color-surface-0);
 }
 
 :global([data-theme="dark"]) .heroSubtitle {
-  color: #f5d79f;
+  color: var(--ifm-color-primary-darkest);
 }
 
 :global([data-theme="dark"]) .heroDescription {
@@ -166,19 +139,7 @@
 :global([data-theme="dark"]) .heroTags span {
   border: 1px solid rgba(255, 255, 255, 0.14);
   background: rgba(8, 19, 30, 0.5);
-  color: #f7efe1;
-}
-
-:global([data-theme="dark"]) .heroCta {
-  background: linear-gradient(135deg, #f0ba0c 0%, #d68f13 100%);
-  color: #08131d;
-  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.24);
-}
-
-:global([data-theme="dark"]) .heroCta:hover,
-:global([data-theme="dark"]) .heroCta:focus-visible {
-  color: #08131d;
-  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.3);
+  color: var(--site-color-footer-title);
 }
 
 :global([data-theme="dark"]) .heroProfileCard {
@@ -188,7 +149,7 @@
 }
 
 :global([data-theme="dark"]) .heroProfileLabel {
-  color: #ffd280;
+  color: var(--ifm-color-primary-dark);
 }
 
 :global([data-theme="dark"]) .heroProfileText {
@@ -217,5 +178,12 @@
 
   .heroImage {
     height: 14rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .heroActions {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

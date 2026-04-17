@@ -18,11 +18,13 @@
 
   /* Neutral palette */
   --site-color-surface-0: #ffffff;
+  --site-color-surface-0-rgb: 255 255 255;
   --site-color-surface-50: #fbfcfe;
   --site-color-surface-100: #f4f9ff;
   --site-color-surface-200: #eef5fb;
   --site-color-ink-950: #061019;
   --site-color-ink-900: #08131d;
+  --site-color-ink-900-rgb: 8 19 29;
   --site-color-ink-850: #09151f;
   --site-color-ink-800: #0b1722;
   --site-color-footer-title: #fff3d2;
@@ -50,6 +52,16 @@
   --site-footer-link-color: rgb(var(--site-color-footer-link-rgb) / 0.84);
   --site-footer-link-color-hover: #ffd97a;
   --site-footer-copyright-color: rgb(var(--site-color-footer-link-rgb) / 0.58);
+
+  /* CTA tokens */
+  --site-cta-primary-background: linear-gradient(
+    135deg,
+    #f0ba0c 0%,
+    #d68f13 100%
+  );
+  --site-cta-primary-color: var(--site-color-surface-0);
+  --site-cta-primary-shadow: 0 18px 38px rgb(18 42 63 / 0.18);
+  --site-cta-primary-shadow-hover: 0 22px 44px rgb(18 42 63 / 0.24);
 
   /* Page background tokens */
   --site-page-background:
@@ -114,9 +126,16 @@
   --site-color-accent-500: #2e82e1;
   --site-color-tertiary-500: #8f6cf6;
   --docusaurus-highlighted-code-line-bg: rgb(0 0 0 / 0.3);
+  --site-cta-primary-color: var(--site-color-ink-900);
+  --site-cta-primary-shadow: 0 18px 38px rgb(0 0 0 / 0.24);
+  --site-cta-primary-shadow-hover: 0 22px 44px rgb(0 0 0 / 0.3);
 
   --site-page-background:
-    radial-gradient(circle at 16% 12%, rgb(255 201 120 / 0.06), transparent 16%),
+    radial-gradient(
+      circle at 16% 12%,
+      rgb(255 201 120 / 0.06),
+      transparent 16%
+    ),
     radial-gradient(
       circle at top right,
       rgb(var(--site-color-accent-glow-rgb) / 0.08),
@@ -139,7 +158,11 @@
       rgb(var(--site-color-accent-glow-rgb) / 0.12),
       transparent 16%
     ),
-    radial-gradient(circle at 76% 18%, rgb(255 201 120 / 0.08), transparent 14%),
+    radial-gradient(
+      circle at 76% 18%,
+      rgb(255 201 120 / 0.08),
+      transparent 14%
+    ),
     radial-gradient(
       circle at 58% 72%,
       rgb(var(--site-color-accent-glow-rgb) / 0.06),
