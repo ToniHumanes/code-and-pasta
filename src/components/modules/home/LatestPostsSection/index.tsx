@@ -59,10 +59,10 @@ function getLatestPosts(fallbackPostImage: string): PostItem[] {
 export default function HomepageLatestPosts(): ReactNode {
   const fallbackPostImage = useBaseUrl("/img/logo.png");
   const posts = getLatestPosts(fallbackPostImage);
-  const { ref, isVisible } = useRevealOnView<HTMLElement>(0.18);
+  const { ref, isVisible } = useRevealOnView<HTMLDivElement>(0.08);
 
   return (
-    <section className={styles.latestPosts} ref={ref}>
+    <section className={styles.latestPosts}>
       <div className="container">
         <SectionHeading
           className={styles.sectionHeading}
@@ -70,7 +70,7 @@ export default function HomepageLatestPosts(): ReactNode {
           title="Ideas recientes sobre desarrollo, producto y aprendizaje continuo."
         />
 
-        <div className={styles.postList}>
+        <div className={styles.postList} ref={ref}>
           {posts.map((post, index) => (
             <PostCard
               key={post.permalink}
