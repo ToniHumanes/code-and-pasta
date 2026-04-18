@@ -12,7 +12,6 @@ type Props = {
   actionLabel?: string;
   isVisible?: boolean;
   isReversed?: boolean;
-  delayMs?: number;
 };
 
 function formatDate(date: string) {
@@ -30,18 +29,11 @@ export const PostCard = ({
   description,
   image,
   actionLabel = "Leer artículo",
-  isVisible = false,
   isReversed = false,
-  delayMs = 0,
 }: Props) => {
   return (
     <article
-      className={clsx(
-        styles.postCard,
-        isReversed && styles.postCardReverse,
-        isVisible && styles.postCardVisible
-      )}
-      style={{ transitionDelay: `${delayMs}ms` }}
+      className={clsx(styles.postCard, isReversed && styles.postCardReverse)}
     >
       <Link className={styles.postVisualLink} to={permalink}>
         <img className={styles.postImage} src={image} alt={title} />

@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import useBaseUrl from "@docusaurus/useBaseUrl";
-import { useRevealOnView } from "@site/src/hooks/useRevealOnView";
 import styles from "./styles.module.css";
 import { CtaLink } from "../../shared/CtaLink";
 import { PostCard } from "../../shared/PostCard";
@@ -59,7 +58,6 @@ function getLatestPosts(fallbackPostImage: string): PostItem[] {
 export default function HomepageLatestPosts(): ReactNode {
   const fallbackPostImage = useBaseUrl("/img/logo.png");
   const posts = getLatestPosts(fallbackPostImage);
-  const { ref, isVisible } = useRevealOnView<HTMLDivElement>(0.08);
 
   return (
     <section className={styles.latestPosts}>
@@ -70,12 +68,10 @@ export default function HomepageLatestPosts(): ReactNode {
           title="Ideas recientes sobre desarrollo, producto y aprendizaje continuo."
         />
 
-        <div className={styles.postList} ref={ref}>
+        <div className={styles.postList}>
           {posts.map((post, index) => (
             <PostCard
               key={post.permalink}
-              delayMs={index * 140}
-              isVisible={isVisible}
               isReversed={index % 2 === 1}
               {...post}
             />
