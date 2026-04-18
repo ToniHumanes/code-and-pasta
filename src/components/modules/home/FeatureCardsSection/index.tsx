@@ -3,7 +3,6 @@ import styles from "./styles.module.css";
 import intro from "@site/static/img/intro.png";
 import workSuchAs from "@site/static/img/workSuchAs.png";
 import format from "@site/static/img/format.png";
-import { useRevealOnView } from "@site/src/hooks/useRevealOnView";
 import { ContentCard } from "../../shared/ContentCard";
 import { SectionHeading } from "../../shared/SectionHeading";
 
@@ -54,10 +53,8 @@ const FeatureList: FeatureItem[] = [
 ];
 
 export default function HomepageFeatures(): ReactNode {
-  const { ref, isVisible } = useRevealOnView<HTMLElement>(0.18);
-
   return (
-    <section className={styles.features} ref={ref}>
+    <section className={styles.features}>
       <div className="container">
         <SectionHeading
           className={styles.featuresHeader}
@@ -67,13 +64,8 @@ export default function HomepageFeatures(): ReactNode {
         />
 
         <div className={styles.featuresGrid}>
-          {FeatureList.map((props, idx) => (
-            <ContentCard
-              key={props.title}
-              delayMs={idx * 120}
-              isVisible={isVisible}
-              {...props}
-            />
+          {FeatureList.map((props) => (
+            <ContentCard key={props.title} {...props} />
           ))}
         </div>
       </div>

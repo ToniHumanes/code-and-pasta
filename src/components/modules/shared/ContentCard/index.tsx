@@ -8,23 +8,11 @@ type Props = {
   title: string;
   image: string;
   description: ReactNode;
-  isVisible?: boolean;
-  delayMs?: number;
 };
 
-export const ContentCard = ({
-  eyebrow,
-  title,
-  image,
-  description,
-  isVisible = false,
-  delayMs = 0,
-}: Props) => {
+export const ContentCard = ({ eyebrow, title, image, description }: Props) => {
   return (
-    <article
-      className={clsx(styles.card, isVisible && styles.cardVisible)}
-      style={{ transitionDelay: `${delayMs}ms` }}
-    >
+    <article className={clsx(styles.card)}>
       <div className={styles.visual}>
         <img className={styles.image} src={image} alt={title} />
       </div>
