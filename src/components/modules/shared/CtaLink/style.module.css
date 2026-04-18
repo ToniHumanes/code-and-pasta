@@ -4,12 +4,12 @@
   justify-content: center;
   min-width: 11.5rem;
   min-height: 3rem;
-  padding: 0.8rem 1.35rem;
+  padding: var(--site-padding-3) var(--site-padding-6);
   border-radius: 999px;
   background: var(--site-cta-primary-background);
   color: var(--site-color-surface-0);
-  font-size: 0.98rem;
-  font-weight: 700;
+  font-size: var(--site-font-size-md);
+  font-weight: var(--site-font-weight-bold);
   text-decoration: none;
   box-shadow: var(--site-cta-primary-shadow);
   transition:
@@ -19,7 +19,7 @@
 }
 
 .ctaLink--secondary {
-  background: linear-gradient(135deg, #006aff 0%, #105bb1 100%);
+  background: var(--site-cta-secondary-background);
   color: var(--site-color-surface-0);
 }
 

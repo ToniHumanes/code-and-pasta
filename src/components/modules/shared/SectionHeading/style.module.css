@@ -3,10 +3,10 @@
 }
 
 .eyebrow {
-  margin: 0 0 0.75rem;
+  margin: 0 0 var(--site-margin-3);
   font-size: 0.84rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
+  font-weight: var(--site-font-weight-extrabold);
+  letter-spacing: var(--site-letter-spacing-xl);
   text-transform: uppercase;
 }
 
@@ -25,7 +25,7 @@
 }
 
 .description {
-  margin: 1rem 0 0;
+  margin: var(--site-margin-4) 0 0;
   color: var(--ifm-font-color-secondary);
   line-height: 1.75;
 }

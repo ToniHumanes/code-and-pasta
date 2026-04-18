@@ -1,8 +1,8 @@
 .buttonGroup {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.8rem;
-  margin: 1rem 0;
+  gap: var(--site-gap-3);
+  margin: var(--site-margin-4) 0;
   width: 100%;
   align-items: baseline;
 }

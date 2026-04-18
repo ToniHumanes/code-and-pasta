@@ -1,0 +1,32 @@
+:root {
+  /* Gaps */
+  --site-gap-1: 0.25rem;
+  --site-gap-2: 0.5rem;
+  --site-gap-3: 0.75rem;
+  --site-gap-4: 1rem;
+  --site-gap-6: 1.5rem;
+  --site-gap-8: 2rem;
+  --site-gap-12: 3rem;
+
+  /* Margins */
+  --site-margin-1: 0.25rem;
+  --site-margin-2: 0.5rem;
+  --site-margin-3: 0.75rem;
+  --site-margin-4: 1rem;
+  --site-margin-6: 1.5rem;
+  --site-margin-8: 2rem;
+  --site-margin-12: 3rem;
+
+  /* Paddings */
+  --site-padding-1: 0.25rem;
+  --site-padding-2: 0.5rem;
+  --site-padding-3: 0.75rem;
+  --site-padding-4: 1rem;
+  --site-padding-6: 1.5rem;
+  --site-padding-8: 2rem;
+  --site-padding-12: 3rem;
+  --site-padding-16: 4rem;
+  --site-padding-20: 5rem;
+  --site-padding-28: 7rem;
+  --site-padding-32: 8rem;
+}

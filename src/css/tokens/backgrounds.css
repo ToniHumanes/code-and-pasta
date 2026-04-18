@@ -1,0 +1,94 @@
+/* Decorative backgrounds */
+:root {
+  --site-page-background:
+    radial-gradient(
+      circle at 18% 14%,
+      rgb(255 201 120 / 0.12),
+      transparent 18%
+    ),
+    radial-gradient(
+      circle at top right,
+      rgb(var(--site-color-accent-glow-rgb) / 0.1),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 72% 28%,
+      rgb(var(--site-color-info-soft-rgb) / 0.08),
+      transparent 20%
+    ),
+    linear-gradient(
+      180deg,
+      var(--site-color-surface-100) 0%,
+      var(--site-color-surface-0) 52%,
+      var(--site-color-surface-100) 100%
+    );
+  --site-page-background-before:
+    radial-gradient(
+      circle at 22% 24%,
+      rgb(var(--site-color-accent-glow-rgb) / 0.14),
+      transparent 18%
+    ),
+    radial-gradient(
+      circle at 76% 18%,
+      rgb(255 201 120 / 0.12),
+      transparent 16%
+    ),
+    radial-gradient(
+      circle at 58% 72%,
+      rgb(var(--site-color-info-soft-rgb) / 0.08),
+      transparent 20%
+    );
+  --site-page-background-before-opacity: 0.9;
+  --site-page-background-after:
+    radial-gradient(
+      circle at 82% 22%,
+      rgb(var(--site-color-accent-glow-rgb) / 0.08),
+      transparent 16%
+    ),
+    radial-gradient(circle at 16% 68%, rgb(255 201 120 / 0.08), transparent 18%);
+  --site-page-background-after-opacity: 0.72;
+}
+
+[data-theme="dark"] {
+  --site-page-background:
+    radial-gradient(
+      circle at 16% 12%,
+      rgb(255 201 120 / 0.06),
+      transparent 16%
+    ),
+    radial-gradient(
+      circle at top right,
+      rgb(var(--site-color-accent-glow-rgb) / 0.08),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 72% 24%,
+      rgb(var(--site-color-accent-glow-rgb) / 0.08),
+      transparent 18%
+    ),
+    linear-gradient(
+      180deg,
+      var(--site-color-ink-950) 0%,
+      var(--site-color-ink-900) 100%
+    );
+  --site-page-background-before:
+    radial-gradient(
+      circle at 22% 24%,
+      rgb(var(--site-color-accent-glow-rgb) / 0.12),
+      transparent 16%
+    ),
+    radial-gradient(
+      circle at 58% 72%,
+      rgb(var(--site-color-accent-glow-rgb) / 0.06),
+      transparent 18%
+    );
+  --site-page-background-before-opacity: 0.78;
+  --site-page-background-after:
+    radial-gradient(
+      circle at 82% 22%,
+      rgb(var(--site-color-accent-glow-rgb) / 0.08),
+      transparent 14%
+    ),
+    radial-gradient(circle at 16% 68%, rgb(255 201 120 / 0.05), transparent 16%);
+  --site-page-background-after-opacity: 0.62;
+}
