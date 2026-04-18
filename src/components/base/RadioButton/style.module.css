@@ -5,7 +5,7 @@
 }
 
 .radioButton__input {
-  margin-right: 0.5rem;
+  margin-right: var(--site-margin-2);
   width: 1rem;
   height: 1rem;
 }

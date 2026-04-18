@@ -5,5 +5,6 @@
  */
 
 @import "./tokens.css";
-@import "./layout.css";
-@import "./footer.css";
+@import "./customs/layout.css";
+@import "./customs/footer.css";
+@import "./customs/blog.css";

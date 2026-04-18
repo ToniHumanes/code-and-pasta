@@ -1,6 +1,6 @@
 .input {
   width: 100%;
-  padding: 8px 12px;
+  padding: var(--site-padding-2) var(--site-padding-3);
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
@@ -19,5 +19,5 @@
 .input-error__message {
   color: var(--ifm-color-danger);
   font-size: 0.875rem;
-  margin-top: 4px;
+  margin-top: var(--site-margin-1);
 }

@@ -1,0 +1,30 @@
+:root {
+  /* Font-size tokens */
+  --site-font-size-xs: 0.8rem;
+  --site-font-size-sm: 0.9rem;
+  --site-font-size-md: 1rem;
+  --site-font-size-lg: 1.125rem;
+  --site-font-size-xl: 1.5rem;
+  --site-font-size-fluid-subtitle: clamp(1.1rem, 2vw, 1.6rem);
+  --site-font-size-fluid-title: clamp(1.8rem, 2.5vw, 2.6rem);
+  --site-font-size-fluid-display: clamp(3rem, 7vw, 5.75rem);
+
+  /* Font-weight tokens */
+  --site-font-weight-medium: 500;
+  --site-font-weight-semibold: 600;
+  --site-font-weight-bold: 700;
+  --site-font-weight-extrabold: 800;
+
+  /* Letter-spacing tokens */
+  --site-letter-spacing-sm: 0.06em;
+  --site-letter-spacing-md: 0.12em;
+  --site-letter-spacing-lg: 0.14em;
+  --site-letter-spacing-xl: 0.16em;
+  --site-letter-spacing-2xl: 0.18em;
+}
+
+@media screen and (max-width: 996px) {
+  :root {
+    --site-font-size-fluid-display: clamp(2.8rem, 14vw, 4.4rem);
+  }
+}

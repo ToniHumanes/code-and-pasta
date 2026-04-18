@@ -1,0 +1,110 @@
+/* Main colors */
+:root {
+  /* Theme light: brand */
+  --site-color-brand-100: #e3a513;
+  --site-color-brand-500: #fea808;
+  --site-color-brand-900: #d38805;
+}
+
+[data-theme="dark"] {
+  /* Theme dark: brand */
+  --site-color-brand-100: #fff0bf;
+  --site-color-brand-500: #f0ba0c;
+  --site-color-brand-900: #d68f13;
+}
+
+/* Accent colors */
+:root {
+  /* Theme light: accents */
+  --site-color-accent-500: #006aff;
+  --site-color-accent-900: #105bb1;
+  --site-color-tertiary-500: #7852f2;
+}
+
+[data-theme="dark"] {
+  /* Theme dark: accents */
+  --site-color-accent-500: #006aff;
+  --site-color-accent-900: #105bb1;
+  --site-color-tertiary-500: #8f6cf6;
+}
+
+/* Neutral colors */
+:root {
+  --site-color-surface-0: #ffffff;
+  --site-color-surface-100: #f4f9ff;
+  --site-color-ink-900: #08131d;
+  --site-color-ink-950: #061019;
+}
+
+/* RGB helpers */
+:root {
+  --site-color-surface-0-rgb: 255 255 255;
+  --site-color-ink-900-rgb: 8 19 29;
+  --site-color-accent-500-rgb: 0 106 255;
+  --site-color-accent-glow-rgb: 84 164 255;
+  --site-color-info-soft-rgb: 132 180 236;
+  --site-color-footer-link-rgb: 235 243 250;
+}
+
+/* Framework mappings */
+:root {
+  --ifm-font-color-base: var(--site-color-ink-900);
+  --ifm-color-primary: var(--site-color-brand-500);
+  --ifm-color-primary-dark: var(--site-color-brand-900);
+  --ifm-color-primary-darker: var(--site-color-brand-900);
+  --ifm-color-primary-darkest: var(--site-color-brand-900);
+  --ifm-color-primary-light: var(--site-color-brand-100);
+  --ifm-color-primary-lighter: var(--site-color-brand-100);
+  --ifm-color-primary-lightest: var(--site-color-brand-100);
+  --ifm-color-secondary: var(--site-color-accent-500);
+  --ifm-color-tertiary: var(--site-color-tertiary-500);
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgb(0 0 0 / 0.1);
+}
+
+[data-theme="dark"] {
+  --ifm-font-color-base: var(--site-color-surface-0);
+  --ifm-color-primary: var(--site-color-brand-500);
+  --ifm-color-primary-dark: var(--site-color-brand-900);
+  --ifm-color-primary-darker: var(--site-color-brand-900);
+  --ifm-color-primary-darkest: var(--site-color-brand-900);
+  --ifm-color-primary-light: var(--site-color-brand-100);
+  --ifm-color-primary-lighter: var(--site-color-brand-100);
+  --ifm-color-primary-lightest: var(--site-color-brand-100);
+  --ifm-color-secondary: var(--site-color-accent-500);
+  --ifm-color-tertiary: var(--site-color-tertiary-500);
+  --ifm-code-font-size: 95%;
+}
+
+/* Framework overrides */
+[data-theme="dark"] {
+  --docusaurus-highlighted-code-line-bg: rgb(0 0 0 / 0.3);
+}
+
+/* Semantic tokens */
+:root {
+  --site-footer-border-color: rgb(255 255 255 / 0.08);
+  --site-footer-link-color: rgb(var(--site-color-footer-link-rgb) / 0.84);
+  --site-footer-link-color-hover: var(--site-color-brand-100);
+  --site-footer-copyright-color: rgb(var(--site-color-footer-link-rgb) / 0.58);
+  --site-cta-primary-background: linear-gradient(
+    135deg,
+    var(--site-color-brand-500) 0%,
+    var(--site-color-brand-900) 100%
+  );
+  --site-cta-secondary-background: linear-gradient(
+    135deg,
+    var(--site-color-accent-500) 0%,
+    var(--site-color-accent-900) 100%
+  );
+  --site-cta-primary-color: var(--site-color-surface-0);
+  --site-cta-primary-shadow: 0 18px 38px rgb(18 42 63 / 0.18);
+  --site-cta-primary-shadow-hover: 0 22px 44px rgb(18 42 63 / 0.24);
+}
+
+/* Semantic overrides */
+[data-theme="dark"] {
+  --site-cta-primary-color: var(--site-color-ink-900);
+  --site-cta-primary-shadow: 0 18px 38px rgb(0 0 0 / 0.24);
+  --site-cta-primary-shadow-hover: 0 22px 44px rgb(0 0 0 / 0.3);
+}

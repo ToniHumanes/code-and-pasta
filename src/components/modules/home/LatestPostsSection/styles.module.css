@@ -1,24 +1,24 @@
 .latestPosts {
-  padding: 3rem 0 5rem;
+  padding: var(--site-padding-12) 0 var(--site-padding-20);
 }
 
 .sectionHeading {
-  margin-bottom: 3rem;
+  margin-bottom: var(--site-margin-12);
 }
 
 .postList {
   display: grid;
-  gap: 2rem;
+  gap: var(--site-gap-8);
 }
 
 .actions {
   display: flex;
   justify-content: center;
-  margin-top: 3rem;
+  margin-top: var(--site-margin-12);
 }
 
 @media screen and (max-width: 996px) {
   .latestPosts {
-    padding: 2rem 0 4rem;
+    padding: var(--site-padding-8) 0 var(--site-padding-16);
   }
 }
