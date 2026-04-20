@@ -15,7 +15,7 @@ export default function AboutMe(): ReactNode {
       <AboutHero />
       <main>
         <div className="container">
-          <section className={styles.cards__container}>
+          <section className={styles.cardsContainer}>
             <SectionHeading
               eyebrow="Experiencia"
               title="Añadir aquí experiencia con carrusel de proyectos, experiencia
