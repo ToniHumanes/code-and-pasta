@@ -108,3 +108,12 @@
     transform: none;
   }
 }
+
+@media screen and (max-width: 576px) {
+  .card {
+    padding: var(--site-padding-4);
+  }
+  .visualWrap {
+    width: 100%;
+  }
+}

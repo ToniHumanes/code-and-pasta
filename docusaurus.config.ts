@@ -90,10 +90,6 @@ const config: Config = {
     },
     navbar: {
       title: "Código & Pasta",
-      logo: {
-        alt: "Code & Pasta Logo",
-        src: "img/logo.png",
-      },
       items: [
         techNotesNavbarItem,
         { to: "/blog", label: "Blog", position: "left" },
