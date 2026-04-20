@@ -1,4 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap");
+
 :root {
+  --ifm-font-family-base: "Inter", system-ui, -apple-system, sans-serif;
+
   /* Font-size tokens */
   --site-font-size-xs: 0.8rem;
   --site-font-size-sm: 0.9rem;
