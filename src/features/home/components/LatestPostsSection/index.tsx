@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import styles from "./styles.module.css";
-import { CtaLink } from "../../shared/CtaLink";
-import { PostCard } from "../../shared/PostCard";
-import { SectionHeading } from "../../shared/SectionHeading";
+import { CtaLink } from "../../../../components/shared/CtaLink";
+import { PostCard } from "../../../../components/shared/PostCard";
+import { SectionHeading } from "../../../../components/shared/SectionHeading";
 
 type BlogPostModule = {
   metadata: {

@@ -2,9 +2,9 @@ import Heading from "@theme/Heading";
 import profileImg from "@site/static/img/profile-image.jpg";
 import styles from "./styles.module.css";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import { CtaLink } from "../../shared/CtaLink";
+import { CtaLink } from "../../../../components/shared/CtaLink";
 
-function HomepageHeader() {
+function AboutHero() {
   const { siteConfig } = useDocusaurusContext();
 
   return (
@@ -27,7 +27,6 @@ function HomepageHeader() {
           </aside>
 
           <div className={styles.heroCopy}>
-            <p className={styles.heroEyebrow}>Código & Pasta</p>
             <Heading as="h1" className={styles.heroTitle}>
               {siteConfig.title}
             </Heading>
@@ -59,4 +58,4 @@ function HomepageHeader() {
     </header>
   );
 }
-export default HomepageHeader;
+export default AboutHero;

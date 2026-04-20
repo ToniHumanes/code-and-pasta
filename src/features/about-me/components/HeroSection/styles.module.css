@@ -1,7 +1,7 @@
 .heroBanner {
   position: relative;
   min-height: 42rem;
-  padding: var(--site-padding-20) 0 var(--site-padding-32);
+  padding: var(--site-padding-20) 0 var(--site-padding-20);
   overflow: hidden;
 }
 
@@ -18,15 +18,6 @@
 .heroCopy {
   max-width: 44rem;
   color: var(--site-color-ink-900);
-}
-
-.heroEyebrow {
-  margin: 0 0 var(--site-margin-4);
-  color: var(--ifm-color-primary-darkest);
-  font-size: var(--site-font-size-sm);
-  font-weight: var(--site-font-weight-extrabold);
-  letter-spacing: var(--site-letter-spacing-2xl);
-  text-transform: uppercase;
 }
 
 .heroTitle {
@@ -118,10 +109,6 @@
 
 :global([data-theme="dark"]) .heroCopy {
   color: var(--site-color-brand-100);
-}
-
-:global([data-theme="dark"]) .heroEyebrow {
-  color: var(--ifm-color-primary-dark);
 }
 
 :global([data-theme="dark"]) .heroTitle {
