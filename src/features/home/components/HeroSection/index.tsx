@@ -1,56 +1,41 @@
+import type { ReactNode } from "react";
 import Heading from "@theme/Heading";
-import profileImg from "@site/static/img/profile-image.jpg";
-import styles from "./styles.module.css";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import { useColorMode } from "@docusaurus/theme-common";
+import codeAndPastaDarkImage from "@site/static/img/home/code-and-pasta-dark.png";
+import codeAndPastaLightImage from "@site/static/img/home/code-and-pasta-light.png";
 import { CtaLink } from "../../../../components/shared/CtaLink";
+import styles from "./styles.module.css";
 
-function HomepageHeader() {
-  const { siteConfig } = useDocusaurusContext();
+function HomepageHeader(): ReactNode {
+  const { colorMode } = useColorMode();
+  const codeAndPastaImage =
+    colorMode === "dark" ? codeAndPastaDarkImage : codeAndPastaLightImage;
 
   return (
     <header className={styles.heroBanner}>
       <div className="container">
         <section className={styles.heroContent}>
-          <aside className={styles.heroProfileCard}>
+          <div className={styles.heroMedia}>
             <img
-              src={profileImg}
-              alt="Antonio Humanes"
+              src={codeAndPastaImage}
+              alt="Código & Pasta"
               className={styles.heroImage}
             />
-            <div className={styles.heroProfileCopy}>
-              <p className={styles.heroProfileLabel}>Escribo sobre</p>
-              <p className={styles.heroProfileText}>
-                desarrollo, negocio, aprendizaje continuo y cómo construir
-                software útil sin perder el criterio por el camino.
-              </p>
-            </div>
-          </aside>
+          </div>
 
           <div className={styles.heroCopy}>
-            <p className={styles.heroEyebrow}>Código & Pasta</p>
             <Heading as="h1" className={styles.heroTitle}>
-              {siteConfig.title}
+              Código & Pasta
             </Heading>
-            <p className={styles.heroSubtitle}>
-              Senior Frontend Developer | Product Mindset | Building Scalable
-              Web Applications
-            </p>
             <p className={styles.heroDescription}>
-              Construyo productos digitales con foco en claridad técnica,
-              experiencia de usuario y decisiones que generen valor real.
+              Un espacio personal para escribir sobre desarrollo, arquitectura
+              frontend y producto con una idea simple: hacer software útil,
+              entendible y con intención.
             </p>
-            <div className={styles.heroTags}>
-              <span>React & TypeScript</span>
-              <span>Producto</span>
-              <span>Arquitectura frontend</span>
-            </div>
-            <div className={styles.heroActions}>
+            <div className={styles.heroLinks}>
               <CtaLink to="/blog">Ir al blog</CtaLink>
-              <CtaLink
-                to="https://www.linkedin.com/in/antoniohumanes/"
-                kind="secondary"
-              >
-                ¿Hablamos en LinkedIn?
+              <CtaLink to="/about-me" kind="secondary">
+                ¿Quién soy?
               </CtaLink>
             </div>
           </div>
@@ -59,4 +44,5 @@ function HomepageHeader() {
     </header>
   );
 }
+
 export default HomepageHeader;
