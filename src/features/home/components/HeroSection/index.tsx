@@ -2,7 +2,7 @@ import Heading from "@theme/Heading";
 import profileImg from "@site/static/img/profile-image.jpg";
 import styles from "./styles.module.css";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import { CtaLink } from "../../shared/CtaLink";
+import { CtaLink } from "../../../../components/shared/CtaLink";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();

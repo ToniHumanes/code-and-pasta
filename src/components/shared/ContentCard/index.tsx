@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import clsx from "clsx";
 import Heading from "@theme/Heading";
+import { CardSurface } from "../../base/CardSurface";
 import styles from "./style.module.css";
 
 type Props = {
@@ -12,7 +13,7 @@ type Props = {
 
 export const ContentCard = ({ eyebrow, title, image, description }: Props) => {
   return (
-    <article className={clsx(styles.card)}>
+    <CardSurface className={clsx(styles.card)}>
       <div className={styles.visual}>
         <img className={styles.image} src={image} alt={title} />
       </div>
@@ -23,6 +24,6 @@ export const ContentCard = ({ eyebrow, title, image, description }: Props) => {
         </Heading>
         <p className={styles.description}>{description}</p>
       </div>
-    </article>
+    </CardSurface>
   );
 };

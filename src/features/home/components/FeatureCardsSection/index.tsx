@@ -3,8 +3,8 @@ import styles from "./styles.module.css";
 import intro from "@site/static/img/intro.png";
 import workSuchAs from "@site/static/img/workSuchAs.png";
 import format from "@site/static/img/format.png";
-import { ContentCard } from "../../shared/ContentCard";
-import { SectionHeading } from "../../shared/SectionHeading";
+import { ContentCard } from "../../../../components/shared/ContentCard";
+import { SectionHeading } from "../../../../components/shared/SectionHeading";
 
 type FeatureItem = {
   eyebrow: string;
