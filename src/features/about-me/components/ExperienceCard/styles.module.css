@@ -1,51 +1,57 @@
 .card {
+  --experience-media-overflow: clamp(2.5rem, 6vw, 5rem);
   position: relative;
   display: grid;
-  grid-template-columns: minmax(20rem, 25rem) minmax(0, 1fr);
+  grid-template-columns: minmax(18rem, 22rem) minmax(0, 1fr);
+  grid-template-areas: "media body";
   gap: var(--site-gap-8);
   align-items: center;
   margin-top: var(--site-margin-8);
-  margin-left: var(--site-margin-12);
   padding: var(--site-padding-8);
   overflow: visible;
 }
 
 .cardReversed {
-  grid-template-columns: minmax(0, 1fr) minmax(20rem, 25rem);
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 22rem);
+  grid-template-areas: "body media";
 }
 
 .visualWrap {
-  position: relative;
-  left: -5.5rem;
+  grid-area: media;
+  justify-self: start;
+  width: min(100%, 22rem);
 }
 
 .cardReversed .visualWrap {
-  order: 2;
-  left: 5.5rem;
+  justify-self: end;
 }
 
 .image {
-  position: relative;
   display: block;
   width: 100%;
-
   aspect-ratio: 4 / 5;
   border: 1px solid rgb(var(--site-color-ink-900-rgb) / 0.08);
   border-radius: 1.6rem;
   object-fit: cover;
   box-shadow: 0 22px 50px rgb(8 19 29 / 0.16);
+  transform: translateX(calc(var(--experience-media-overflow) * -1));
 }
 
 .body {
-  position: relative;
+  grid-area: body;
   display: grid;
   gap: var(--site-gap-3);
-  left: -5rem;
+  transform: translateX(calc(var(--experience-media-overflow) * -0.5));
+  text-align: left;
+}
+
+.cardReversed .image {
+  transform: translateX(var(--experience-media-overflow));
 }
 
 .cardReversed .body {
-  order: 1;
-  left: 0;
+  transform: translateX(calc(var(--experience-media-overflow) * 0.5));
+  text-align: right;
 }
 
 .subtitle {
@@ -75,30 +81,30 @@
 
 @media screen and (max-width: 996px) {
   .card {
+    --experience-media-overflow: 0rem;
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "media"
+      "body";
     gap: var(--site-gap-6);
-    margin-left: 0;
     padding: var(--site-padding-6);
   }
 
   .visualWrap {
-    margin-top: -4rem;
-    margin-left: 0;
-    left: 0;
-  }
-
-  .cardReversed .visualWrap {
-    order: initial;
-    left: 0;
+    justify-self: center;
+    width: min(100%, 14rem);
   }
 
   .image {
-    max-width: 10rem;
+    transform: none;
+  }
+
+  .cardReversed .image {
+    transform: none;
   }
 
   .body,
   .cardReversed .body {
-    left: 0;
-    order: initial;
+    transform: none;
   }
 }
