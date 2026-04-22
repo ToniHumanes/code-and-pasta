@@ -36,11 +36,13 @@ export const ExperienceCard = ({
       </div>
 
       <div className={styles.body}>
-        <p className={styles.subtitle}>{subtitle}</p>
-        <Heading as="h3" className={styles.title}>
-          {title}
-        </Heading>
-        <p className={styles.description}>{description}</p>
+        <header className={styles.header}>
+          <p className={styles.subtitle}>{subtitle}</p>
+          <Heading as="h3" className={styles.title}>
+            {title}
+          </Heading>
+        </header>
+        <div className={styles.description}>{description}</div>
       </div>
     </CardSurface>
   );

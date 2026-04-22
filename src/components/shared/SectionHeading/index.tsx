@@ -19,7 +19,7 @@ export const SectionHeading = ({
   className,
 }: Props) => {
   return (
-    <div className={clsx(styles.heading, className)}>
+    <header className={clsx(styles.heading, className)}>
       <p
         className={clsx(
           styles.eyebrow,
@@ -31,7 +31,7 @@ export const SectionHeading = ({
       <Heading as="h2" className={styles.title}>
         {title}
       </Heading>
-      {description ? <p className={styles.description}>{description}</p> : null}
-    </div>
+      {description ? <div className={styles.description}>{description}</div> : null}
+    </header>
   );
 };

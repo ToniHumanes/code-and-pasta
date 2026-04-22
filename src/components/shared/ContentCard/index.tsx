@@ -18,11 +18,13 @@ export const ContentCard = ({ eyebrow, title, image, description }: Props) => {
         <img className={styles.image} src={image} alt={title} />
       </div>
       <div className={styles.body}>
-        <p className={styles.eyebrow}>{eyebrow}</p>
-        <Heading as="h3" className={styles.title}>
-          {title}
-        </Heading>
-        <p className={styles.description}>{description}</p>
+        <header className={styles.header}>
+          <p className={styles.eyebrow}>{eyebrow}</p>
+          <Heading as="h3" className={styles.title}>
+            {title}
+          </Heading>
+        </header>
+        <div className={styles.description}>{description}</div>
       </div>
     </CardSurface>
   );
