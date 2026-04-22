@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 import styles from "./styles.module.css";
-import intro from "@site/static/img/intro.png";
-import workSuchAs from "@site/static/img/workSuchAs.png";
-import format from "@site/static/img/format.png";
+import intro from "@site/static/img/home/intro.webp";
+import workSuchAs from "@site/static/img/home/workSuchAs.webp";
+import format from "@site/static/img/home/format.webp";
 import { ContentCard } from "../../../../components/shared/ContentCard";
 import { SectionHeading } from "../../../../components/shared/SectionHeading";
 
@@ -16,37 +16,35 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     eyebrow: "Sobre mí",
-    title: "Documentar para comprender.",
+    title: "Cuestiono decisiones, incluso las mías.",
     image: intro,
     description: (
       <>
-        Este espacio nace como un cuaderno de aprendizaje donde ordeno ideas,
-        convierto conceptos en explicaciones útiles y doy contexto a lo que voy
-        descubriendo mientras trabajo y construyo productos.
+        Este espacio es donde comparto cómo construyo software y producto en el
+        día a día, con criterio en cada decisión técnica y de producto.
       </>
     ),
   },
   {
     eyebrow: "Mi trabajo",
-    title: "Frontend con visión de producto.",
+    title: "Desarrollo con visión de producto.",
     image: workSuchAs,
     description: (
       <>
-        Trabajo con React, TypeScript y arquitectura frontend, pero me interesa
-        tanto la implementación como el criterio detrás de cada decisión:
-        negocio, experiencia de usuario y sostenibilidad técnica.
+        Trabajo con React y TypeScript, pero lo importante no es la tecnología:
+        es el criterio detrás de cada decisión de negocio, experiencia de
+        usuario y sostenibilidad técnica.
       </>
     ),
   },
   {
-    eyebrow: "Qué encontrarás",
-    title: "Estructura del sitio",
+    eyebrow: "¿Qué encontrarás?",
+    title: "Mi visión.",
     image: format,
     description: (
       <>
-        Aquí conviven dos formatos. Los <strong>docs</strong> para apuntes
-        técnicos más estructurados, y el <strong>blog</strong> para artículos
-        con reflexiones sobre desarrollo, producto y aprendizaje continuo.
+        Reflexiones sobre desarrollo y producto: cosas que me han funcionado,
+        otras que no, y decisiones con las que quizá no estés de acuerdo.
       </>
     ),
   },
@@ -59,7 +57,7 @@ export default function HomepageFeatures(): ReactNode {
         <SectionHeading
           className={styles.featuresHeader}
           eyebrow="Presentación"
-          title="Una portada más cercana a cómo trabajo: criterio, producto y código."
+          title="Criterio, Producto y Código."
           tone="accent"
         />
 

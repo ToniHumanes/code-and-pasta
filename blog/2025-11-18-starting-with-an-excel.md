@@ -2,11 +2,11 @@
 authors: antoniohumanes
 title: "Todo comienza con un Excel"
 description: "Cómo muchas aplicaciones reales nacen de una hoja de cálculo y qué señales merece la pena observar para convertir necesidad en producto."
-image: ./img/excel.jpg
+image: ./img/excel.webp
 tags: [data, product, business, development, features]
 ---
 
-![Imagen de un ordenador con una aplicación de finanzas abierta en el navegador](@site/blog/img/excel.jpg)
+![Imagen de un ordenador con una aplicación de finanzas abierta en el navegador](@site/blog/img/excel.webp)
 
 Hoy quiero hablar de algo que aprendes con la observación y de ciertos patrones que se dan en las empresas: **la mayoría de aplicaciones nacen de un Excel**.  
 Y normalmente de un _Excel guarro (refiriéndose a chapucero)_, como decía un antiguo compañero 😆.

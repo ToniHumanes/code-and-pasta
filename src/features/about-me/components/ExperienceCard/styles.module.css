@@ -6,14 +6,16 @@
   grid-template-areas: "media body";
   gap: var(--site-gap-8);
   align-items: center;
-  margin-top: var(--site-margin-8);
+  margin: var(--site-margin-8) var(--site-margin-8) 0;
   padding: var(--site-padding-8);
   overflow: visible;
+  max-width: 80%;
 }
 
 .cardReversed {
   grid-template-columns: minmax(0, 1fr) minmax(18rem, 22rem);
   grid-template-areas: "body media";
+  justify-self: flex-end;
 }
 
 .visualWrap {
@@ -112,6 +114,8 @@
 @media screen and (max-width: 576px) {
   .card {
     padding: var(--site-padding-4);
+    margin: var(--site-margin-8) 0;
+    max-width: 100%;
   }
   .visualWrap {
     width: 100%;

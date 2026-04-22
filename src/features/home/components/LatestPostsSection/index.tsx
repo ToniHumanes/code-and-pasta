@@ -56,7 +56,7 @@ function getLatestPosts(fallbackPostImage: string): PostItem[] {
 }
 
 export default function HomepageLatestPosts(): ReactNode {
-  const fallbackPostImage = useBaseUrl("/img/logo.png");
+  const fallbackPostImage = useBaseUrl("/img/fallback-post-image.webp");
   const posts = getLatestPosts(fallbackPostImage);
 
   return (
@@ -65,7 +65,7 @@ export default function HomepageLatestPosts(): ReactNode {
         <SectionHeading
           className={styles.sectionHeading}
           eyebrow="Últimos artículos"
-          title="Ideas recientes sobre desarrollo, producto y aprendizaje continuo."
+          title="En qué estoy pensando últimamente"
         />
 
         <div className={styles.postList}>

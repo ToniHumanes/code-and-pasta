@@ -1,5 +1,5 @@
 import Heading from "@theme/Heading";
-import profileImg from "@site/static/img/profile-image.jpg";
+import profileImg from "@site/static/img/about-me/profile-image.webp";
 import styles from "./styles.module.css";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import { CtaLink } from "../../../../components/shared/CtaLink";
@@ -11,19 +11,12 @@ function AboutHero() {
     <header className={styles.heroBanner}>
       <div className="container">
         <section className={styles.heroContent}>
-          <aside className={styles.heroProfileCard}>
+          <aside>
             <img
               src={profileImg}
               alt="Antonio Humanes"
               className={styles.heroImage}
             />
-            <div className={styles.heroProfileCopy}>
-              <p className={styles.heroProfileLabel}>Escribo sobre</p>
-              <p className={styles.heroProfileText}>
-                desarrollo, negocio, aprendizaje continuo y cómo construir
-                software útil sin perder el criterio por el camino.
-              </p>
-            </div>
           </aside>
 
           <div className={styles.heroCopy}>
@@ -31,12 +24,11 @@ function AboutHero() {
               {siteConfig.title}
             </Heading>
             <p className={styles.heroSubtitle}>
-              Senior Frontend Developer | Product Mindset | Building Scalable
-              Web Applications
+              Senior Frontend Developer con visión de producto
             </p>
             <p className={styles.heroDescription}>
-              Construyo productos digitales con foco en claridad técnica,
-              experiencia de usuario y decisiones que generen valor real.
+              Construyo software y tomo decisiones con un objetivo claro: que lo
+              que hacemos tenga sentido para el negocio y para el usuario.
             </p>
             <div className={styles.heroTags}>
               <span>React & TypeScript</span>
