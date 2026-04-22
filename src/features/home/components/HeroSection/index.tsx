@@ -1,23 +1,22 @@
 import type { ReactNode } from "react";
 import Heading from "@theme/Heading";
-import { useColorMode } from "@docusaurus/theme-common";
+import ThemedImage from "@theme/ThemedImage";
 import codeAndPastaDarkImage from "@site/static/img/home/code-and-pasta-dark.webp";
 import codeAndPastaLightImage from "@site/static/img/home/code-and-pasta-light.webp";
 import { CtaLink } from "../../../../components/shared/CtaLink";
 import styles from "./styles.module.css";
 
 function HomepageHeader(): ReactNode {
-  const { colorMode } = useColorMode();
-  const codeAndPastaImage =
-    colorMode === "dark" ? codeAndPastaDarkImage : codeAndPastaLightImage;
-
   return (
     <header className={styles.heroBanner}>
       <div className="container">
         <section className={styles.heroContent}>
           <div className={styles.heroMedia}>
-            <img
-              src={codeAndPastaImage}
+            <ThemedImage
+              sources={{
+                light: codeAndPastaLightImage,
+                dark: codeAndPastaDarkImage,
+              }}
               alt="Código & Pasta"
               className={styles.heroImage}
             />
