@@ -1,12 +1,16 @@
-import type { ReactNode } from "react";
+import type { ComponentPropsWithoutRef, ReactNode } from "react";
 import clsx from "clsx";
 import styles from "./style.module.css";
 
-type Props = {
+type Props = ComponentPropsWithoutRef<"article"> & {
   children: ReactNode;
   className?: string;
 };
 
-export const CardSurface = ({ children, className }: Props) => {
-  return <article className={clsx(styles.surface, className)}>{children}</article>;
+export const CardSurface = ({ children, className, ...props }: Props) => {
+  return (
+    <article {...props} className={clsx(styles.surface, className)}>
+      {children}
+    </article>
+  );
 };
