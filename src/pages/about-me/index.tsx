@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 import Layout from "@theme/Layout";
 import AboutHero from "../../features/about-me/components/HeroSection";
+import openbankdWorkExperience from "@site/static/img/about-me/openbank-work-experience.jpg";
+import inditexWorkExperience from "@site/static/img/about-me/inditex-work-experience.jpg";
 import randstadWorkExperience from "@site/static/img/about-me/randstad-work-experience.jpg";
 import { ExperienceCard } from "../../features/about-me/components/ExperienceCard";
 import { SectionHeading } from "../../components/shared/SectionHeading";
@@ -18,75 +20,67 @@ export default function AboutMe(): ReactNode {
           <section className={styles.cardsContainer}>
             <SectionHeading
               eyebrow="Experiencia"
-              title="Añadir aquí experiencia con carrusel de proyectos, experiencia
-              laboral, etc"
+              title="+9 años construyendo productos digitales"
             ></SectionHeading>
             <ExperienceCard
-              image={randstadWorkExperience}
-              imageAlt="Experiencia profesional en Randstad"
-              subtitle="Sngular - Randstad"
-              title="Construyendo producto digital desde frontend con foco en escalabilidad."
+              image={openbankdWorkExperience}
+              imageAlt="Experiencia profesional en Openbank"
+              subtitle="Capgemini"
+              title="Openbank — Wealth & Crypto"
               description={
                 <>
                   <p>
-                    He trabajado desarrollando interfaces y productos web con
-                    React y TypeScript, colaborando con negocio, diseño y otros
-                    perfiles técnicos para convertir requisitos complejos en
-                    soluciones mantenibles, claras y orientadas a impacto real.
+                    Aplicaciones de inversión en entorno bancario internacional.
                   </p>
                   <p>
-                    He trabajado desarrollando interfaces y productos web con
-                    React y TypeScript, colaborando con negocio, diseño y otros
-                    perfiles técnicos para convertir requisitos complejos en
-                    soluciones mantenibles, claras y orientadas a impacto real.
+                    Arquitectura basada en microfrontends y hexagonal, adaptada
+                    a distintos países y productos financieros.
                   </p>
-                  <ul>
-                    <li>
-                      He trabajado desarrollando interfaces y productos web con
-                      React y TypeScript
-                    </li>
-                    <li>
-                      He trabajado desarrollando interfaces y productos web con
-                      React y TypeScript
-                    </li>
-                    <li>
-                      He trabajado desarrollando interfaces y productos web con
-                      React y TypeScript
-                    </li>
-                    <li>
-                      He trabajado desarrollando interfaces y productos web con
-                      React y TypeScript
-                    </li>
-                  </ul>
+                  <p>
+                    Impacto: aceleramos el time-to-market manteniendo
+                    escalabilidad y una experiencia consistente.
+                  </p>
                 </>
               }
             />
             <ExperienceCard
               isReversed={true}
-              image={randstadWorkExperience}
-              imageAlt="Experiencia profesional en Randstad"
-              subtitle="Randstad Digital"
-              title="Construyendo producto digital desde frontend con foco en escalabilidad."
+              image={inditexWorkExperience}
+              imageAlt="Experiencia profesional en Inditex"
+              subtitle="Kairós DS"
+              title="Inditex — Data Governance Platform"
               description={
                 <>
-                  He trabajado desarrollando interfaces y productos web con
-                  React y TypeScript, colaborando con negocio, diseño y otros
-                  perfiles técnicos para convertir requisitos complejos en
-                  soluciones mantenibles, claras y orientadas a impacto real.
+                  <p>
+                    Plataforma de gobierno del dato para más de 800 usuarios
+                    técnicos y comerciales.
+                  </p>
+                  <p>
+                    Arquitectura de microfrontends con React + TypeScript y
+                    colaboración activa en definición de producto (enfoque MVP).
+                  </p>
+                  <p>
+                    Impacto: mejor acceso a datos para la toma de decisiones en
+                    negocio.
+                  </p>
                 </>
               }
             />
             <ExperienceCard
               image={randstadWorkExperience}
               imageAlt="Experiencia profesional en Randstad"
-              subtitle="Randstad Digital"
-              title="Construyendo producto digital desde frontend con foco en escalabilidad."
+              subtitle="Sngular"
+              title="Randstad — Plataforma HR"
               description={
                 <>
-                  He trabajado desarrollando interfaces y productos web con
-                  React y TypeScript, colaborando con negocio, diseño y otros
-                  perfiles técnicos para convertir requisitos complejos en
-                  soluciones mantenibles, claras y orientadas a impacto real.
+                  <p>Aplicación web con foco en experiencia de usuario.</p>
+                  <p>
+                    Liderazgo frontend, creación de design system y migración de
+                    MPA a SPA.
+                  </p>
+                  <p>
+                    Impacto: mejora de rendimiento y +15% de usuarios activos.
+                  </p>
                 </>
               }
             />

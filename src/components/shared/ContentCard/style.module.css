@@ -1,5 +1,7 @@
 .card {
   display: grid;
+  grid-template-rows: auto 1fr;
+  align-items: self-start;
   gap: var(--site-gap-6);
   padding: var(--site-padding-6);
 }

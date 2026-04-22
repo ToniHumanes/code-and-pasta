@@ -94,11 +94,6 @@ const config: Config = {
         techNotesNavbarItem,
         { to: "/blog", label: "Blog", position: "left" },
         { to: "/about-me", label: "¿Quién soy?", position: "left" },
-        {
-          href: "https://github.com/ToniHumanes/code-and-pasta",
-          label: "GitHub",
-          position: "right",
-        },
       ],
     },
     footer: {

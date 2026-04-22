@@ -2,11 +2,11 @@
 authors: antoniohumanes
 title: "¿Sabes de dónde sale tu salario?"
 description: "Una reflexión sobre por qué entender el negocio cambia la calidad del software que construimos y el valor que aportamos."
-image: ./img/money.jpg
+image: ./img/money.webp
 tags: [product, business, development, features]
 ---
 
-![Imagen de dinero en dólares sobre una mesa](@site/blog/img/money.jpg)
+![Imagen de dinero en dólares sobre una mesa](@site/blog/img/money.webp)
 
 Cuando empecé en el desarrollo de software, me obsesioné con aprender lo máximo posible técnicamente. Con el tiempo, entendí que eso importa, pero también estaba ignorando algo igual de clave: el negocio.
 

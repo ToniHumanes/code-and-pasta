@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 import Heading from "@theme/Heading";
 import { useColorMode } from "@docusaurus/theme-common";
-import codeAndPastaDarkImage from "@site/static/img/home/code-and-pasta-dark.png";
-import codeAndPastaLightImage from "@site/static/img/home/code-and-pasta-light.png";
+import codeAndPastaDarkImage from "@site/static/img/home/code-and-pasta-dark.webp";
+import codeAndPastaLightImage from "@site/static/img/home/code-and-pasta-light.webp";
 import { CtaLink } from "../../../../components/shared/CtaLink";
 import styles from "./styles.module.css";
 
@@ -28,9 +28,13 @@ function HomepageHeader(): ReactNode {
               Código & Pasta
             </Heading>
             <p className={styles.heroDescription}>
-              Un espacio personal para escribir sobre desarrollo, arquitectura
-              frontend y producto con una idea simple: hacer software útil,
-              entendible y con intención.
+              Es un espacio donde hablo sobre
+              <strong> desarrollo de software</strong> (código) y
+              <strong> producto</strong> (pasta).
+            </p>
+            <p className={styles.heroDescription}>
+              También es <strong>mi diario de aprendizaje</strong>: cómo veo la
+              tecnología y cómo intento construir software que aporte valor.
             </p>
             <div className={styles.heroLinks}>
               <CtaLink to="/blog">Ir al blog</CtaLink>
