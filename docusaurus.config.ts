@@ -94,6 +94,7 @@ const config: Config = {
         techNotesNavbarItem,
         { to: "/blog", label: "Blog", position: "left" },
         { to: "/about-me", label: "¿Quién soy?", position: "left" },
+        { to: "/roadmap", label: "Roadmap", position: "left" },
       ],
     },
     footer: {

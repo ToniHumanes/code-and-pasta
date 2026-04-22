@@ -1,0 +1,80 @@
+.card {
+  display: grid;
+  width: 100%;
+  gap: var(--site-gap-4);
+  padding: var(--site-padding-4);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.card:not(.cardCompleted):hover,
+.card:not(.cardCompleted):focus-within {
+  border-color: rgb(var(--site-color-accent-500-rgb) / 0.2);
+  box-shadow: 0 30px 72px rgb(8 19 29 / 0.16);
+  transform: translateY(-0.125rem);
+}
+
+.cardCompleted {
+  opacity: 0.58;
+  filter: grayscale(1);
+}
+
+.content {
+  display: grid;
+  gap: var(--site-gap-3);
+}
+
+.status {
+  margin: 0;
+  font-size: var(--site-font-size-xs);
+  font-weight: var(--site-font-weight-extrabold);
+  letter-spacing: var(--site-letter-spacing-lg);
+  text-transform: uppercase;
+}
+
+.statusPending {
+  color: var(--ifm-color-secondary);
+}
+
+.statusCompleted {
+  color: var(--ifm-font-color-secondary);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  line-height: 1.12;
+}
+
+.description {
+  margin: 0;
+  color: var(--ifm-font-color-secondary);
+  line-height: 1.7;
+}
+
+.applicationText {
+  margin: 0;
+  line-height: 1.7;
+}
+
+.applicationLabel {
+  color: var(--site-color-brand-900);
+  font-weight: var(--site-font-weight-bold);
+}
+
+:global([data-theme="dark"]) .card:not(.cardCompleted):hover,
+:global([data-theme="dark"]) .card:not(.cardCompleted):focus-within {
+  border-color: rgb(var(--site-color-accent-glow-rgb) / 0.22);
+  box-shadow: 0 26px 64px rgb(0 0 0 / 0.36);
+}
+
+@media screen and (min-width: 768px) {
+  .card {
+    align-items: center;
+    gap: var(--site-gap-6);
+    padding: var(--site-padding-6);
+  }
+}
