@@ -47,6 +47,11 @@
   text-align: left;
 }
 
+.header {
+  display: grid;
+  gap: var(--site-gap-3);
+}
+
 .cardReversed .image {
   transform: translateX(var(--experience-media-overflow));
 }
@@ -70,6 +75,17 @@
   color: var(--site-color-ink-900);
   font-size: clamp(1.6rem, 2.3vw, 2.25rem);
   line-height: 1.08;
+}
+
+.description {
+  display: grid;
+  gap: var(--site-gap-3);
+  color: var(--ifm-font-color-secondary);
+  line-height: 1.7;
+}
+
+.description p {
+  margin: 0;
 }
 
 :global([data-theme="dark"]) .image {
