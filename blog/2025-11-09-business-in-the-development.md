@@ -8,51 +8,56 @@ tags: [product, business, development, features]
 
 ![Imagen de dinero en dólares sobre una mesa](@site/blog/img/money.webp)
 
-Cuando empecé en el desarrollo de software, me obsesioné con aprender lo máximo posible técnicamente. Con el tiempo, entendí que eso importa, pero también estaba ignorando algo igual de clave: el negocio.
+Cuando empecé en el desarrollo de software, me obsesioné con aprender lo máximo posible a nivel técnico. Con el tiempo entendí que eso importa, pero también estaba ignorando algo igual de clave: el negocio.
 
-Poco a poco, con el tiempo, empecé a entender que el negocio es una parte esencial para un developer y, en realidad, para todo el que trabaje en tecnología; son cosas que van de la mano.
-Si no entiendes el negocio, quizás te estás perdiendo algo muy importante a la hora de generar código.
+Empecé a darme cuenta de que el negocio es una parte esencial para cualquier developer y, en realidad, para cualquiera que trabaje en tecnología. Van de la mano.
+
+Si no entiendes el negocio, es probable que te estés perdiendo algo muy importante a la hora de escribir código.
 
 <!-- truncate -->
 
 ## ¿Sabes de dónde sale tu salario?
 
-Si no puedes responder con claridad, no pasa nada.
-Si estás empezando o trabajas en un proyecto donde la monetización es compleja, es normal.
+Si no puedes responder con claridad, no pasa nada.  
+Si estás empezando o trabajas en un proyecto donde la monetización es compleja, es normal.  
 A mí también me pasó.
 
-Te cuento una situación que me hizo darme cuenta de la importancia de saber de dónde sale el salario; esto me pasó en un proyecto real.
+Te cuento una situación que me hizo darme cuenta de la importancia de entender de dónde sale el salario.
 
 ## Un proyecto sin entender el negocio
 
-Entré en una gran empresa española a través de una consultora. Buen sueldo, proyecto interesante.
-El cliente quería una aplicación web donde usuarios técnicos y comerciales pudieran añadir términos, fórmulas e información operativa. Para mí, querían algo extraño: una Wikipedia interna.
+Entré en una gran empresa española a través de una consultora y, el proyecto parecía interesante.
 
-💸 ¿Esto… me iba a pagar el salario?
+El cliente quería una aplicación web donde usuarios técnicos y comerciales pudieran añadir información operativa. Para mí, era algo extraño: una Wikipedia interna.
 
-Sinceramente, no tenía claro la utilidad real de esa aplicación, incluso cuando empecé a picar código. No sabíamos qué problema real estábamos resolviendo.
+💸 ¿Esto iba a pagar el salario?
 
-El proyecto avanzó, añadimos features, y cuando llegaron los stakeholders… quejas.
-No era lo que querían.
+Sinceramente, no tenía clara la utilidad real de esa aplicación, incluso cuando empecé a picar código. No sabíamos qué problema real estábamos resolviendo.
 
-Hablamos con ellos, hicimos cuatro cambios y el proyecto empezó a encaminarse.
+El proyecto avanzó, añadimos funcionalidades y, cuando llegaron los stakeholders… quejas.  
+No era lo que esperaban.
 
-Mi jefe me dijo después que solo esos cuatro ajustes generaron unos 80.000€.
+Hablamos con ellos, hicimos algunos ajustes y el proyecto empezó a encaminarse.
 
-Más de lo que muchos cobran en un año.
+Aquí fue donde cambió todo.
 
-Cuando todos entendimos el negocio, se cometieron menos errores, menos funcionalidades que luego irían a la basura, pudimos crear más valor.
-Esto no es infalible, pero mejora mucho la calidad y la visión del proyecto.
+Mi jefe me dijo después que solo esos cambios costaron más de lo que muchos cobran en un año.
 
-En tecnología, todo suele ser un caos: cambios de prioridades, visión sesgada, MVPs, salidas rápidas con deuda técnica.
-Por eso es más importante que nunca conocer el negocio; te ahorra muchos dolores de cabeza.
+No fue un problema de nadie en concreto, sino de no entender bien el contexto desde el principio.
 
-## Por qué era tan importante esa Wikipedia
+Cuando todos entendimos el negocio, se cometieron menos errores, se redujeron funcionalidades innecesarias y empezamos a generar más valor.
 
-El problema del cliente era simple, pero importante:
+Esto no es infalible, pero cambia mucho la calidad y la dirección de un proyecto.
+
+En tecnología, todo suele ser un caos: cambios de prioridades, visión sesgada, MVPs, salidas rápidas con deuda técnica.  
+Por eso es más importante que nunca conocer el negocio: te ahorra muchos errores y, sobre todo, mucho dinero.
+
+## ¿Cuál era realmente el problema?
+
+El problema del cliente era simple, pero importante:  
 **la información operativa no estaba centralizada.**
 
-Cada tienda tenía sus notas, sus libretas y sus propias fórmulas para cálculos.
+Cada tienda tenía sus notas y sus propias fórmulas para cálculos.  
 Esto generaba caos, errores y un montón de tiempo perdido.
 
 Una llamada típica:
@@ -63,12 +68,14 @@ Una llamada típica:
 >
 > — “Vale, gracias… espera, no me cuadra.”
 
-Este tipo de llamadas pasaban muchas veces, muchos días.
+Este tipo de llamadas pasaban muchas veces.
+
 Entre dos personas: media hora perdida.
 
-Pongamos que pasaba 2 veces a la semana.
-El año tiene 52 semanas x 2 = 104 días.
-Multiplica 104 días por 1.000 tiendas:
+Pongamos que ocurría 2 veces a la semana.  
+52 semanas al año → más de 100 incidencias.  
+Multiplica eso por 1.000 tiendas:
+
 cientos de miles de horas perdidas.
 
 La Wikipedia interna fue mano de santo.
@@ -79,16 +86,13 @@ La mejora en eficiencia, brutal.
 
 1.  **Entiende el negocio** antes de tocar una línea de código.
 2.  **Habla con tus usuarios**, entiende sus necesidades.
-    :::
+
+:::
 
 ## Conclusión
 
-Entender el negocio no es dejar de ser técnico.
+Entender el negocio es entender por qué haces lo que haces.
 
-Tampoco es empezar a ser un PO o algo parecido y no picar código nunca más.
+Y cuando lo entiendes, tomas mejores decisiones, construyes mejores productos y generas más valor.
 
-Eso no es lo que se nos pide a los desarrolladores, pero sí se pide que entiendas el por qué de las cosas.
-
-Es saber por qué escribes lo que escribes.
-
-Y cuando entiendes ese porqué, haces mejores productos y aportas más valor.
+Porque, al final, si no entiendes el negocio, es muy difícil entender de dónde sale tu salario.
