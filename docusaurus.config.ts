@@ -14,7 +14,8 @@ const techNotesNavbarItem = {
 } as any;
 
 const config: Config = {
-  title: "Antonio Humanes",
+  title: "Código & Pasta",
+  tagline: "Reflexiones sobre desarrollo de software, producto y negocio.",
   favicon: "img/favicon.ico",
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -25,6 +26,8 @@ const config: Config = {
   url: "https://antoniohumanes.com",
   baseUrl: "/",
   trailingSlash: false,
+  organizationName: "ToniHumanes",
+  projectName: "code-and-pasta",
 
   onBrokenLinks: "throw",
 
@@ -56,6 +59,11 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
+          versions: {
+            current: {
+              noIndex: true,
+            },
+          },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl: "https://github.com/ToniHumanes/code-and-pasta/tree/main",
@@ -78,13 +86,35 @@ const config: Config = {
         theme: {
           customCss: "./src/css/custom.css",
         },
+        sitemap: {
+          lastmod: "date",
+          ignorePatterns: ["/docs", "/docs/**"],
+        },
       } satisfies Preset.Options,
     ],
   ],
 
   themeConfig: {
-    // Replace with your project's social card
-    image: "img/docusaurus-social-card.jpg",
+    image: "img/fallback-post-image.webp",
+    metadata: [
+      {
+        name: "author",
+        content: "Antonio Humanes",
+      },
+      {
+        name: "keywords",
+        content:
+          "desarrollo de software, frontend, React, TypeScript, producto, negocio, arquitectura",
+      },
+      {
+        property: "og:site_name",
+        content: "Código & Pasta",
+      },
+      {
+        name: "twitter:card",
+        content: "summary_large_image",
+      },
+    ],
     colorMode: {
       respectPrefersColorScheme: true,
     },

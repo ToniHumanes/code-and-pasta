@@ -7,7 +7,6 @@ import HomepageLatestPosts from "../features/home/components/LatestPostsSection"
 export default function Home(): ReactNode {
   return (
     <Layout
-      title={"Código & Pasta"}
       description="En este espacio llamado Código & Pasta encontrarás apuntes técnicos, reflexiones sobre arquitectura y producto"
     >
       <HomepageHeader />
