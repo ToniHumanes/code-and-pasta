@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /docs
+Disallow: /docs/
+Disallow: /work-in-progress
+Disallow: /work-in-progress/
+
+Sitemap: https://antoniohumanes.com/sitemap.xml

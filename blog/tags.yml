@@ -1,24 +1,24 @@
 product:
   label: Producto
   permalink: /product
-  description: Product tag description
+  description: Reflexiones sobre producto, decisiones y valor de negocio.
 
 business:
   label: Negocio
   permalink: /business
-  description: Business tag description
+  description: Ideas sobre contexto de negocio aplicado al desarrollo de software.
 
 development:
   label: Desarrollo
   permalink: /development
-  description: Development tag description
+  description: Artículos sobre programación, prácticas técnicas y construcción de software.
 
 features:
   label: Features
   permalink: /features
-  description: Features tag description
+  description: Contenido sobre definición, implementación y evolución de funcionalidades.
 
 data:
   label: Datos
   permalink: /data
-  description: Data tag description
+  description: Apuntes sobre datos, herramientas y toma de decisiones basada en información.
