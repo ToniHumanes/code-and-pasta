@@ -22,17 +22,9 @@ const config: Config = {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
   },
 
-  // Set the production url of your site here
-  // NOTE: `url` must not include a sub-path. Put repo sub-paths into `baseUrl`.
-  url: "https://ToniHumanes.github.io",
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/code-and-pasta/",
+  url: "https://antoniohumanes.com",
+  baseUrl: "/",
   trailingSlash: false,
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: "ToniHumanes", // Usually your GitHub org/user name.
-  projectName: "code-and-pasta", // Usually your repo name.
 
   onBrokenLinks: "throw",
 

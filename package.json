@@ -9,7 +9,6 @@
     "optimize-images": "node scripts/optimize-images.mjs --overwrite",
     "optimize-images:check": "node scripts/optimize-images.mjs --check",
     "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",

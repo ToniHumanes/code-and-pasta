@@ -1,41 +1,70 @@
-# Website
+# Código & Pasta
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Personal website and technical blog by Antonio Humanes. The project brings
+together articles, technical notes, interactive demos, and personal pages built
+with Docusaurus.
+
+## Stack
+
+- [Docusaurus](https://docusaurus.io/) as the static site generator.
+- React and TypeScript for pages, components, and demos.
+- MDX for documentation and blog posts.
+- CSS Modules and custom CSS for styling.
+- Vercel as the deployment platform.
 
 ## Installation
 
 ```bash
-yarn
+npm install
 ```
 
 ## Local Development
 
 ```bash
-yarn start
+npm run start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+Starts the Docusaurus development server with hot reloading.
 
-## Build
+## Validation
 
 ```bash
-yarn build
+npm run typecheck
+npm run optimize-images:check
+npm run build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+`npm run build` generates the static site in the `build` directory.
+
+To preview the production build locally:
+
+```bash
+npm run serve
+```
+
+## Images
+
+The repository includes a check to ensure images are optimized:
+
+```bash
+npm run optimize-images:check
+```
+
+To optimize them automatically:
+
+```bash
+npm run optimize-images
+```
 
 ## Deployment
 
-Using SSH:
+Deployment runs automatically on Vercel from the `main` branch.
 
-```bash
-USE_SSH=true yarn deploy
-```
+Expected Vercel configuration:
 
-Not using SSH:
+- Build command: `npm run build`
+- Output directory: `build`
+- Install command: `npm ci`
 
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+GitHub Actions remains as CI: it validates pull requests and pushes to `main`,
+but it does not publish the site.

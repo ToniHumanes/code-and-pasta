@@ -1,15 +1,16 @@
-name: Test deployment
+name: CI
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
-    # Review gh actions docs if you want to further define triggers, paths, etc
-    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
 jobs:
-  test-deploy:
-    name: Test deployment
+  validate:
+    name: Validate site
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -24,5 +25,7 @@ jobs:
         run: npm ci
       - name: Check optimized images
         run: npm run optimize-images:check
-      - name: Test build website
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Build website
         run: npm run build
