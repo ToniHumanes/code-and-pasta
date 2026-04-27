@@ -21,7 +21,7 @@ function AboutHero() {
 
           <div className={styles.heroCopy}>
             <Heading as="h1" className={styles.heroTitle}>
-              {siteConfig.title}
+              Antonio Humanes
             </Heading>
             <p className={styles.heroSubtitle}>
               Senior Frontend Developer con visión de producto

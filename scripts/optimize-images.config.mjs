@@ -7,7 +7,7 @@ const presets = {
   blogCover: {
     format: "webp",
     maxWidth: 1200,
-    quality: 82,
+    quality: 100,
   },
 };
 
