@@ -24,7 +24,7 @@ Para que tengáis una visión clara, el buscador avanzado era simplemente un inp
 
 Algo más o menos así:
 
-![Una imagen de un buscador con búsqueda normal o con IA](@site/blog/img/ai-searcher.png)
+![Una imagen de un buscador con búsqueda normal o con IA](@site/blog/img/ai-searcher.webp)
 
 Empezamos a pensar como podríamos integrarlo en nuestro buscador, pero empezamos a ver problemas porque tanto la búsqueda y como se mostraban los resultados eran totalmente diferentes.
 
@@ -40,7 +40,7 @@ Si queríamos agregar todo este nuevo comportamiento a nuestro buscador debería
 
 Entonces vimos que la solución pasaba por separar comportamientos. Con el tiempo entendí que esta aproximación encaja bastante bien con lo que se conoce como el patrón `strategy`.
 
-:::note[*es una versión del patrón Strategy adaptada a React.*]
+:::info[*es una versión del patrón Strategy adaptada a React.*]
 
 No aplicamos Strategy de forma académica, con clases e interfaces como en muchos ejemplos clásicos. Lo llevamos a una versión más natural en React: una base común y varias implementaciones intercambiables para cada tipo de búsqueda.
 :::
