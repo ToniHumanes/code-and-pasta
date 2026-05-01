@@ -1,17 +1,22 @@
 const sourceDirectories = ["blog/img", "static/img/home"];
 
-const sourceExtensions = new Set([".jpg", ".jpeg", ".png"]);
+const sourceExtensions = new Set([".jpg", ".jpeg", ".png", ".webp"]);
 const optimizedExtensions = new Set([".webp"]);
 
 const presets = {
   blogCover: {
     format: "webp",
-    maxWidth: 1200,
-    quality: 100,
+    maxWidth: 900,
+    quality: 82,
   },
   homeImage: {
     format: "webp",
-    maxWidth: 900,
+    maxWidth: 720,
+    quality: 82,
+  },
+  homeFeatureIcon: {
+    format: "webp",
+    maxWidth: 128,
     quality: 82,
   },
 };
@@ -23,9 +28,15 @@ const presetRules = [
     preset: "blogCover",
   },
   {
-    name: "homeImage",
-    matches: (relativePath) => relativePath.startsWith("static/img/home/"),
+    name: "homeHeroImage",
+    matches: (relativePath) =>
+      relativePath.startsWith("static/img/home/code-and-pasta-"),
     preset: "homeImage",
+  },
+  {
+    name: "homeFeatureIcon",
+    matches: (relativePath) => relativePath.startsWith("static/img/home/"),
+    preset: "homeFeatureIcon",
   },
 ];
 

@@ -1,8 +1,5 @@
 import type { ReactNode } from "react";
 import styles from "./styles.module.css";
-import intro from "@site/static/img/home/intro.webp";
-import workSuchAs from "@site/static/img/home/workSuchAs.webp";
-import format from "@site/static/img/home/format.webp";
 import { ContentCard } from "../../../../components/shared/ContentCard";
 import { SectionHeading } from "../../../../components/shared/SectionHeading";
 
@@ -17,7 +14,7 @@ const FeatureList: FeatureItem[] = [
   {
     eyebrow: "Sobre mí",
     title: "Cuestiono decisiones, incluso las mías.",
-    image: intro,
+    image: "/img/home/intro.webp",
     description: (
       <>
         Este espacio es donde comparto cómo construyo software y producto en el
@@ -28,7 +25,7 @@ const FeatureList: FeatureItem[] = [
   {
     eyebrow: "Mi trabajo",
     title: "Desarrollo con visión de producto.",
-    image: workSuchAs,
+    image: "/img/home/workSuchAs.webp",
     description: (
       <>
         Trabajo con React y TypeScript, pero lo importante no es la tecnología:
@@ -40,7 +37,7 @@ const FeatureList: FeatureItem[] = [
   {
     eyebrow: "¿Qué encontrarás?",
     title: "Mi visión.",
-    image: format,
+    image: "/img/home/format.webp",
     description: (
       <>
         Reflexiones sobre desarrollo y producto: cosas que me han funcionado,
