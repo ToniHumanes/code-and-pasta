@@ -9,13 +9,30 @@ type Props = {
   title: string;
   image: string;
   description: ReactNode;
+  imageWidth?: number;
+  imageHeight?: number;
 };
 
-export const ContentCard = ({ eyebrow, title, image, description }: Props) => {
+export const ContentCard = ({
+  eyebrow,
+  title,
+  image,
+  description,
+  imageWidth = 64,
+  imageHeight = 64,
+}: Props) => {
   return (
     <CardSurface className={clsx(styles.card)}>
       <div className={styles.visual}>
-        <img className={styles.image} src={image} alt={title} />
+        <img
+          className={styles.image}
+          src={image}
+          alt={title}
+          width={imageWidth}
+          height={imageHeight}
+          loading="lazy"
+          decoding="async"
+        />
       </div>
       <div className={styles.body}>
         <header className={styles.header}>

@@ -8,6 +8,7 @@
     "build": "docusaurus build",
     "optimize-images": "node scripts/optimize-images.mjs --overwrite",
     "optimize-images:check": "node scripts/optimize-images.mjs --check",
+    "validate": "npm run typecheck && npm run optimize-images:check && npm run build",
     "swizzle": "docusaurus swizzle",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",

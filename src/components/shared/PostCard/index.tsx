@@ -9,6 +9,8 @@ type Props = {
   date: string;
   description: string;
   image: string;
+  imageWidth?: number;
+  imageHeight?: number;
   actionLabel?: string;
   isVisible?: boolean;
   isReversed?: boolean;
@@ -28,6 +30,8 @@ export const PostCard = ({
   date,
   description,
   image,
+  imageWidth = 1200,
+  imageHeight = 800,
   actionLabel = "Leer artículo",
   isReversed = false,
 }: Props) => {
@@ -36,7 +40,15 @@ export const PostCard = ({
       className={clsx(styles.postCard, isReversed && styles.postCardReverse)}
     >
       <Link className={styles.postVisualLink} to={permalink}>
-        <img className={styles.postImage} src={image} alt={title} />
+        <img
+          className={styles.postImage}
+          src={image}
+          alt={title}
+          width={imageWidth}
+          height={imageHeight}
+          loading="lazy"
+          decoding="async"
+        />
       </Link>
 
       <div className={styles.postContent}>

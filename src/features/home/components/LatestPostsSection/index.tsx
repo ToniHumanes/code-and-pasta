@@ -1,63 +1,12 @@
 import type { ReactNode } from "react";
-import useBaseUrl from "@docusaurus/useBaseUrl";
 import styles from "./styles.module.css";
+import { useLatestPostsSection } from "./useLatestPostsSection.hook";
 import { CtaLink } from "../../../../components/shared/CtaLink";
 import { PostCard } from "../../../../components/shared/PostCard";
 import { SectionHeading } from "../../../../components/shared/SectionHeading";
 
-type BlogPostModule = {
-  metadata: {
-    title: string;
-    permalink: string;
-    date: string;
-    description?: string;
-    unlisted?: boolean;
-  };
-  frontMatter: {
-    draft?: boolean;
-    image?: string;
-  };
-  assets?: {
-    image?: string;
-  };
-};
-
-type PostItem = {
-  title: string;
-  permalink: string;
-  date: string;
-  description: string;
-  image: string;
-};
-
-const blogContext = require.context("@site/blog", true, /\.(md|mdx)$/);
-const allPosts = blogContext
-  .keys()
-  .map((modulePath) => blogContext(modulePath) as BlogPostModule);
-
-function getLatestPosts(fallbackPostImage: string): PostItem[] {
-  return allPosts
-    .filter((post) => !post.metadata.unlisted && !post.frontMatter.draft)
-    .sort(
-      (current, next) =>
-        new Date(next.metadata.date).getTime() -
-        new Date(current.metadata.date).getTime(),
-    )
-    .slice(0, 2)
-    .map((post) => ({
-      title: post.metadata.title,
-      permalink: post.metadata.permalink,
-      date: post.metadata.date,
-      description:
-        post.metadata.description ??
-        "Reflexiones prácticas sobre producto, desarrollo y aprendizaje.",
-      image: post.assets?.image ?? post.frontMatter.image ?? fallbackPostImage,
-    }));
-}
-
 export default function HomepageLatestPosts(): ReactNode {
-  const fallbackPostImage = useBaseUrl("/img/fallback-post-image.webp");
-  const posts = getLatestPosts(fallbackPostImage);
+  const posts = useLatestPostsSection();
 
   return (
     <section className={styles.latestPosts}>
