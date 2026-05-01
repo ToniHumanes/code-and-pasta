@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
 import Heading from "@theme/Heading";
 import ThemedImage from "@theme/ThemedImage";
-import codeAndPastaDarkImage from "@site/static/img/home/code-and-pasta-dark.webp";
-import codeAndPastaLightImage from "@site/static/img/home/code-and-pasta-light.webp";
 import { CtaLink } from "../../../../components/shared/CtaLink";
 import styles from "./styles.module.css";
+
+const heroImageSizes = "(max-width: 996px) 22rem, 24rem";
 
 function HomepageHeader(): ReactNode {
   return (
@@ -14,11 +14,17 @@ function HomepageHeader(): ReactNode {
           <div className={styles.heroMedia}>
             <ThemedImage
               sources={{
-                light: codeAndPastaLightImage,
-                dark: codeAndPastaDarkImage,
+                light: "/img/home/code-and-pasta-light.webp",
+                dark: "/img/home/code-and-pasta-dark.webp",
               }}
               alt="Código & Pasta"
               className={styles.heroImage}
+              width="720"
+              height="720"
+              sizes={heroImageSizes}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
             />
           </div>
 
