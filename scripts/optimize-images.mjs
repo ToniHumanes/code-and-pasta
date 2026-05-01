@@ -5,6 +5,7 @@ import path from "node:path";
 import process from "node:process";
 import sharp from "sharp";
 import {
+  optimizedDirectories,
   optimizedExtensions,
   presetRules,
   presets,
@@ -49,9 +50,11 @@ function formatSavings(inputBytes, outputBytes) {
   return `${formatBytes(savings)} (${percent.toFixed(1)}%)`;
 }
 
-function getOutputPath(inputRelativePath, format) {
+function getOutputPath(inputRelativePath, format, outputDirectory) {
   const extension = path.extname(inputRelativePath);
-  return inputRelativePath.replace(new RegExp(`${extension}$`, "i"), `.${format}`);
+  const fileName = path.basename(inputRelativePath, extension);
+
+  return normalizePath(path.join(outputDirectory, `${fileName}.${format}`));
 }
 
 function resolvePreset(relativePath) {
@@ -63,6 +66,7 @@ function resolvePreset(relativePath) {
   }
 
   return {
+    outputDirectory: matchedRule.outputDirectory,
     presetName: matchedRule.name,
     ...presets[matchedRule.preset],
   };
@@ -134,7 +138,7 @@ async function buildJobs() {
     for (const inputPath of inputPaths) {
       const input = normalizePath(path.relative(rootDir, inputPath));
       const preset = resolvePreset(input);
-      const output = getOutputPath(input, preset.format);
+      const output = getOutputPath(input, preset.format, preset.outputDirectory);
 
       if (seenOutputs.has(output)) {
         throw new Error(`Duplicate optimized output path detected: ${output}`);
@@ -153,12 +157,20 @@ async function buildJobs() {
 }
 
 async function buildCheckJobs(optimizationJobs) {
-  const sourceDirectoryPaths = await getAvailableSourceDirectories();
   const jobs = [...optimizationJobs];
   const knownOutputs = new Set(optimizationJobs.map((job) => job.output));
 
-  for (const sourceDirectoryPath of sourceDirectoryPaths) {
-    const optimizedPaths = await collectFiles(sourceDirectoryPath, optimizedExtensions);
+  for (const optimizedDirectory of optimizedDirectories) {
+    const optimizedDirectoryPath = toAbsolutePath(optimizedDirectory);
+
+    if (!(await pathExists(optimizedDirectoryPath))) {
+      continue;
+    }
+
+    const optimizedPaths = await collectFiles(
+      optimizedDirectoryPath,
+      optimizedExtensions,
+    );
 
     for (const optimizedPath of optimizedPaths) {
       const output = normalizePath(path.relative(rootDir, optimizedPath));
