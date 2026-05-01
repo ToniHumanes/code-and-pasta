@@ -14,8 +14,8 @@ function HomepageHeader(): ReactNode {
           <div className={styles.heroMedia}>
             <ThemedImage
               sources={{
-                light: "/img/home/code-and-pasta-light-720.webp",
-                dark: "/img/home/code-and-pasta-dark-720.webp",
+                light: "/img/home/code-and-pasta-light.webp",
+                dark: "/img/home/code-and-pasta-dark.webp",
               }}
               alt="Código & Pasta"
               className={styles.heroImage}
