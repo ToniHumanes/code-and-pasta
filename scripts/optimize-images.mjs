@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { mkdir, readdir, rm, stat } from "node:fs/promises";
+import { mkdir, readdir, rename, rm, stat } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
 import sharp from "sharp";
@@ -236,6 +236,8 @@ async function removeOriginalIfRequested(job) {
 async function optimizeImage(job) {
   const inputPath = toAbsolutePath(job.input);
   const outputPath = toAbsolutePath(job.output);
+  const tempOutputPath =
+    inputPath === outputPath ? `${outputPath}.tmp-${process.pid}` : outputPath;
 
   if (!(await pathExists(inputPath))) {
     console.warn(`skip  missing input: ${job.input}`);
@@ -262,7 +264,11 @@ async function optimizeImage(job) {
   await mkdir(path.dirname(outputPath), { recursive: true });
 
   const pipeline = buildPipeline(sharp(inputPath), job);
-  await pipeline.toFile(outputPath);
+  await pipeline.toFile(tempOutputPath);
+
+  if (tempOutputPath !== outputPath) {
+    await rename(tempOutputPath, outputPath);
+  }
 
   const outputStats = await stat(outputPath);
 
