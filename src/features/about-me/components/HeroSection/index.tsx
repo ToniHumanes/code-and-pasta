@@ -1,19 +1,19 @@
 import Heading from "@theme/Heading";
 import profileImg from "@site/static/img/about-me/profile-image.webp";
+import profileImgMobile from "@site/static/img/about-me/profile-image-mobile.webp";
 import styles from "./styles.module.css";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import { ResponsiveImage } from "../../../../components/base/ResponsiveImage";
 import { CtaLink } from "../../../../components/shared/CtaLink";
 
 function AboutHero() {
-  const { siteConfig } = useDocusaurusContext();
-
   return (
     <header className={styles.heroBanner}>
       <div className="container">
         <section className={styles.heroContent}>
           <aside>
-            <img
-              src={profileImg}
+            <ResponsiveImage
+              desktopSrc={profileImg}
+              mobileSrc={profileImgMobile}
               alt="Antonio Humanes"
               className={styles.heroImage}
             />

@@ -1,9 +1,12 @@
 import type { ReactNode } from "react";
 import Layout from "@theme/Layout";
 import AboutHero from "../../features/about-me/components/HeroSection";
-import openbankdWorkExperience from "@site/static/img/about-me/openbank-work-experience.jpg";
-import inditexWorkExperience from "@site/static/img/about-me/inditex-work-experience.jpg";
-import randstadWorkExperience from "@site/static/img/about-me/randstad-work-experience.jpg";
+import openbankWorkExperience from "@site/static/img/about-me/openbank-work-experience.webp";
+import openbankWorkExperienceMobile from "@site/static/img/about-me/openbank-work-experience-mobile.webp";
+import inditexWorkExperience from "@site/static/img/about-me/inditex-work-experience.webp";
+import inditexWorkExperienceMobile from "@site/static/img/about-me/inditex-work-experience-mobile.webp";
+import randstadWorkExperience from "@site/static/img/about-me/randstad-work-experience.webp";
+import randstadWorkExperienceMobile from "@site/static/img/about-me/randstad-work-experience-mobile.webp";
 import { ExperienceCard } from "../../features/about-me/components/ExperienceCard";
 import { SectionHeading } from "../../components/shared/SectionHeading";
 import styles from "./styles.module.css";
@@ -23,8 +26,11 @@ export default function AboutMe(): ReactNode {
               title="+9 años construyendo productos digitales"
             ></SectionHeading>
             <ExperienceCard
-              image={openbankdWorkExperience}
-              imageAlt="Experiencia profesional en Openbank"
+              image={{
+                desktopSrc: openbankWorkExperience,
+                mobileSrc: openbankWorkExperienceMobile,
+                alt: "Experiencia profesional en Openbank",
+              }}
               subtitle="Capgemini"
               title="Openbank — Wealth & Crypto"
               description={
@@ -45,8 +51,11 @@ export default function AboutMe(): ReactNode {
             />
             <ExperienceCard
               isReversed={true}
-              image={inditexWorkExperience}
-              imageAlt="Experiencia profesional en Inditex"
+              image={{
+                desktopSrc: inditexWorkExperience,
+                mobileSrc: inditexWorkExperienceMobile,
+                alt: "Experiencia profesional en Inditex",
+              }}
               subtitle="Kairós DS"
               title="Inditex — Data Governance Platform"
               description={
@@ -67,8 +76,11 @@ export default function AboutMe(): ReactNode {
               }
             />
             <ExperienceCard
-              image={randstadWorkExperience}
-              imageAlt="Experiencia profesional en Randstad"
+              image={{
+                desktopSrc: randstadWorkExperience,
+                mobileSrc: randstadWorkExperienceMobile,
+                alt: "Experiencia profesional en Randstad",
+              }}
               subtitle="Sngular"
               title="Randstad — Plataforma HR"
               description={

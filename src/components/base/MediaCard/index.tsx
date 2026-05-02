@@ -1,7 +1,11 @@
 import style from "./style.module.css";
+import {
+  ResponsiveImage,
+  type ResponsiveImageSource,
+} from "../ResponsiveImage";
 
 type Props = {
-  image: string;
+  image: ResponsiveImageSource;
   title: string;
   content?: string;
 };
@@ -9,7 +13,7 @@ type Props = {
 export const MediaCard = ({ image, title, content }: Props) => {
   return (
     <div className={style.card}>
-      <img src={image} alt={title} className={style.card__image} />
+      <ResponsiveImage {...image} className={style.card__image} />
       <h3 className={style.card__title}>{title}</h3>
       {content && <p className={style.card__content}>{content}</p>}
     </div>

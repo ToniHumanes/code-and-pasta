@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { mkdir, readdir, rename, rm, stat } from "node:fs/promises";
+import { mkdir, readdir, readFile, rename, rm, stat } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
 import sharp from "sharp";
@@ -55,6 +55,15 @@ function getOutputPath(inputRelativePath, format, outputDirectory) {
   const fileName = path.basename(inputRelativePath, extension);
 
   return normalizePath(path.join(outputDirectory, `${fileName}.${format}`));
+}
+
+function getMobileOutputPath(inputRelativePath, format, outputDirectory) {
+  const extension = path.extname(inputRelativePath);
+  const fileName = path.basename(inputRelativePath, extension);
+
+  return normalizePath(
+    path.join(outputDirectory, `${fileName}-mobile.${format}`),
+  );
 }
 
 function resolvePreset(relativePath) {
@@ -133,20 +142,40 @@ async function buildJobs() {
   const jobs = [];
 
   for (const sourceDirectoryPath of sourceDirectoryPaths) {
-    const inputPaths = await collectFiles(sourceDirectoryPath, sourceExtensions);
+    const inputPaths = await collectFiles(
+      sourceDirectoryPath,
+      sourceExtensions,
+    );
 
     for (const inputPath of inputPaths) {
       const input = normalizePath(path.relative(rootDir, inputPath));
       const preset = resolvePreset(input);
-      const output = getOutputPath(input, preset.format, preset.outputDirectory);
+      const output = getOutputPath(
+        input,
+        preset.format,
+        preset.outputDirectory,
+      );
+      const mobileOutput = preset.mobileWidth
+        ? getMobileOutputPath(input, preset.format, preset.outputDirectory)
+        : null;
 
       if (seenOutputs.has(output)) {
         throw new Error(`Duplicate optimized output path detected: ${output}`);
       }
 
       seenOutputs.add(output);
+      if (mobileOutput) {
+        if (seenOutputs.has(mobileOutput)) {
+          throw new Error(
+            `Duplicate optimized output path detected: ${mobileOutput}`,
+          );
+        }
+        seenOutputs.add(mobileOutput);
+      }
+
       jobs.push({
         input,
+        mobileOutput,
         output,
         ...preset,
       });
@@ -157,8 +186,24 @@ async function buildJobs() {
 }
 
 async function buildCheckJobs(optimizationJobs) {
-  const jobs = [...optimizationJobs];
-  const knownOutputs = new Set(optimizationJobs.map((job) => job.output));
+  const jobs = optimizationJobs.flatMap((job) => [
+    job,
+    ...(job.mobileOutput
+      ? [
+          {
+            ...job,
+            output: job.mobileOutput,
+            mobileOutput: null,
+            maxWidth: job.mobileWidth,
+          },
+        ]
+      : []),
+  ]);
+  const knownOutputs = new Set(
+    optimizationJobs.flatMap((job) =>
+      job.mobileOutput ? [job.output, job.mobileOutput] : [job.output],
+    ),
+  );
 
   for (const optimizedDirectory of optimizedDirectories) {
     const optimizedDirectoryPath = toAbsolutePath(optimizedDirectory);
@@ -193,9 +238,9 @@ async function buildCheckJobs(optimizationJobs) {
   return jobs.sort((left, right) => left.output.localeCompare(right.output));
 }
 
-function buildPipeline(image, job) {
+function buildPipeline(image, job, width = job.maxWidth) {
   const resizedImage = image.rotate().resize({
-    width: job.maxWidth,
+    width,
     withoutEnlargement: true,
   });
 
@@ -269,6 +314,11 @@ async function optimizeImage(job) {
     console.log(
       `plan  ${job.input} -> ${job.output} | preset ${job.presetName} | ${metadata.width}x${metadata.height} -> max width ${job.maxWidth}px`,
     );
+    if (job.mobileOutput) {
+      console.log(
+        `plan  ${job.input} -> ${job.mobileOutput} | preset ${job.presetName} | ${metadata.width}x${metadata.height} -> mobile width ${job.mobileWidth}px`,
+      );
+    }
     await removeOriginalIfRequested(job);
     return;
   }
@@ -280,6 +330,26 @@ async function optimizeImage(job) {
 
   if (tempOutputPath !== outputPath) {
     await rename(tempOutputPath, outputPath);
+  }
+
+  if (job.mobileOutput) {
+    const mobileOutputPath = toAbsolutePath(job.mobileOutput);
+    const mobileTempOutputPath =
+      inputPath === mobileOutputPath
+        ? `${mobileOutputPath}.tmp-${process.pid}`
+        : mobileOutputPath;
+    const mobilePipeline = buildPipeline(
+      sharp(inputPath),
+      job,
+      job.mobileWidth,
+    );
+
+    await mkdir(path.dirname(mobileOutputPath), { recursive: true });
+    await mobilePipeline.toFile(mobileTempOutputPath);
+
+    if (mobileTempOutputPath !== mobileOutputPath) {
+      await rename(mobileTempOutputPath, mobileOutputPath);
+    }
   }
 
   const outputStats = await stat(outputPath);
@@ -311,9 +381,14 @@ async function checkImage(job) {
     return false;
   }
 
-  const inputStats = await stat(inputPath);
-  const outputStats = await stat(outputPath);
-  if (outputStats.mtimeMs < inputStats.mtimeMs) {
+  const expectedBuffer = await buildPipeline(
+    sharp(inputPath),
+    job,
+    job.maxWidth,
+  ).toBuffer();
+  const actualBuffer = await readFile(outputPath);
+
+  if (!expectedBuffer.equals(actualBuffer)) {
     console.error(`fail  outdated optimized image: ${job.output}`);
     return false;
   }

@@ -15,7 +15,7 @@ const blogImageDimensions = {
 };
 
 const fallbackImage = {
-  src: "/img/fallback-post-image.webp",
+  desktopSrc: "/img/fallback-post-image.webp",
   ...blogImageDimensions,
 } satisfies BlogImage;
 
@@ -61,7 +61,11 @@ const allPostsByPermalink = new Map<string, BlogPostData>(
 function getImageSrc(imageModule: string | { default?: string }): string {
   return typeof imageModule === "string"
     ? imageModule
-    : (imageModule.default ?? fallbackImage.src);
+    : (imageModule.default ?? fallbackImage.desktopSrc);
+}
+
+function getMobileImageModulePath(imageModulePath: string): string {
+  return imageModulePath.replace(/\.(avif|jpe?g|png|webp)$/i, "-mobile.webp");
 }
 
 function resolveBlogImage(imagePath?: string): BlogImage {
@@ -70,6 +74,7 @@ function resolveBlogImage(imagePath?: string): BlogImage {
   }
 
   const imageModulePath = imagePath.replace("./img/", "./");
+  const mobileImageModulePath = getMobileImageModulePath(imageModulePath);
 
   if (!blogImageContext.keys().includes(imageModulePath)) {
     return fallbackImage;
@@ -80,7 +85,14 @@ function resolveBlogImage(imagePath?: string): BlogImage {
     | { default?: string };
 
   return {
-    src: getImageSrc(imageModule),
+    desktopSrc: getImageSrc(imageModule),
+    mobileSrc: blogImageContext.keys().includes(mobileImageModulePath)
+      ? getImageSrc(
+          blogImageContext(mobileImageModulePath) as
+            | string
+            | { default?: string },
+        )
+      : undefined,
     ...blogImageDimensions,
   };
 }
@@ -99,7 +111,11 @@ function getLatestPosts(): PostItem[] {
         permalink: post.metadata.permalink,
         date: post.metadata.date,
         description: post.metadata.description ?? fallbackDescription,
-        image: image.src,
+        image: {
+          desktopSrc: image.desktopSrc,
+          mobileSrc: image.mobileSrc,
+          alt: post.metadata.title,
+        },
         imageWidth: image.width,
         imageHeight: image.height,
       };
