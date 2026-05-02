@@ -1,5 +1,4 @@
 import { themes as prismThemes } from "prism-react-renderer";
-import latestPostsPlugin from "./src/plugins/latestPostsPlugin";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
@@ -58,8 +57,6 @@ const config: Config = {
   },
 
   themes: ["@docusaurus/theme-mermaid"],
-
-  plugins: [latestPostsPlugin],
 
   scripts: [
     {

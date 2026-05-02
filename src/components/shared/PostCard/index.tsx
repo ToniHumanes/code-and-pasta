@@ -10,7 +10,7 @@ import styles from "./style.module.css";
 type Props = {
   title: string;
   permalink: string;
-  dateLabel: string;
+  date: string;
   description: string;
   image: ResponsiveImageSource;
   imageWidth?: number;
@@ -20,10 +20,18 @@ type Props = {
   isReversed?: boolean;
 };
 
+function formatDate(date: string) {
+  return new Intl.DateTimeFormat("es-ES", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  }).format(new Date(date));
+}
+
 export const PostCard = ({
   title,
   permalink,
-  dateLabel,
+  date,
   description,
   image,
   imageWidth = 1200,
@@ -47,7 +55,7 @@ export const PostCard = ({
       </Link>
 
       <div className={styles.postContent}>
-        <p className={styles.postMeta}>{dateLabel}</p>
+        <p className={styles.postMeta}>{formatDate(date)}</p>
         <Heading as="h3" className={styles.postTitle}>
           <Link className={styles.postTitleLink} to={permalink}>
             {title}
