@@ -1,0 +1,15 @@
+.themedImage {
+  display: none;
+}
+
+.themedImageLight {
+  display: block;
+}
+
+:global([data-theme="dark"]) .themedImageLight {
+  display: none;
+}
+
+:global([data-theme="dark"]) .themedImageDark {
+  display: block;
+}

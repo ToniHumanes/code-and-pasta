@@ -1,6 +1,10 @@
 import clsx from "clsx";
 import Heading from "@theme/Heading";
 import Link from "@docusaurus/Link";
+import {
+  ResponsiveImage,
+  type ResponsiveImageSource,
+} from "../../base/ResponsiveImage";
 import styles from "./style.module.css";
 
 type Props = {
@@ -8,7 +12,7 @@ type Props = {
   permalink: string;
   date: string;
   description: string;
-  image: string;
+  image: ResponsiveImageSource;
   imageWidth?: number;
   imageHeight?: number;
   actionLabel?: string;
@@ -40,10 +44,9 @@ export const PostCard = ({
       className={clsx(styles.postCard, isReversed && styles.postCardReverse)}
     >
       <Link className={styles.postVisualLink} to={permalink}>
-        <img
+        <ResponsiveImage
+          {...image}
           className={styles.postImage}
-          src={image}
-          alt={title}
           width={imageWidth}
           height={imageHeight}
           loading="lazy"

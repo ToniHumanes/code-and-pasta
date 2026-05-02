@@ -2,12 +2,16 @@ import type { ReactNode } from "react";
 import clsx from "clsx";
 import Heading from "@theme/Heading";
 import { CardSurface } from "../../base/CardSurface";
+import {
+  ResponsiveImage,
+  type ResponsiveImageSource,
+} from "../../base/ResponsiveImage";
 import styles from "./style.module.css";
 
 type Props = {
   eyebrow: string;
   title: string;
-  image: string;
+  image: ResponsiveImageSource;
   description: ReactNode;
   imageWidth?: number;
   imageHeight?: number;
@@ -24,10 +28,9 @@ export const ContentCard = ({
   return (
     <CardSurface className={clsx(styles.card)}>
       <div className={styles.visual}>
-        <img
+        <ResponsiveImage
+          {...image}
           className={styles.image}
-          src={image}
-          alt={title}
           width={imageWidth}
           height={imageHeight}
           loading="lazy"

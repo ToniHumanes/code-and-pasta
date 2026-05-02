@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import Heading from "@theme/Heading";
-import ThemedImage from "@theme/ThemedImage";
+import { ThemedResponsiveImage } from "../../../../components/base/ThemedResponsiveImage";
 import { CtaLink } from "../../../../components/shared/CtaLink";
 import styles from "./styles.module.css";
 
@@ -12,12 +12,19 @@ function HomepageHeader(): ReactNode {
       <div className="container">
         <section className={styles.heroContent}>
           <div className={styles.heroMedia}>
-            <ThemedImage
+            <ThemedResponsiveImage
               sources={{
-                light: "/img/home/code-and-pasta-light.webp",
-                dark: "/img/home/code-and-pasta-dark.webp",
+                light: {
+                  desktopSrc: "/img/home/code-and-pasta-light.webp",
+                  mobileSrc: "/img/home/code-and-pasta-light-mobile.webp",
+                  alt: "Código & Pasta",
+                },
+                dark: {
+                  desktopSrc: "/img/home/code-and-pasta-dark.webp",
+                  mobileSrc: "/img/home/code-and-pasta-dark-mobile.webp",
+                  alt: "Código & Pasta",
+                },
               }}
-              alt="Código & Pasta"
               className={styles.heroImage}
               width="720"
               height="720"

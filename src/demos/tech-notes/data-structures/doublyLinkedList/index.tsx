@@ -139,7 +139,10 @@ export const DoublyLinkedListDemo = () => {
           <MediaCard
             title={currentNode.value.title}
             content={currentNode.value.content}
-            image={currentNode.value.image}
+            image={{
+              desktopSrc: currentNode.value.image,
+              alt: currentNode.value.title,
+            }}
           />
         ) : (
           <p>{emptyText}</p>

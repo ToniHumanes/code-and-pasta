@@ -57,6 +57,13 @@ function getOutputPath(inputRelativePath, format, outputDirectory) {
   return normalizePath(path.join(outputDirectory, `${fileName}.${format}`));
 }
 
+function getMobileOutputPath(inputRelativePath, format, outputDirectory) {
+  const extension = path.extname(inputRelativePath);
+  const fileName = path.basename(inputRelativePath, extension);
+
+  return normalizePath(path.join(outputDirectory, `${fileName}-mobile.${format}`));
+}
+
 function resolvePreset(relativePath) {
   const normalizedPath = normalizePath(relativePath);
   const matchedRule = presetRules.find((rule) => rule.matches(normalizedPath));
@@ -139,14 +146,25 @@ async function buildJobs() {
       const input = normalizePath(path.relative(rootDir, inputPath));
       const preset = resolvePreset(input);
       const output = getOutputPath(input, preset.format, preset.outputDirectory);
+      const mobileOutput = preset.mobileWidth
+        ? getMobileOutputPath(input, preset.format, preset.outputDirectory)
+        : null;
 
       if (seenOutputs.has(output)) {
         throw new Error(`Duplicate optimized output path detected: ${output}`);
       }
 
       seenOutputs.add(output);
+      if (mobileOutput) {
+        if (seenOutputs.has(mobileOutput)) {
+          throw new Error(`Duplicate optimized output path detected: ${mobileOutput}`);
+        }
+        seenOutputs.add(mobileOutput);
+      }
+
       jobs.push({
         input,
+        mobileOutput,
         output,
         ...preset,
       });
@@ -157,8 +175,23 @@ async function buildJobs() {
 }
 
 async function buildCheckJobs(optimizationJobs) {
-  const jobs = [...optimizationJobs];
-  const knownOutputs = new Set(optimizationJobs.map((job) => job.output));
+  const jobs = optimizationJobs.flatMap((job) => [
+    job,
+    ...(job.mobileOutput
+      ? [
+          {
+            ...job,
+            output: job.mobileOutput,
+            mobileOutput: null,
+          },
+        ]
+      : []),
+  ]);
+  const knownOutputs = new Set(
+    optimizationJobs.flatMap((job) =>
+      job.mobileOutput ? [job.output, job.mobileOutput] : [job.output],
+    ),
+  );
 
   for (const optimizedDirectory of optimizedDirectories) {
     const optimizedDirectoryPath = toAbsolutePath(optimizedDirectory);
@@ -193,9 +226,9 @@ async function buildCheckJobs(optimizationJobs) {
   return jobs.sort((left, right) => left.output.localeCompare(right.output));
 }
 
-function buildPipeline(image, job) {
+function buildPipeline(image, job, width = job.maxWidth) {
   const resizedImage = image.rotate().resize({
-    width: job.maxWidth,
+    width,
     withoutEnlargement: true,
   });
 
@@ -269,6 +302,11 @@ async function optimizeImage(job) {
     console.log(
       `plan  ${job.input} -> ${job.output} | preset ${job.presetName} | ${metadata.width}x${metadata.height} -> max width ${job.maxWidth}px`,
     );
+    if (job.mobileOutput) {
+      console.log(
+        `plan  ${job.input} -> ${job.mobileOutput} | preset ${job.presetName} | ${metadata.width}x${metadata.height} -> mobile width ${job.mobileWidth}px`,
+      );
+    }
     await removeOriginalIfRequested(job);
     return;
   }
@@ -280,6 +318,22 @@ async function optimizeImage(job) {
 
   if (tempOutputPath !== outputPath) {
     await rename(tempOutputPath, outputPath);
+  }
+
+  if (job.mobileOutput) {
+    const mobileOutputPath = toAbsolutePath(job.mobileOutput);
+    const mobileTempOutputPath =
+      inputPath === mobileOutputPath
+        ? `${mobileOutputPath}.tmp-${process.pid}`
+        : mobileOutputPath;
+    const mobilePipeline = buildPipeline(sharp(inputPath), job, job.mobileWidth);
+
+    await mkdir(path.dirname(mobileOutputPath), { recursive: true });
+    await mobilePipeline.toFile(mobileTempOutputPath);
+
+    if (mobileTempOutputPath !== mobileOutputPath) {
+      await rename(mobileTempOutputPath, mobileOutputPath);
+    }
   }
 
   const outputStats = await stat(outputPath);

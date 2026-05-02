@@ -1,3 +1,5 @@
+import type { ResponsiveImageSource } from "../../../../components/base/ResponsiveImage";
+
 export type BlogPostMetadata = {
   title: string;
   permalink: string;
@@ -7,7 +9,8 @@ export type BlogPostMetadata = {
 };
 
 export type BlogImage = {
-  src: string;
+  desktopSrc: string;
+  mobileSrc?: string;
   width: number;
   height: number;
 };
@@ -44,7 +47,7 @@ export type PostItem = {
   permalink: string;
   date: string;
   description: string;
-  image: string;
+  image: ResponsiveImageSource;
   imageWidth: number;
   imageHeight: number;
 };
