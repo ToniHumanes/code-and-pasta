@@ -1,4 +1,4 @@
-const sourceDirectories = ["static/img/source-images/blog"];
+const sourceDirectories = ["assets/source-images/blog"];
 const optimizedDirectories = ["blog/img"];
 
 const sourceExtensions = new Set([".jpg", ".jpeg", ".png"]);
@@ -17,7 +17,7 @@ const presetRules = [
   {
     name: "blogCover",
     matches: (relativePath) =>
-      relativePath.startsWith("static/img/source-images/blog/") ||
+      relativePath.startsWith("assets/source-images/blog/") ||
       relativePath.startsWith("blog/img/"),
     outputDirectory: "blog/img",
     preset: "blogCover",
