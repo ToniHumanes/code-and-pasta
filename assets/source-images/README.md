@@ -50,14 +50,15 @@ static/img/
 
 ```bash
 # Hero light
-node -e "const sharp=require('sharp'); sharp('assets/source-images/home/code-and-pasta-light.png').resize({width:720,height:720,fit:'cover',withoutEnlargement:true}).webp({quality:76,effort:6}).toFile('static/img/home/code-and-pasta-light.webp')"
+node -e "const sharp=require('sharp'); sharp('assets/source-images/home/code-and-pasta-light.png').resize({width:480,height:480,fit:'cover',withoutEnlargement:true}).webp({quality:74,effort:6}).toFile('static/img/home/code-and-pasta-light.webp')"
 
-node -e "const sharp=require('sharp'); sharp('assets/source-images/home/code-and-pasta-light.png').resize({width:416,height:416,fit:'cover',withoutEnlargement:true}).webp({quality:74,effort:6}).toFile('static/img/home/code-and-pasta-light-mobile.webp')"
+node -e "const sharp=require('sharp'); sharp('assets/source-images/home/code-and-pasta-light.png').resize({width:416,height:416,fit:'cover',withoutEnlargement:true}).webp({quality:70,effort:6}).toFile('static/img/home/code-and-pasta-light-mobile.webp')"
 
 # Hero dark
-node -e "const sharp=require('sharp'); sharp('assets/source-images/home/code-and-pasta-dark.png').resize({width:720,height:720,fit:'cover',withoutEnlargement:true}).webp({quality:76,effort:6}).toFile('static/img/home/code-and-pasta-dark.webp')"
 
-node -e "const sharp=require('sharp'); sharp('assets/source-images/home/code-and-pasta-dark.png').resize({width:416,height:416,fit:'cover',withoutEnlargement:true}).webp({quality:74,effort:6}).toFile('static/img/home/code-and-pasta-dark-mobile.webp')"
+node -e "const sharp=require('sharp'); sharp('assets/source-images/home/code-and-pasta-dark.png').resize({width:480,height:480,fit:'cover',withoutEnlargement:true}).webp({quality:74,effort:6}).toFile('static/img/home/code-and-pasta-dark.webp')"
+
+node -e "const sharp=require('sharp'); sharp('assets/source-images/home/code-and-pasta-dark.png').resize({width:416,height:416,fit:'cover',withoutEnlargement:true}).webp({quality:70,effort:6}).toFile('static/img/home/code-and-pasta-dark-mobile.webp')"
 
 # Feature icons
 node -e "const sharp=require('sharp'); sharp('assets/source-images/home/intro.png').resize({width:128,height:128,fit:'cover',withoutEnlargement:true}).webp({quality:68,effort:6}).toFile('static/img/home/intro.webp')"

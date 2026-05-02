@@ -7,9 +7,10 @@ const optimizedExtensions = new Set([".webp"]);
 const presets = {
   blogCover: {
     format: "webp",
-    maxWidth: 900,
-    mobileWidth: 600,
-    quality: 90,
+    maxWidth: 700,
+    mobileWidth: 420,
+    quality: 80,
+    effort: 6,
   },
 };
 
