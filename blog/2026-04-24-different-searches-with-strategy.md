@@ -32,7 +32,7 @@ A simple vista empezamos a notar que añadir la lógica entre medias de la imple
 
 La alternativa habría sido añadir condicionales dentro del buscador existente, mezclando comportamientos distintos en una misma pieza y aumentando el acoplamiento.
 
-Si queríamos agregar todo este nuevo comportamiento a nuestro buscador debería cumplir con los siguientes requerimientos.
+Si queríamos agregar todo este nuevo comportamiento a nuestro buscador debería cumplir con los siguientes requerimientos:
 
 1. No afectar al comportamiento actual del buscador avanzado.
 2. Que no estuviera acoplado al buscador avanzado y tuviera independencia de él.

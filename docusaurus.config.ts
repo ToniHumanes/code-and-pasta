@@ -31,19 +31,6 @@ const config: Config = {
 
   onBrokenLinks: "throw",
 
-  headTags: [
-    {
-      tagName: "link",
-      attributes: {
-        rel: "preload",
-        href: "/fonts/inter-latin.woff2",
-        as: "font",
-        type: "font/woff2",
-        crossorigin: "anonymous",
-      },
-    },
-  ],
-
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
