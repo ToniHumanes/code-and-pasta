@@ -22,3 +22,18 @@ data:
   label: Datos
   permalink: /data
   description: Apuntes sobre datos, herramientas y toma de decisiones basada en información.
+
+technical:
+  label: Técnico
+  permalink: /technical
+  description: Contenido técnico avanzado sobre herramientas y tecnologías.
+
+users:
+  label: Usuarios
+  permalink: /users
+  description: Artículos sobre experiencia de usuario y diseño centrado en el usuario.
+
+optimization:
+  label: Optimización
+  permalink: /optimization
+  description: Estrategias y técnicas para optimizar rendimiento y eficiencia.
