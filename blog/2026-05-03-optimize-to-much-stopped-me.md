@@ -7,6 +7,8 @@ tags: [development, optimization, product]
 # slug: custom-post-slug
 ---
 
+![Imagen de un semáforo que tiene varias posibilidades](@site/blog/img/optimization.webp)
+
 En el proceso de creación de este blog me he encontrado con varios retos, uno de ellos ha sido la performance.
 
 Cada vez que pasaba la web por PageSpeed, quería ver ese 100.
