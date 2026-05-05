@@ -4,6 +4,7 @@ title: "Cómo migramos una MPA a una SPA sin romper la experiencia de usuario"
 description: "Cómo conseguimos conectar un MPA legacy en aspx con un nuevo SPA en Angular para mejorar performance, escalabilidad, eficiencia pero sobre todo la experiencia de usuario."
 image: ./img/open-doors.webp
 tags: [development, product, users]
+draft: true
 ---
 
 ![Imagen de una puerta azul que da acceso a una sala](@site/blog/img/open-doors.webp)

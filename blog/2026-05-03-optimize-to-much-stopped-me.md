@@ -13,9 +13,11 @@ En el proceso de creación de este blog me he encontrado con varios retos, uno d
 
 Cada vez que pasaba la web por PageSpeed, quería ver ese 100.
 
-<!-- truncate -->
-
 Y si no estaba… seguía tocando cosas, revisando el informe e intentando encontrar la solución.
+
+Me di cuenta de que estaba perdiendo demasiado tiempo o mejor dicho: no invirtiéndolo donde tocaba.
+
+<!-- truncate -->
 
 Estoy usando `Docusaurus`, que de base está bastante optimizado.
 
@@ -57,8 +59,13 @@ No digo que optimizar no sea necesario, es más, ahora hay que estar más atento
 - SEO.
 
 Pero no todo tiene el mismo impacto.
-
 No todo merece el mismo nivel de esfuerzo.
+
+Por eso también estoy mirando otras señales, no solo PageSpeed.
+
+Herramientas como `GTmetrix` o `Vercel Speed Insights` me dan otra visión del estado del blog, pero también estoy revisando métricas reales en `Umami`, como el `bounce rate` o la `visit duration`.
+
+Si los usuarios pueden entrar, leer y navegar sin complicaciones, quizá el problema no es tan grave como parece en una puntuación aislada.
 
 ## La regla que me llevo
 
