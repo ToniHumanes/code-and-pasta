@@ -1,20 +1,9 @@
-const OpenAI = require("openai").default;
 const { MAX_DIFF_CHARS } = require("./pr-review.config");
 const { openAiApiKey } = require("./pr-review.vars");
 
-const openai = new OpenAI({
-  apiKey: openAiApiKey,
-});
-
-/**
- * @param {string} diff
- */
-async function analyzeDiffWithAI(diff) {
-  const trimmedDiff = diff.slice(0, MAX_DIFF_CHARS);
-
-  const response = await openai.responses.create({
-    model: "gpt-4.1-mini",
-    instructions: `
+const OPENAI_RESPONSES_URL = "https://api.openai.com/v1/responses";
+const MODEL = "gpt-4.1-mini";
+const REVIEW_INSTRUCTIONS = `
 You are a senior frontend engineer reviewing a Docusaurus blog pull request.
 
 Focus on:
@@ -64,15 +53,65 @@ For technical posts:
 - Check whether the feature/concept is described correctly.
 - Flag potential technical inaccuracies.
 - Flag implementation risks or missing trade-offs.
-`,
-    input: `
+`;
+
+/**
+ * @param {unknown} responseBody
+ * @returns {string}
+ */
+function getResponseText(responseBody) {
+  if (
+    responseBody &&
+    typeof responseBody === "object" &&
+    "output_text" in responseBody &&
+    typeof responseBody.output_text === "string"
+  ) {
+    return responseBody.output_text;
+  }
+
+  throw new Error("OpenAI response did not include output_text.");
+}
+
+/**
+ * @param {string} input
+ * @returns {Promise<string>}
+ */
+async function getOpenAIResponse(input) {
+  const response = await fetch(OPENAI_RESPONSES_URL, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${openAiApiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      model: MODEL,
+      instructions: REVIEW_INSTRUCTIONS,
+      input,
+    }),
+  });
+
+  const responseBody = await response.json();
+
+  if (!response.ok) {
+    throw new Error(
+      `OpenAI API error: ${response.status} ${JSON.stringify(responseBody)}`,
+    );
+  }
+
+  return getResponseText(responseBody);
+}
+
+/**
+ * @param {string} diff
+ */
+async function analyzeDiffWithAI(diff) {
+  const trimmedDiff = diff.slice(0, MAX_DIFF_CHARS);
+
+  return getOpenAIResponse(`
 Review this PR diff:
 
 ${trimmedDiff}
-`,
-  });
-
-  return response.output_text;
+`);
 }
 
 module.exports = {
