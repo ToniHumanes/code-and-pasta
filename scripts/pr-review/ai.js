@@ -56,20 +56,84 @@ For technical posts:
 `;
 
 /**
- * @param {unknown} responseBody
- * @returns {string}
+ * @param {unknown} value
+ * @returns {value is Record<string, unknown>}
  */
-function getResponseText(responseBody) {
+function isRecord(value) {
+  return Boolean(value) && typeof value === "object";
+}
+
+/**
+ * @param {Record<string, unknown>} responseBody
+ * @returns {string | null}
+ */
+function getOutputText(responseBody) {
   if (
-    responseBody &&
-    typeof responseBody === "object" &&
     "output_text" in responseBody &&
     typeof responseBody.output_text === "string"
   ) {
     return responseBody.output_text;
   }
 
-  throw new Error("OpenAI response did not include output_text.");
+  return null;
+}
+
+/**
+ * @param {Record<string, unknown>} responseBody
+ * @returns {string | null}
+ */
+function getNestedOutputText(responseBody) {
+  if (!Array.isArray(responseBody.output)) {
+    return null;
+  }
+
+  const textParts = responseBody.output.flatMap((outputItem) => {
+    if (!isRecord(outputItem) || !Array.isArray(outputItem.content)) {
+      return [];
+    }
+
+    return outputItem.content.flatMap((contentItem) => {
+      if (!isRecord(contentItem)) {
+        return [];
+      }
+
+      if (!("text" in contentItem) || typeof contentItem.text !== "string") {
+        return [];
+      }
+
+      return [contentItem.text];
+    });
+  });
+
+  if (!textParts.length) {
+    return null;
+  }
+
+  return textParts.join("\n");
+}
+
+/**
+ * @param {unknown} responseBody
+ * @returns {string}
+ */
+function getResponseText(responseBody) {
+  if (!isRecord(responseBody)) {
+    throw new Error("OpenAI response body was not an object.");
+  }
+
+  const outputText = getOutputText(responseBody);
+  if (outputText) {
+    return outputText;
+  }
+
+  const nestedOutputText = getNestedOutputText(responseBody);
+  if (nestedOutputText) {
+    return nestedOutputText;
+  }
+
+  throw new Error(
+    `OpenAI response did not include text output. Response keys: ${Object.keys(responseBody).join(", ")}`,
+  );
 }
 
 /**
