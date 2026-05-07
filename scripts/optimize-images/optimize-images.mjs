@@ -23,14 +23,55 @@ const flags = {
   overwrite: args.has("--overwrite"),
 };
 
+/**
+ * @typedef {Object} ResolvedPreset
+ * @property {string} format
+ * @property {number} maxWidth
+ * @property {number} [mobileWidth]
+ * @property {string} outputDirectory
+ * @property {string} presetName
+ * @property {number} quality
+ */
+
+/**
+ * @typedef {ResolvedPreset & {
+ *   input: string;
+ *   output: string;
+ *   mobileOutput: string | null;
+ * }} OptimizationJob
+ */
+
+/**
+ * @typedef {ResolvedPreset & {
+ *   input: string | null;
+ *   output: string;
+ *   mobileOutput: null;
+ * }} CheckJob
+ */
+
+/**
+ * @typedef {Object} JobOutput
+ * @property {string} output
+ * @property {number} width
+ */
+
+/**
+ * @param {string} relativePath
+ */
 function toAbsolutePath(relativePath) {
   return path.resolve(rootDir, relativePath);
 }
 
+/**
+ * @param {string} filePath
+ */
 function normalizePath(filePath) {
   return filePath.replaceAll(path.sep, "/");
 }
 
+/**
+ * @param {number} bytes
+ */
 function formatBytes(bytes) {
   if (bytes < 1024) {
     return `${bytes} B`;
@@ -43,6 +84,10 @@ function formatBytes(bytes) {
   return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
 }
 
+/**
+ * @param {number} inputBytes
+ * @param {number} outputBytes
+ */
 function formatSavings(inputBytes, outputBytes) {
   const savings = inputBytes - outputBytes;
   const percent = (savings / inputBytes) * 100;
@@ -50,6 +95,12 @@ function formatSavings(inputBytes, outputBytes) {
   return `${formatBytes(savings)} (${percent.toFixed(1)}%)`;
 }
 
+/**
+ * @param {string} inputRelativePath
+ * @param {string} format
+ * @param {string} outputDirectory
+ * @returns {string}
+ */
 function getOutputPath(inputRelativePath, format, outputDirectory) {
   const extension = path.extname(inputRelativePath);
   const fileName = path.basename(inputRelativePath, extension);
@@ -57,6 +108,12 @@ function getOutputPath(inputRelativePath, format, outputDirectory) {
   return normalizePath(path.join(outputDirectory, `${fileName}.${format}`));
 }
 
+/**
+ * @param {string} inputRelativePath
+ * @param {string} format
+ * @param {string} outputDirectory
+ * @returns {string}
+ */
 function getMobileOutputPath(inputRelativePath, format, outputDirectory) {
   const extension = path.extname(inputRelativePath);
   const fileName = path.basename(inputRelativePath, extension);
@@ -66,6 +123,32 @@ function getMobileOutputPath(inputRelativePath, format, outputDirectory) {
   );
 }
 
+/**
+ * @param {OptimizationJob | CheckJob} job
+ * @returns {JobOutput[]}
+ */
+function getJobOutputs(job) {
+  const outputs = [
+    {
+      output: job.output,
+      width: job.maxWidth,
+    },
+  ];
+
+  if (job.mobileOutput && job.mobileWidth) {
+    outputs.push({
+      output: job.mobileOutput,
+      width: job.mobileWidth,
+    });
+  }
+
+  return outputs;
+}
+
+/**
+ * @param {string} relativePath
+ * @returns {ResolvedPreset}
+ */
 function resolvePreset(relativePath) {
   const normalizedPath = normalizePath(relativePath);
   const matchedRule = presetRules.find((rule) => rule.matches(normalizedPath));
@@ -81,15 +164,33 @@ function resolvePreset(relativePath) {
   };
 }
 
+/**
+ * @param {string} filePath
+ */
 async function pathExists(filePath) {
   try {
     await stat(filePath);
     return true;
-  } catch {
-    return false;
+  } catch (error) {
+    if (error && typeof error === "object" && "code" in error) {
+      if (error.code === "ENOENT") {
+        return false;
+      }
+    }
+
+    if (error instanceof Error) {
+      throw error;
+    }
+
+    throw new Error(String(error));
   }
 }
 
+/**
+ * @param {string} directoryPath
+ * @param {Set<string>} extensions
+ * @returns {Promise<string[]>}
+ */
 async function collectFiles(directoryPath, extensions) {
   const entries = await readdir(directoryPath, { withFileTypes: true });
   const files = [];
@@ -116,6 +217,9 @@ async function collectFiles(directoryPath, extensions) {
   return files.sort((left, right) => left.localeCompare(right));
 }
 
+/**
+ * @returns {Promise<string[]>}
+ */
 async function getAvailableSourceDirectories() {
   const availableDirectories = [];
 
@@ -136,6 +240,9 @@ async function getAvailableSourceDirectories() {
   return availableDirectories;
 }
 
+/**
+ * @returns {Promise<OptimizationJob[]>}
+ */
 async function buildJobs() {
   const sourceDirectoryPaths = await getAvailableSourceDirectories();
   const seenOutputs = new Set();
@@ -185,23 +292,23 @@ async function buildJobs() {
   return jobs;
 }
 
+/**
+ * @param {OptimizationJob[]} optimizationJobs
+ * @returns {Promise<CheckJob[]>}
+ */
 async function buildCheckJobs(optimizationJobs) {
-  const jobs = optimizationJobs.flatMap((job) => [
-    job,
-    ...(job.mobileOutput
-      ? [
-          {
-            ...job,
-            output: job.mobileOutput,
-            mobileOutput: null,
-            maxWidth: job.mobileWidth,
-          },
-        ]
-      : []),
-  ]);
+  /** @type {CheckJob[]} */
+  const jobs = optimizationJobs.flatMap((job) =>
+    getJobOutputs(job).map(({ output, width }) => ({
+      ...job,
+      mobileOutput: null,
+      output,
+      maxWidth: width,
+    })),
+  );
   const knownOutputs = new Set(
     optimizationJobs.flatMap((job) =>
-      job.mobileOutput ? [job.output, job.mobileOutput] : [job.output],
+      getJobOutputs(job).map(({ output }) => output),
     ),
   );
 
@@ -227,9 +334,10 @@ async function buildCheckJobs(optimizationJobs) {
       const preset = resolvePreset(output);
 
       jobs.push({
-        input: null,
-        output,
         ...preset,
+        input: null,
+        mobileOutput: null,
+        output,
       });
       knownOutputs.add(output);
     }
@@ -238,6 +346,11 @@ async function buildCheckJobs(optimizationJobs) {
   return jobs.sort((left, right) => left.output.localeCompare(right.output));
 }
 
+/**
+ * @param {import("sharp").Sharp} image
+ * @param {OptimizationJob | CheckJob} job
+ * @param {number} [width]
+ */
 function buildPipeline(image, job, width = job.maxWidth) {
   const resizedImage = image.rotate().resize({
     width,
@@ -269,15 +382,30 @@ function buildPipeline(image, job, width = job.maxWidth) {
   }
 }
 
+/**
+ * @param {OptimizationJob} job
+ */
 async function removeOriginalIfRequested(job) {
   if (!flags.deleteOriginals) {
     return;
   }
 
   const inputPath = toAbsolutePath(job.input);
-  const outputPath = toAbsolutePath(job.output);
+  const outputPaths = getJobOutputs(job).map(({ output }) =>
+    toAbsolutePath(output),
+  );
 
-  if (!(await pathExists(inputPath)) || !(await pathExists(outputPath))) {
+  if (!(await pathExists(inputPath))) {
+    return;
+  }
+
+  for (const outputPath of outputPaths) {
+    if (!(await pathExists(outputPath))) {
+      return;
+    }
+  }
+
+  if (flags.check) {
     return;
   }
 
@@ -290,18 +418,27 @@ async function removeOriginalIfRequested(job) {
   console.log(`del   ${job.input}`);
 }
 
+/**
+ * @param {OptimizationJob} job
+ */
 async function optimizeImage(job) {
   const inputPath = toAbsolutePath(job.input);
-  const outputPath = toAbsolutePath(job.output);
-  const tempOutputPath =
-    inputPath === outputPath ? `${outputPath}.tmp-${process.pid}` : outputPath;
+  const outputs = getJobOutputs(job);
 
   if (!(await pathExists(inputPath))) {
     console.warn(`skip  missing input: ${job.input}`);
     return;
   }
 
-  if (!flags.overwrite && (await pathExists(outputPath))) {
+  const existingOutputs = [];
+
+  for (const output of outputs) {
+    if (await pathExists(toAbsolutePath(output.output))) {
+      existingOutputs.push(output.output);
+    }
+  }
+
+  if (!flags.overwrite && existingOutputs.length === outputs.length) {
     console.log(`skip  already exists: ${job.output}`);
     await removeOriginalIfRequested(job);
     return;
@@ -311,73 +448,67 @@ async function optimizeImage(job) {
   const metadata = await sharp(inputPath).metadata();
 
   if (flags.dryRun) {
-    console.log(
-      `plan  ${job.input} -> ${job.output} | preset ${job.presetName} | ${metadata.width}x${metadata.height} -> max width ${job.maxWidth}px`,
-    );
-    if (job.mobileOutput) {
+    for (const output of outputs) {
       console.log(
-        `plan  ${job.input} -> ${job.mobileOutput} | preset ${job.presetName} | ${metadata.width}x${metadata.height} -> mobile width ${job.mobileWidth}px`,
+        `plan  ${job.input} -> ${output.output} | preset ${job.presetName} | ${metadata.width}x${metadata.height} -> max width ${output.width}px`,
       );
     }
     await removeOriginalIfRequested(job);
     return;
   }
 
-  await mkdir(path.dirname(outputPath), { recursive: true });
+  for (const output of outputs) {
+    const outputPath = toAbsolutePath(output.output);
 
-  const pipeline = buildPipeline(sharp(inputPath), job);
-  await pipeline.toFile(tempOutputPath);
-
-  if (tempOutputPath !== outputPath) {
-    await rename(tempOutputPath, outputPath);
-  }
-
-  if (job.mobileOutput) {
-    const mobileOutputPath = toAbsolutePath(job.mobileOutput);
-    const mobileTempOutputPath =
-      inputPath === mobileOutputPath
-        ? `${mobileOutputPath}.tmp-${process.pid}`
-        : mobileOutputPath;
-    const mobilePipeline = buildPipeline(
-      sharp(inputPath),
-      job,
-      job.mobileWidth,
-    );
-
-    await mkdir(path.dirname(mobileOutputPath), { recursive: true });
-    await mobilePipeline.toFile(mobileTempOutputPath);
-
-    if (mobileTempOutputPath !== mobileOutputPath) {
-      await rename(mobileTempOutputPath, mobileOutputPath);
+    if (!flags.overwrite && existingOutputs.includes(output.output)) {
+      console.log(`skip  already exists: ${output.output}`);
+      continue;
     }
+
+    const tempOutputPath =
+      inputPath === outputPath
+        ? `${outputPath}.tmp-${process.pid}`
+        : outputPath;
+    const pipeline = buildPipeline(sharp(inputPath), job, output.width);
+
+    await mkdir(path.dirname(outputPath), { recursive: true });
+    await pipeline.toFile(tempOutputPath);
+
+    if (tempOutputPath !== outputPath) {
+      await rename(tempOutputPath, outputPath);
+    }
+
+    const outputStats = await stat(outputPath);
+
+    console.log(
+      `done  ${output.output} | preset ${job.presetName} | ${formatBytes(inputStats.size)} -> ${formatBytes(outputStats.size)} | saved ${formatSavings(inputStats.size, outputStats.size)}`,
+    );
   }
-
-  const outputStats = await stat(outputPath);
-
-  console.log(
-    `done  ${job.output} | preset ${job.presetName} | ${formatBytes(inputStats.size)} -> ${formatBytes(outputStats.size)} | saved ${formatSavings(inputStats.size, outputStats.size)}`,
-  );
 
   await removeOriginalIfRequested(job);
 }
 
+/**
+ * @param {CheckJob} job
+ * @returns {Promise<boolean>}
+ */
 async function checkImage(job) {
   const outputPath = toAbsolutePath(job.output);
 
   if (!(await pathExists(outputPath))) {
-    console.error(`fail  missing optimized image: ${job.output}`);
+    console.error(`fail missing optimized image: ${job.output}`);
     return false;
   }
 
   if (!job.input) {
-    console.log(`ok    ${job.output} | preset ${job.presetName}`);
+    console.log(`ok ${job.output} | preset ${job.presetName}`);
     return true;
   }
 
   const inputPath = toAbsolutePath(job.input);
 
   if (!(await pathExists(inputPath))) {
-    console.error(`fail  missing input: ${job.input}`);
+    console.error(`fail missing input: ${job.input}`);
     return false;
   }
 
@@ -393,10 +524,13 @@ async function checkImage(job) {
     return false;
   }
 
-  console.log(`ok    ${job.output} | preset ${job.presetName}`);
+  console.log(`ok ${job.output} | preset ${job.presetName}`);
   return true;
 }
 
+/**
+ * @param {CheckJob[]} jobs
+ */
 async function runCheck(jobs) {
   console.log(`checking ${jobs.length} optimized image(s)`);
 
@@ -412,6 +546,9 @@ async function runCheck(jobs) {
   }
 }
 
+/**
+ * @param {OptimizationJob[]} jobs
+ */
 async function runOptimize(jobs) {
   console.log(
     `optimizing ${jobs.length} image(s)${flags.dryRun ? " in dry-run mode" : ""}`,
