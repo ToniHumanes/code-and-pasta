@@ -1,11 +1,12 @@
-import type { ReactNode } from "react";
 import Heading from "@theme/Heading";
+import clsx from "clsx";
+import type { ReactNode } from "react";
+
 import { CardSurface } from "../../../../components/base/CardSurface";
 import {
   ResponsiveImage,
   type ResponsiveImageSource,
 } from "../../../../components/base/ResponsiveImage";
-import clsx from "clsx";
 import styles from "./styles.module.css";
 
 type Props = {

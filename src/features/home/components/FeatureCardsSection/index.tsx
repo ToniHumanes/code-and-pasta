@@ -1,8 +1,9 @@
 import type { ReactNode } from "react";
+
 import type { ResponsiveImageSource } from "../../../../components/base/ResponsiveImage";
-import styles from "./styles.module.css";
 import { ContentCard } from "../../../../components/shared/ContentCard";
 import { SectionHeading } from "../../../../components/shared/SectionHeading";
+import styles from "./styles.module.css";
 
 type FeatureItem = {
   eyebrow: string;

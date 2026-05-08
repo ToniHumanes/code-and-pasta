@@ -1,5 +1,6 @@
-import type { ComponentPropsWithoutRef, ReactNode } from "react";
 import clsx from "clsx";
+import type { ComponentPropsWithoutRef, ReactNode } from "react";
+
 import styles from "./style.module.css";
 
 type Props = ComponentPropsWithoutRef<"article"> & {

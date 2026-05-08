@@ -1,7 +1,8 @@
-import type { ReactNode } from "react";
 import Layout from "@theme/Layout";
-import HomepageHeader from "../features/home/components/HeroSection";
+import type { ReactNode } from "react";
+
 import HomepageFeatures from "../features/home/components/FeatureCardsSection";
+import HomepageHeader from "../features/home/components/HeroSection";
 import HomepageLatestPosts from "../features/home/components/LatestPostsSection";
 
 export default function Home(): ReactNode {

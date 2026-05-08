@@ -25,6 +25,8 @@ jobs:
         run: npm ci
       - name: Check optimized images
         run: npm run optimize-images:check
+      - name: Lint
+        run: npm run lint
       - name: Typecheck
         run: npm run typecheck
       - name: Build website

@@ -1,5 +1,6 @@
-import type { ReactNode } from "react";
 import Heading from "@theme/Heading";
+import type { ReactNode } from "react";
+
 import { ThemedResponsiveImage } from "../../../../components/base/ThemedResponsiveImage";
 import { CtaLink } from "../../../../components/shared/CtaLink";
 import styles from "./styles.module.css";

@@ -1,6 +1,7 @@
-import clsx from "clsx";
-import Heading from "@theme/Heading";
 import Link from "@docusaurus/Link";
+import Heading from "@theme/Heading";
+import clsx from "clsx";
+
 import {
   ResponsiveImage,
   type ResponsiveImageSource,

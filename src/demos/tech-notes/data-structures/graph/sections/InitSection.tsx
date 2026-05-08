@@ -1,4 +1,5 @@
 import { Button } from "@site/src/components/base/Button";
+
 import { Graph, GraphNode, SECTIONS_IDS } from "..";
 
 export const InitSection: React.FC<{

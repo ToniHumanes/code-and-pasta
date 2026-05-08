@@ -1,5 +1,6 @@
-import type { ReactNode } from "react";
 import Layout from "@theme/Layout";
+import type { ReactNode } from "react";
+
 import { SectionHeading } from "../../components/shared/SectionHeading";
 import { RoadmapCard } from "../../features/roadmap/components/RoadmapCard";
 import styles from "./styles.module.css";

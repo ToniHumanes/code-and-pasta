@@ -1,4 +1,5 @@
 import OriginalComponentTypes from "@theme-original/NavbarItem/ComponentTypes";
+
 import TechNotesNavbarItem from "../TechNotesNavbarItem";
 
 const ComponentTypes = {

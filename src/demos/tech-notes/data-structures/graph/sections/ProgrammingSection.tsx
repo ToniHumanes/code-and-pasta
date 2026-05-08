@@ -1,6 +1,7 @@
-import { useState } from "react";
 import { Button } from "@site/src/components/base/Button";
 import { RadioButton } from "@site/src/components/base/RadioButton";
+import { useState } from "react";
+
 import { Graph, GraphNode, SECTIONS_IDS } from "..";
 
 const PROGRAMMING_YES_ID = "programming_yes";

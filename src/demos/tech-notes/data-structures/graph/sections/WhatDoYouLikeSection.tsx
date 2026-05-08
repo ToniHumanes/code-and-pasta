@@ -1,6 +1,7 @@
-import { FC, Dispatch, useState } from "react";
 import { Button } from "@site/src/components/base/Button";
 import { RadioButton } from "@site/src/components/base/RadioButton";
+import { Dispatch, FC, useState } from "react";
+
 import { Graph, GraphNode, SECTIONS_IDS } from "..";
 
 const DESIGN_ID = "design";
