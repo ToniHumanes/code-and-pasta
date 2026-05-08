@@ -1,9 +1,10 @@
-import Heading from "@theme/Heading";
 import profileImg from "@site/static/img/about-me/profile-image.webp";
 import profileImgMobile from "@site/static/img/about-me/profile-image-mobile.webp";
-import styles from "./styles.module.css";
+import Heading from "@theme/Heading";
+
 import { ResponsiveImage } from "../../../../components/base/ResponsiveImage";
 import { CtaLink } from "../../../../components/shared/CtaLink";
+import styles from "./styles.module.css";
 
 function AboutHero() {
   return (

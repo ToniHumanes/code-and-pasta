@@ -1,10 +1,11 @@
-import { useState } from "react";
-import { Button } from "@site/src/components/base/Button";
 import { ActionGroup } from "@site/src/components/base/ActionGroup";
+import { Button } from "@site/src/components/base/Button";
 import { MediaCard } from "@site/src/components/base/MediaCard";
+import { useState } from "react";
+
+import bringMeTheHorizonImage from "./assets/bring-me-the-horizon.webp";
 import ctanganaImage from "./assets/ctangana.jpg";
 import evanescenceImage from "./assets/evanescence.jpg";
-import bringMeTheHorizonImage from "./assets/bring-me-the-horizon.webp";
 
 type NodeValue = {
   id: number;

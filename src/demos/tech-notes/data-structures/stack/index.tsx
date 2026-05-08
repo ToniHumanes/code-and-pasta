@@ -1,6 +1,6 @@
-import { Button } from "@site/src/components/base/Button";
 import { ActionGroup } from "@site/src/components/base/ActionGroup";
-import { useEffect, useState } from "react";
+import { Button } from "@site/src/components/base/Button";
+import { useState } from "react";
 
 class Stack {
   private items: string[] = [];
@@ -55,11 +55,6 @@ export const StackDemo = () => {
     stack.clear();
     setStackItems([]);
   };
-
-  useEffect(() => {
-    stack.clear();
-    setStackItems([]);
-  }, []);
 
   return (
     <section>

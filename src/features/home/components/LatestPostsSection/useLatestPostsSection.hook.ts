@@ -31,8 +31,14 @@ const metadataContext = require.context(
   /^\.\/site-blog.*\.json$/,
 );
 
-const blogPostListModule = require(
-  "@generated/docusaurus-plugin-content-blog/default/blog-post-list-prop-default.json",
+const blogPostListContext = require.context(
+  "@generated/docusaurus-plugin-content-blog/default",
+  false,
+  /^\.\/blog-post-list-prop-default\.json$/,
+);
+
+const blogPostListModule = blogPostListContext(
+  "./blog-post-list-prop-default.json",
 ) as BlogPostListJsonModule;
 
 const blogPostList = (blogPostListModule.default ?? blogPostListModule).items;

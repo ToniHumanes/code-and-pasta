@@ -1,6 +1,7 @@
-import type { ReactNode } from "react";
 import Heading from "@theme/Heading";
 import clsx from "clsx";
+import type { ReactNode } from "react";
+
 import styles from "./style.module.css";
 
 type Props = {

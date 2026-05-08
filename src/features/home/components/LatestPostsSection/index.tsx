@@ -1,9 +1,10 @@
 import type { ReactNode } from "react";
-import styles from "./styles.module.css";
-import { useLatestPostsSection } from "./useLatestPostsSection.hook";
+
 import { CtaLink } from "../../../../components/shared/CtaLink";
 import { PostCard } from "../../../../components/shared/PostCard";
 import { SectionHeading } from "../../../../components/shared/SectionHeading";
+import styles from "./styles.module.css";
+import { useLatestPostsSection } from "./useLatestPostsSection.hook";
 
 export default function HomepageLatestPosts(): ReactNode {
   const posts = useLatestPostsSection();

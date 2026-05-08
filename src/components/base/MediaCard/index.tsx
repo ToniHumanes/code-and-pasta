@@ -1,8 +1,8 @@
-import style from "./style.module.css";
 import {
   ResponsiveImage,
   type ResponsiveImageSource,
 } from "../ResponsiveImage";
+import style from "./style.module.css";
 
 type Props = {
   image: ResponsiveImageSource;

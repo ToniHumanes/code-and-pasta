@@ -1,6 +1,6 @@
-import { JSX, useState } from "react";
-import { Textarea } from "@site/src/components/base/Textarea";
 import { Tag } from "@site/src/components/base/Tag";
+import { Textarea } from "@site/src/components/base/Textarea";
+import { JSX, useState } from "react";
 
 type Person = {
   id: string;
@@ -88,20 +88,30 @@ export const MapDemo = (): JSX.Element => {
     return matches;
   };
 
+  let relationships = new Map<string, string[]>();
+  let hasInvalidJson = false;
+
   try {
     const parsedPeople = JSON.parse(peopleData);
-    const relationships = getRelationships(parsedPeople);
-    return (
-      <>
-        <Textarea
-          value={peopleData}
-          rows={30}
-          onChange={(data) => {
-            setPeopleData(data);
-          }}
-        />
+    relationships = getRelationships(parsedPeople);
+  } catch {
+    hasInvalidJson = true;
+  }
 
-        {Array.from(relationships).map(([key, values]) => {
+  return (
+    <>
+      <Textarea
+        value={peopleData}
+        rows={30}
+        onChange={(data) => {
+          setPeopleData(data);
+        }}
+      />
+
+      {hasInvalidJson ? (
+        <div>Invalid JSON data: revisa el formato antes de continuar.</div>
+      ) : (
+        Array.from(relationships).map(([key, values]) => {
           return (
             <div
               style={{
@@ -126,19 +136,8 @@ export const MapDemo = (): JSX.Element => {
               })}
             </div>
           );
-        })}
-      </>
-    );
-  } catch (err) {
-    console.error("Invalid JSON data");
-    setTimeout(() => {
-      setPeopleData(stringifyPeople);
-    }, 5000);
-    return (
-      <div>
-        Invalid JSON data: Recargando los datos de nuevo... Ten más cuidado al
-        modificar el JSON 😘
-      </div>
-    );
-  }
+        })
+      )}
+    </>
+  );
 };

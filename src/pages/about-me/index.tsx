@@ -1,14 +1,15 @@
-import type { ReactNode } from "react";
-import Layout from "@theme/Layout";
-import AboutHero from "../../features/about-me/components/HeroSection";
-import openbankWorkExperience from "@site/static/img/about-me/openbank-work-experience.webp";
-import openbankWorkExperienceMobile from "@site/static/img/about-me/openbank-work-experience-mobile.webp";
 import inditexWorkExperience from "@site/static/img/about-me/inditex-work-experience.webp";
 import inditexWorkExperienceMobile from "@site/static/img/about-me/inditex-work-experience-mobile.webp";
+import openbankWorkExperience from "@site/static/img/about-me/openbank-work-experience.webp";
+import openbankWorkExperienceMobile from "@site/static/img/about-me/openbank-work-experience-mobile.webp";
 import randstadWorkExperience from "@site/static/img/about-me/randstad-work-experience.webp";
 import randstadWorkExperienceMobile from "@site/static/img/about-me/randstad-work-experience-mobile.webp";
-import { ExperienceCard } from "../../features/about-me/components/ExperienceCard";
+import Layout from "@theme/Layout";
+import type { ReactNode } from "react";
+
 import { SectionHeading } from "../../components/shared/SectionHeading";
+import { ExperienceCard } from "../../features/about-me/components/ExperienceCard";
+import AboutHero from "../../features/about-me/components/HeroSection";
 import styles from "./styles.module.css";
 
 export default function AboutMe(): ReactNode {

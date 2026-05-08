@@ -1,15 +1,14 @@
-import type { ReactNode } from "react";
 import Link from "@docusaurus/Link";
 import clsx from "clsx";
-import styles from "./style.module.css";
+import type { ReactNode } from "react";
 
-const CTA_LINK_KINDS = { primary: "primary", secondary: "secondary" } as const;
+import styles from "./style.module.css";
 
 type Props = {
   to: string;
   children: ReactNode;
   className?: string;
-  kind?: keyof typeof CTA_LINK_KINDS;
+  kind?: "primary" | "secondary";
 };
 
 export const CtaLink = ({ to, children, className, kind }: Props) => {

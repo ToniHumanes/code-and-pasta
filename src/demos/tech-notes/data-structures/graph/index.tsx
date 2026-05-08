@@ -1,4 +1,5 @@
-import { JSX, useState } from "react";
+import { useState } from "react";
+
 import { BackendOrFrontendSection } from "./sections/BackendOrFrontendSection";
 import { FinishedSection } from "./sections/FinishedSection";
 import { InitSection } from "./sections/InitSection";
@@ -85,21 +86,13 @@ export const GraphDemo = () => {
     return innerGraph;
   });
 
-  const [currentSection, setCurrentSection] = useState<GraphNode>(
-    graph.nodes.get(START)
+  const [currentSection, setCurrentSection] = useState<GraphNode | undefined>(
+    graph.nodes.get(START),
   );
 
-  const CurrentSection = (): JSX.Element => {
-    if (!currentSection) return <></>;
-    const SectionComponent = currentSection.component;
-    return (
-      <SectionComponent setCurrentSection={setCurrentSection} graph={graph} />
-    );
-  };
+  if (!currentSection) return null;
 
-  return (
-    <>
-      <CurrentSection />
-    </>
-  );
+  const SectionComponent = currentSection.component;
+
+  return <SectionComponent setCurrentSection={setCurrentSection} graph={graph} />;
 };

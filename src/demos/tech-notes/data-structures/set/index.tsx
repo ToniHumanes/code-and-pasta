@@ -1,7 +1,7 @@
 import { Button } from "@site/src/components/base/Button";
 import { Input } from "@site/src/components/base/Input";
 import Table from "@site/src/components/base/Table";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 enum Endpoint {
   USERS = "users",
@@ -58,17 +58,19 @@ export const SetDemo = () => {
   const [userError, setUserError] = useState<string>("");
   const [emailError, setEmailError] = useState<string>("");
 
-  useEffect(() => {
-    saveData(Endpoint.USERS);
-  }, []);
-
-  const saveData = async (endpoint: Endpoint): Promise<void> => {
+  const saveData = useCallback(async (endpoint: Endpoint): Promise<void> => {
     const data: UserDTO[] = await fetchData(endpoint);
     if (!data) return;
     data.forEach((user: UserDTO) => usedEmails.add(user.email));
 
     setUsers(transformUserData(data));
-  };
+  }, []);
+
+  useEffect(() => {
+    // The demo intentionally hydrates its initial table from an external API.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    saveData(Endpoint.USERS);
+  }, [saveData]);
 
   const handleFormSubmit = (name: string, email: string) => {
     const isRequired = (value: string) => value && value.trim() !== "";

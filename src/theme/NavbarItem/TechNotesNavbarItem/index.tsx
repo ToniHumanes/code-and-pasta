@@ -1,9 +1,9 @@
-import type { ReactNode } from "react";
 import { useActiveDocContext, useLayoutDocsSidebar } from "@docusaurus/plugin-content-docs/client";
 import { useLocation } from "@docusaurus/router";
 import useIsBrowser from "@docusaurus/useIsBrowser";
-import DefaultNavbarItem from "@theme/NavbarItem/DefaultNavbarItem";
 import type { Props as DefaultNavbarItemProps } from "@theme/NavbarItem/DefaultNavbarItem";
+import DefaultNavbarItem from "@theme/NavbarItem/DefaultNavbarItem";
+import type { ReactNode } from "react";
 
 interface Props extends DefaultNavbarItemProps {
   readonly sidebarId: string;
