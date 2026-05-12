@@ -17,6 +17,8 @@ function AboutHero() {
               mobileSrc={profileImgMobile}
               alt="Antonio Humanes"
               className={styles.heroImage}
+              width="900"
+              height="757"
             />
           </aside>
 
