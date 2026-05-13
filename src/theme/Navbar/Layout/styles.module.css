@@ -1,0 +1,19 @@
+.navbarBackdrop {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+}
+
+.navbarBackdrop:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: -4px;
+}
+
+.navbarHideable {
+  transition: transform var(--ifm-transition-fast) ease;
+}
+
+.navbarHidden {
+  transform: translate3d(0, calc(-100% - 2px), 0);
+}
