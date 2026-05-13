@@ -52,19 +52,6 @@ const config: Config = {
 
   themes: ["@docusaurus/theme-mermaid"],
 
-  headTags: [
-    {
-      tagName: "link",
-      attributes: {
-        rel: "preload",
-        href: "/fonts/inter-latin.woff2",
-        as: "font",
-        type: "font/woff2",
-        crossorigin: "anonymous",
-      },
-    },
-  ],
-
   scripts: [
     {
       src: "https://cloud.umami.is/script.js",
