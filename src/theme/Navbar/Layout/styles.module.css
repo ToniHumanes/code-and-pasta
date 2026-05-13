@@ -1,3 +1,10 @@
+.navbarBackdrop {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+}
+
 .navbarHideable {
   transition: transform var(--ifm-transition-fast) ease;
 }

@@ -18,12 +18,24 @@ type NavbarShellProps = Props & {
   style?: string;
 };
 
-function NavbarBackdrop(props: ComponentProps<"div">): ReactNode {
+function NavbarBackdrop({
+  className,
+  ...props
+}: ComponentProps<"button">): ReactNode {
   return (
-    <div
-      role="presentation"
+    <button
+      type="button"
+      aria-label={translate({
+        id: "theme.NavBar.backdropAriaLabel",
+        message: "Close navigation menu",
+        description: "The ARIA label for the mobile navigation backdrop",
+      })}
       {...props}
-      className={clsx("navbar-sidebar__backdrop", props.className)}
+      className={clsx(
+        "navbar-sidebar__backdrop",
+        styles.navbarBackdrop,
+        className,
+      )}
     />
   );
 }
