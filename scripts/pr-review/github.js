@@ -60,14 +60,38 @@ async function findExistingComment() {
 /**
  * @param {string} body
  */
+function buildReviewSection(body) {
+  return `## AI PR Review update
+
+_Generated at: ${new Date().toISOString()}_
+
+${body.trim()}`;
+}
+
+/**
+ * @param {string} body
+ */
+function ensureCommentMarker(body) {
+  return body.includes(COMMENT_MARKER) ? body : `${COMMENT_MARKER}
+
+${body}`;
+}
+
+/**
+ * @param {string} body
+ */
 async function upsertPullRequestComment(body) {
   const existingComment = await findExistingComment();
 
-  const bodyWithMarker = `${COMMENT_MARKER}
-
-${body}`;
+  const reviewSection = buildReviewSection(body);
 
   if (existingComment) {
+    const bodyWithMarker = `${ensureCommentMarker(existingComment.body).trim()}
+
+---
+
+${reviewSection}`;
+
     const response = await fetch(existingComment.url, {
       method: "PATCH",
       headers: {
@@ -86,6 +110,10 @@ ${body}`;
 
     return;
   }
+
+  const bodyWithMarker = `${COMMENT_MARKER}
+
+${reviewSection}`;
 
   const response = await fetch(endpoints.comments, {
     method: "POST",
