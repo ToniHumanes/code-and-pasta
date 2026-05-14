@@ -3,6 +3,15 @@ const { prNumber, repo, token } = require("./pr-review.vars");
 
 const BASE_URL = `https://api.github.com/repos/${repo}`;
 const PER_PAGE = 100;
+const MAX_RESOLVED_REVIEWS = 5;
+const RESOLVED_REVIEWS_START_MARKER =
+  "<!-- ai-pr-review-resolved-reviews-start -->";
+const RESOLVED_REVIEWS_END_MARKER =
+  "<!-- ai-pr-review-resolved-reviews-end -->";
+const CURRENT_REVIEW_START_MARKER =
+  "<!-- ai-pr-review-current-review-start -->";
+const CURRENT_REVIEW_END_MARKER = "<!-- ai-pr-review-current-review-end -->";
+const HISTORY_ENTRY_MARKER = "<!-- ai-pr-review-history-entry -->";
 
 const endpoints = {
   comments: `${BASE_URL}/issues/${prNumber}/comments`,
@@ -60,14 +69,143 @@ async function findExistingComment() {
 /**
  * @param {string} body
  */
+function buildReviewSection(body) {
+  return `## AI PR Review update
+
+_Generated at: ${new Date().toISOString()}_
+
+${body.trim()}`;
+}
+
+/**
+ * @param {string} body
+ */
+function buildCurrentReviewBlock(body) {
+  return `${CURRENT_REVIEW_START_MARKER}
+${body.trim()}
+${CURRENT_REVIEW_END_MARKER}`;
+}
+
+/**
+ * @param {string[]} resolvedReviews
+ */
+function buildResolvedReviewsBlock(resolvedReviews) {
+  if (!resolvedReviews.length) {
+    return "";
+  }
+
+  const historyEntries = resolvedReviews
+    .map((review) => `${HISTORY_ENTRY_MARKER}
+${review.trim()}`)
+    .join("\n\n");
+
+  return `<details>
+<summary>Resolved previous AI reviews</summary>
+
+${RESOLVED_REVIEWS_START_MARKER}
+${historyEntries}
+${RESOLVED_REVIEWS_END_MARKER}
+
+</details>
+
+---
+
+`;
+}
+
+/**
+ * @param {string[]} resolvedReviews
+ * @param {string} body
+ */
+function buildManagedCommentBody(resolvedReviews, body) {
+  return `${COMMENT_MARKER}
+
+${buildResolvedReviewsBlock(resolvedReviews)}${buildCurrentReviewBlock(body)}`;
+}
+
+/**
+ * @param {string} body
+ * @param {string} startMarker
+ * @param {string} endMarker
+ */
+function getMarkedSection(body, startMarker, endMarker) {
+  const startIndex = body.indexOf(startMarker);
+
+  if (startIndex === -1) {
+    return null;
+  }
+
+  const contentStartIndex = startIndex + startMarker.length;
+  const endIndex = body.indexOf(endMarker, contentStartIndex);
+
+  if (endIndex === -1) {
+    return null;
+  }
+
+  return body.slice(contentStartIndex, endIndex).trim();
+}
+
+/**
+ * @param {string} body
+ */
+function getResolvedReviews(body) {
+  const resolvedReviews = getMarkedSection(
+    body,
+    RESOLVED_REVIEWS_START_MARKER,
+    RESOLVED_REVIEWS_END_MARKER,
+  );
+
+  if (!resolvedReviews) {
+    return [];
+  }
+
+  return resolvedReviews
+    .split(HISTORY_ENTRY_MARKER)
+    .map((review) => review.trim())
+    .filter(Boolean);
+}
+
+/**
+ * @param {string} body
+ */
+function getPreviousCurrentReview(body) {
+  return getMarkedSection(
+    body,
+    CURRENT_REVIEW_START_MARKER,
+    CURRENT_REVIEW_END_MARKER,
+  );
+}
+
+/**
+ * @param {string} body
+ */
+function getLegacyReview(body) {
+  return body.replace(COMMENT_MARKER, "").trim();
+}
+
+/**
+ * @param {string} body
+ */
 async function upsertPullRequestComment(body) {
   const existingComment = await findExistingComment();
 
-  const bodyWithMarker = `${COMMENT_MARKER}
-
-${body}`;
+  const reviewSection = buildReviewSection(body);
 
   if (existingComment) {
+    const previousReview =
+      getPreviousCurrentReview(existingComment.body) ??
+      getLegacyReview(existingComment.body);
+    const resolvedReviews = [
+      previousReview,
+      ...getResolvedReviews(existingComment.body),
+    ]
+      .filter(Boolean)
+      .slice(0, MAX_RESOLVED_REVIEWS);
+    const bodyWithMarker = buildManagedCommentBody(
+      resolvedReviews,
+      reviewSection,
+    );
+
     const response = await fetch(existingComment.url, {
       method: "PATCH",
       headers: {
@@ -86,6 +224,8 @@ ${body}`;
 
     return;
   }
+
+  const bodyWithMarker = buildManagedCommentBody([], reviewSection);
 
   const response = await fetch(endpoints.comments, {
     method: "POST",
