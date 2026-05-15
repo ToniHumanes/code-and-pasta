@@ -2,11 +2,13 @@
 authors: antoniohumanes
 title: "Título visible del post"
 description: "Resumen claro del artículo en una o dos frases, pensado para buscadores y previews sociales."
-image: /img/fallback-post-image.webp
+image: ./img/fallback-post-image.webp
 tags: [development]
 # slug: custom-post-slug
 # draft: true
 ---
+
+![Imagen de portada del artículo](./img/fallback-post-image.webp)
 
 Introduce aquí el problema, contexto o idea principal del artículo.
 
