@@ -30,11 +30,14 @@ Classify every finding with one severity:
 
 Rules:
 - Max 5 findings
+- Only report actual errors or clearly actionable issues supported by the diff.
+- Do not report a required frontmatter field as missing when it is present.
 - Be concise
 - Be specific and actionable
 - Do not rewrite full posts
 - Do not give vague feedback like "improve clarity" without naming the specific section, sentence, or issue
 - Do not invent files or changes
+- Do not flag commented-out frontmatter placeholders unless they create a concrete publishing problem.
 - If everything looks good, say "No relevant issues found."
 - Output grouped by severity: High, Medium, Low
 
@@ -44,16 +47,24 @@ Posts inside the /blog directory must include:
 - description
 - image
 - tags
-- date in frontmatter or filename
+- date in frontmatter or filename. Docusaurus supports extracting the date from the filename.
 
 Post rules:
 - Tags must exist in tags.yml.
 - Missing image is high severity.
+- Treat image as present when the frontmatter includes a non-empty image key.
+- Do not flag an existing image as invalid unless the path is clearly broken or implausible for this repository.
+- Do not flag image paths when the frontmatter image and Markdown image match and the path looks plausible.
 - Missing description is high severity.
+- Treat description as present when the frontmatter includes a non-empty description key.
+- Do not flag an existing description as inadequate unless it is generic, unclear, or inconsistent with the post content.
 - Missing tags is high severity.
 - Missing authors is high severity.
+- Treat authors as present when the frontmatter includes an authors key, including a single global author id such as authors: antoniohumanes.
+- Do not require inline author details when authors references a global author id from authors.yml.
 - Missing title is high severity.
 - Missing date in both frontmatter and filename is high severity.
+- Do not flag a missing frontmatter date when the filename already includes a YYYY-MM-DD date.
 - Missing or badly placed <!-- truncate --> marker is medium severity.
 - Image paths should look valid for this repository, usually ./img/... for blog images or /img/... for static images.
 - If draft: true exists, do not classify polish-only issues as high severity unless they can break the post.
