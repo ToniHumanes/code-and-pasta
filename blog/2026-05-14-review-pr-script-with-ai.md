@@ -3,7 +3,7 @@ authors: antoniohumanes
 title: "Integrar OpenAI en mi CI fue fácil. Conseguir reviews útiles no."
 description: "Cómo integré OpenAI en mi CI para revisar PRs del blog y qué aprendí sobre prompts, ruido, automatización y criterio técnico."
 image: ./img/robot-reviewing-pr.webp
-tags: [development]
+tags: [development, technical, features, AI, features]
 # slug: custom-post-slug
 # draft: true
 ---
