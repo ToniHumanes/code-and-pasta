@@ -8,6 +8,8 @@ tags: [development, technical, features, AI]
 # draft: true
 ---
 
+![Imagen de portada del artículo](./img/robot-reviewing-pr.webp)
+
 Mientras escribía los primeros posts del blog me di cuenta de que repetía algunos errores antes de publicar.
 
 No eran errores enormes, pero sí lo bastante molestos como para hacerme perder tiempo revisando PRs, imágenes, estructura y detalles de estilo.
