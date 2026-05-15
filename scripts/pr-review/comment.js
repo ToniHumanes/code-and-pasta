@@ -22,7 +22,7 @@ function buildComment({
     : "_No relevant files_";
 
   if (skippedReason) {
-    return `## 🤖 AI PR Review
+    return `## 🤖 AI Blog Post Review
 
 ✅ Review skipped.
 
@@ -39,7 +39,7 @@ ${filesList}
 `;
   }
 
-  return `## 🤖 AI PR Review
+  return `## 🤖 AI Blog Post Review
 
 ${analysis}
 

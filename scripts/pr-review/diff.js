@@ -1,7 +1,6 @@
 const {
-  ALLOWED_EXTENSIONS,
-  IGNORED_PATTERNS,
-  IMPORTANT_FILE_PATTERNS,
+  BLOG_POST_DIRECTORY,
+  BLOG_POST_EXTENSION,
 } = require("./pr-review.config");
 
 /**
@@ -30,21 +29,10 @@ const {
  * @returns {boolean}
  */
 function isRelevantFile(filename) {
-  const isIgnored = IGNORED_PATTERNS.some((pattern) =>
-    filename.includes(pattern),
+  return (
+    filename.startsWith(BLOG_POST_DIRECTORY) &&
+    filename.endsWith(BLOG_POST_EXTENSION)
   );
-
-  if (isIgnored) return false;
-
-  const hasAllowedExtension = ALLOWED_EXTENSIONS.some((extension) =>
-    filename.endsWith(extension),
-  );
-
-  const isImportantFile = IMPORTANT_FILE_PATTERNS.some((pattern) =>
-    filename.includes(pattern),
-  );
-
-  return hasAllowedExtension || isImportantFile;
 }
 
 /**
@@ -81,7 +69,7 @@ function shouldSkipAIReview({ relevantFiles, optimizedDiff }) {
   if (!relevantFiles.length) {
     return {
       skip: true,
-      reason: "No relevant MDX, SEO, React or TypeScript files changed.",
+      reason: "No blog Markdown post files changed.",
     };
   }
 

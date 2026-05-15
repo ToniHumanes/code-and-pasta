@@ -3,6 +3,8 @@ name: Pull Request Review
 on:
   pull_request:
     types: [opened, synchronize]
+    paths:
+      - "blog/**/*.md"
 
 permissions:
   contents: read
