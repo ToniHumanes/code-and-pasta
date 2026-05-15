@@ -2,7 +2,7 @@ const { MAX_DIFF_CHARS } = require("./pr-review.config");
 const { openAiApiKey } = require("./pr-review.vars");
 
 const OPENAI_RESPONSES_URL = "https://api.openai.com/v1/responses";
-const MODEL = "gpt-4.1-mini";
+const MODEL = "gpt-5.4-mini";
 const REVIEW_INSTRUCTIONS = `
 You are an editor reviewing a Docusaurus blog post pull request.
 
@@ -24,7 +24,7 @@ Focus on:
 - technical accuracy only when the post makes technical claims
 
 Classify every finding with one severity:
-- high: can break Docusaurus blog rendering, metadata, SEO indexing, or publication
+- high: demonstrably breaks Docusaurus blog rendering, required metadata, SEO indexing, or publication
 - medium: quality issue worth fixing before merge
 - low: small improvement or optional suggestion
 
@@ -38,6 +38,8 @@ Rules:
 - Do not give vague feedback like "improve clarity" without naming the specific section, sentence, or issue
 - Do not invent files or changes
 - Do not flag commented-out frontmatter placeholders unless they create a concrete publishing problem.
+- Do not escalate consistency preferences, style preferences, or "please confirm" checks to high severity.
+- Do not ask the author to confirm something unless the diff gives concrete evidence that it is wrong.
 - If everything looks good, say "No relevant issues found."
 - Output grouped by severity: High, Medium, Low
 
@@ -48,6 +50,12 @@ Posts inside the /blog directory must include:
 - image
 - tags
 - date in frontmatter or filename. Docusaurus supports extracting the date from the filename.
+
+Non-findings:
+- A missing frontmatter date is not an issue when the blog filename starts with YYYY-MM-DD.
+- A relative blog image path such as ./img/name.webp is not an issue when it matches established blog image conventions.
+- A matching frontmatter image and Markdown image path is not an issue when the path is plausible for this repository.
+- Do not report hypothetical path problems such as "could be problematic" without a concrete mismatch, missing file evidence, or repo convention conflict.
 
 Post rules:
 - Tags must exist in tags.yml.
@@ -66,7 +74,7 @@ Post rules:
 - Missing date in both frontmatter and filename is high severity.
 - Do not flag a missing frontmatter date when the filename already includes a YYYY-MM-DD date.
 - Missing or badly placed <!-- truncate --> marker is medium severity.
-- Image paths should look valid for this repository, usually ./img/... for blog images or /img/... for static images.
+- Image paths should look valid for this repository, usually ./img/... or @site/blog/img/... for blog images and /img/... for static images.
 - If draft: true exists, do not classify polish-only issues as high severity unless they can break the post.
 - Weak, generic, or unclear title/description is medium severity.
 - Generic, repetitive, over-polished text or lack of specific examples is medium severity.
@@ -177,6 +185,12 @@ async function getOpenAIResponse(input) {
       model: MODEL,
       instructions: REVIEW_INSTRUCTIONS,
       input,
+      reasoning: {
+        effort: "low",
+      },
+      text: {
+        verbosity: "low",
+      },
     }),
   });
 

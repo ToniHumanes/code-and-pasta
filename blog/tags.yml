@@ -28,6 +28,11 @@ technical:
   permalink: /technical
   description: Contenido técnico avanzado sobre herramientas y tecnologías.
 
+AI:
+  label: AI
+  permalink: /ai
+  description: Artículos sobre inteligencia artificial aplicada al desarrollo de software.
+
 users:
   label: Usuarios
   permalink: /users
