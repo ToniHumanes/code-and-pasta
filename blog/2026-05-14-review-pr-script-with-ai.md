@@ -32,7 +32,7 @@ El problema aquí es que muchas veces subía un post con algunos errores:
 
 Entonces pensé en una solución que pudiera ayudarme a revisar antes de mergear la PR: añadir IA a mi flujo de CI.
 
-## El flujo de CI con IA que he implementado
+## El flujo de CI con IA que había implementado al principio
 
 La implementación es bastante sencilla, pero ahí no está el valor.
 
@@ -46,24 +46,6 @@ El flujo en resumidas cuentas consiste en lo siguiente:
 2. Genera un diff reducido para no enviar información innecesaria a la IA.
 3. Decide si merece la pena ejecutar la review o si puede saltarla.
 4. OpenAI analiza posibles problemas y genera o actualiza un comentario en la PR.
-
-Creo que el flujo se puede entender mejor con un diagrama:
-
-```mermaid
-flowchart TD
-  A[Se crea o actualiza una Pull Request] --> B[El workflow de CI ejecuta el script]
-  B --> C[Obtiene los archivos modificados]
-  C --> D[Filtra los archivos relevantes]
-  D --> E{¿Hay cambios revisables?}
-  E -->|No| F[Genera un comentario indicando que se salta la review]
-  E -->|Si| G[Construye un diff reducido]
-  G --> H[Envía el diff a OpenAI]
-  H --> I[Recibe el análisis de la IA]
-  I --> J[Construye el comentario de review]
-  F --> K[Publica o actualiza el comentario en la PR]
-  J --> K
-  K --> L[La PR queda con feedback automático]
-```
 
 ## Problemas que fui encontrando
 
@@ -88,11 +70,21 @@ Quería una revisión que mantuviera mi estilo y eso a día de hoy sigue siendo 
 
 Una de las partes más importantes fue dejar claro qué quería revisar.
 
-No quería una review genérica del código. Quería una segunda capa de revisión enfocada en cosas concretas:
+Aquí es donde me di cuenta de que tenía que separar dos comprobaciones y que hasta ahora lo estaba haciendo mal.
+
+Antes estaba delegando toda la revisión a la IA.
+
+Ahí me di cuenta de que estaba mezclando dos problemas distintos: validaciones objetivas y revisiones subjetivas.
+
+Por un lado, las cosas objetivas:
 
 - Si el post tenía imagen de portada.
+- Si el post tenía tags.
+- Si el post tenía descripción.
+
+Por otro lado, las cosas más subjetivas y que merecían debate en la PR:
+
 - Si el título y la descripción tenían sentido.
-- Si había faltas de ortografía.
 - Si alguna sección era demasiado larga.
 - Si estaba dando por hecho contexto que el lector no tenía.
 - Si el tono sonaba demasiado artificial.
@@ -100,10 +92,45 @@ No quería una review genérica del código. Quería una segunda capa de revisi�
 
 Esto cambió bastante el resultado.
 
+Delegué a `node` las comprobaciones más objetivas y el resto a la IA.
+
 La IA trabaja mejor cuando le damos contexto, límites claros y ejemplos concretos de lo que esperamos.
 
 Cuando el prompt era demasiado abierto, la IA opinaba demasiado.
-Cuando lo definí mejor, empezó a ser más útil.
+Cuando definí mejor tanto el flujo como el prompt, empezó a ser más útil.
+
+## Cómo quedó el nuevo flujo
+
+```mermaid
+flowchart TD
+  A[Se crea o actualiza una Pull Request] --> B[El workflow ejecuta el script]
+  B --> C[Detecta los archivos modificados]
+  C --> D[Filtra los posts del blog]
+  D --> E[Node valida reglas obligatorias]
+  E --> F{¿Falla alguna regla?}
+  F -->|Sí| G[La CI falla con errores en GitHub Actions]
+  F -->|No| H[Construye el diff optimizado]
+  H --> I[OpenAI revisa claridad, tono y estructura]
+  I --> J[El script publica o actualiza el comentario en la PR]
+```
+
+## Ejemplos reales
+
+Para dar algunos ejemplos de cómo está funcionando actualmente el flujo tenemos tres tipos de casos.
+
+A veces hace recomendaciones que no aportan demasiado, pero tampoco me molestan especialmente.
+
+![Imagen de portada del artículo](./img/low-issue-found-by-ai.webp)
+
+Otras veces sí que aporta valor.
+
+Por ejemplo, inicialmente había eliminado el diagrama del flujo porque me parecía innecesario. Después de esta sugerencia decidí volver a incluirlo porque probablemente ayuda a entender mejor cómo funciona la automatización.
+
+![Imagen de portada del artículo](./img/medium-issue-found-by-ai.webp)
+
+Y otras veces simplemente no encuentra nada.
+
+![Imagen de portada del artículo](./img/empty-issue-found-by-ai.webp)
 
 ## Conclusiones
 
@@ -125,6 +152,4 @@ Lo difícil es tener criterio suficiente para decidir:
 - Qué ignorar.
 - Y qué decisiones deberían seguir siendo humanas.
 
-Al final, automatizar una revisión no significa delegar la responsabilidad.
-
-El comentario lo escribe la IA, pero la decisión sigue siendo nuestra.
+Automatizar una review es relativamente fácil. Saber qué merece una regla fija, qué merece una opinión y qué decisiones deben seguir siendo humanas es bastante más complicado.
