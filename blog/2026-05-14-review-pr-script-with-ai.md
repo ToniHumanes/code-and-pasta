@@ -47,7 +47,7 @@ El flujo en resumidas cuentas consiste en lo siguiente:
 3. Decide si merece la pena ejecutar la review o si puede saltarla.
 4. OpenAI analiza posibles problemas y genera o actualiza un comentario en la PR.
 
-## Problemas que fui encontrando y el nuevo flujo
+## Problemas que fui encontrando
 
 Aunque era útil para mi caso, también empezó a generar bastante ruido:
 
@@ -76,13 +76,13 @@ Antes estaba delegando toda la revisión a la IA.
 
 Ahí me di cuenta de que estaba mezclando dos problemas distintos: validaciones objetivas y revisiones subjetivas.
 
-Por un lado las cosas objetivas:
+Por un lado, las cosas objetivas:
 
 - Si el post tenía imagen de portada.
 - Si el post tenía tags.
 - Si el post tenía descripción.
 
-Por otro las cosas más subjetivas y que merecían debate en la PR:
+Por otro lado, las cosas más subjetivas y que merecían debate en la PR:
 
 - Si el título y la descripción tenían sentido.
 - Si alguna sección era demasiado larga.
@@ -98,6 +98,39 @@ La IA trabaja mejor cuando le damos contexto, límites claros y ejemplos concret
 
 Cuando el prompt era demasiado abierto, la IA opinaba demasiado.
 Cuando definí mejor tanto el flujo como el prompt, empezó a ser más útil.
+
+## Cómo quedó el nuevo flujo
+
+```mermaid
+flowchart TD
+  A[Se crea o actualiza una Pull Request] --> B[El workflow ejecuta el script]
+  B --> C[Detecta los archivos modificados]
+  C --> D[Filtra los posts del blog]
+  D --> E[Node valida reglas obligatorias]
+  E --> F{¿Falla alguna regla?}
+  F -->|Sí| G[La CI falla con errores en GitHub Actions]
+  F -->|No| H[Construye el diff optimizado]
+  H --> I[OpenAI revisa claridad, tono y estructura]
+  I --> J[El script publica o actualiza el comentario en la PR]
+```
+
+## Ejemplos reales
+
+Para dar algunos ejemplos de cómo está funcionando actualmente el flujo tenemos tres tipos de estados.
+
+A veces hace recomendaciones que no aportan demasiado, pero tampoco me molestan especialmente.
+
+![Imagen de portada del artículo](./img/low-issue-found-by-ai.webp)
+
+Otras veces sí que aporta valor.
+
+Por ejemplo, inicialmente había eliminado el diagrama del flujo porque me parecía innecesario. Después de esta sugerencia decidí volver a incluirlo porque probablemente ayuda a entender mejor cómo funciona la automatización.
+
+![Imagen de portada del artículo](./img/medium-issue-found-by-ai.webp)
+
+Y otras veces simplemente no encuentra nada.
+
+![Imagen de portada del artículo](./img/empty-issue-found-by-ai.webp)
 
 ## Conclusiones
 
