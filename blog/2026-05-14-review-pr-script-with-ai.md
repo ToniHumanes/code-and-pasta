@@ -116,7 +116,7 @@ flowchart TD
 
 ## Ejemplos reales
 
-Para dar algunos ejemplos de cómo está funcionando actualmente el flujo tenemos tres tipos de estados.
+Para dar algunos ejemplos de cómo está funcionando actualmente el flujo tenemos tres tipos de casos.
 
 A veces hace recomendaciones que no aportan demasiado, pero tampoco me molestan especialmente.
 
