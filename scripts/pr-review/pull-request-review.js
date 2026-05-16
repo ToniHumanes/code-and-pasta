@@ -1,6 +1,11 @@
 async function main() {
   try {
     const { analyzeDiffWithAI } = require("./ai");
+    const {
+      buildGitHubAnnotation,
+      formatAutomatedPostCheckError,
+      runAutomatedPostChecks,
+    } = require("./checks");
     const { buildComment } = require("./comment");
     const { buildOptimizedDiff, shouldSkipAIReview } = require("./diff");
     const { getChangedFiles, upsertPullRequestComment } = require("./github");
@@ -9,6 +14,16 @@ async function main() {
     console.log("PR number:", prNumber);
     const files = await getChangedFiles();
     const { relevantFiles, optimizedDiff } = buildOptimizedDiff(files);
+    const automatedFindings = runAutomatedPostChecks(relevantFiles);
+
+    if (automatedFindings.length) {
+      automatedFindings.forEach((finding) => {
+        console.error(buildGitHubAnnotation(finding));
+      });
+
+      throw new Error(formatAutomatedPostCheckError(automatedFindings));
+    }
+
     const skipResult = shouldSkipAIReview({
       relevantFiles,
       optimizedDiff,
