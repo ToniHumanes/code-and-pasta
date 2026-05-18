@@ -42,3 +42,8 @@ optimization:
   label: Optimización
   permalink: /optimization
   description: Estrategias y técnicas para optimizar rendimiento y eficiencia.
+
+ux:
+  label: UX
+  permalink: /ux
+  description: Contenido sobre experiencia de usuario y diseño centrado en el usuario.

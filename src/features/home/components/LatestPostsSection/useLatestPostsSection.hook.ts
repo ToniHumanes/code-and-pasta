@@ -10,8 +10,8 @@ const fallbackDescription =
   "Reflexiones prácticas sobre producto, desarrollo y aprendizaje.";
 
 const blogImageDimensions = {
-  width: 900,
-  height: 600,
+  width: 700,
+  height: 500,
 };
 
 const fallbackImage = {
