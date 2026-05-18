@@ -36,7 +36,6 @@ El proyecto necesitaba un cambio a varios niveles:
 
 - **Técnico**: Migramos una `MPA` a una `SPA` con Angular. Eso nos ayudó a ordenar mejor la arquitectura frontend, reutilizar componentes y construir una experiencia más fluida.
 - **Experiencia de usuario**: Los usuarios no rellenaban demasiados datos y cuando se inscribían a las ofertas de las empresas eran insuficientes para valorar candidatos.
-- **Negocio**: Querían ampliar roles de usuarios a usuarios más técnicos: desarrolladores, IT, ingenieros, arquitectos, etc.
 
 ## Por qué la gamificación encajaba en este caso
 
@@ -100,10 +99,10 @@ Hay que tener criterio para decidir cuándo la gamificación puede ayudar y cuá
 
 A nivel técnico fue un proyecto muy interesante porque nos obligó a cuidar varias cosas:
 
-- **Animaciones**: tenían que aportar sensación de progreso, no ser ruido visual.
+- **Animaciones**: tenían que aportar sensación de progreso.
 - **Performance**: cuantos más recursos visuales añades, más fácil es estropear la experiencia si no los controlas.
 - **Formularios**: dividir un formulario grande en pasos pequeños ayudaba a reducir la sensación de esfuerzo.
-- **CSS y diseño visual**: al tener una interfaz tan visual, necesitábamos una arquitectura de estilos más ordenada.
+- **Arquitectura CSS**: al tener una interfaz tan visual, necesitábamos una arquitectura de estilos más ordenada.
 - **Sistema de diseño**: los niveles, estados bloqueados, pasos, modales y recompensas necesitaban consistencia.
 - **Arquitectura frontend**: la migración a Angular nos permitió ordenar mejor la experiencia y construir componentes reutilizables.
 
