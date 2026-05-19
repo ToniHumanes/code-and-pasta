@@ -45,20 +45,20 @@ static/img/
 
 | Image           | Desktop | Mobile | Usage                           |
 | --------------- | ------- | ------ | ------------------------------- |
-| Hero light/dark | `720w`  | `416w` | `22rem` mobile, `24rem` desktop |
+| Hero light/dark | `1024w` | `720w` | `22rem` mobile, `24rem` desktop |
 | Feature icons   | `128w`  | `64w`  | `4rem` rendered icon            |
 
 ```bash
 # Hero light
-node -e "const sharp=require('sharp'); sharp('assets/source-images/home/code-and-pasta-light.png').resize({width:480,height:480,fit:'cover',withoutEnlargement:true}).webp({quality:74,effort:6}).toFile('static/img/home/code-and-pasta-light.webp')"
+node -e "const sharp=require('sharp'); sharp('assets/source-images/home/code-and-pasta-light.png').resize({width:1024,height:1024,fit:'cover',withoutEnlargement:true}).webp({quality:90,effort:6,smartSubsample:true}).toFile('static/img/home/code-and-pasta-light.webp')"
 
-node -e "const sharp=require('sharp'); sharp('assets/source-images/home/code-and-pasta-light.png').resize({width:416,height:416,fit:'cover',withoutEnlargement:true}).webp({quality:70,effort:6}).toFile('static/img/home/code-and-pasta-light-mobile.webp')"
+node -e "const sharp=require('sharp'); sharp('assets/source-images/home/code-and-pasta-light.png').resize({width:720,height:720,fit:'cover',withoutEnlargement:true}).webp({quality:88,effort:6,smartSubsample:true}).toFile('static/img/home/code-and-pasta-light-mobile.webp')"
 
 # Hero dark
 
-node -e "const sharp=require('sharp'); sharp('assets/source-images/home/code-and-pasta-dark.png').resize({width:480,height:480,fit:'cover',withoutEnlargement:true}).webp({quality:74,effort:6}).toFile('static/img/home/code-and-pasta-dark.webp')"
+node -e "const sharp=require('sharp'); sharp('assets/source-images/home/code-and-pasta-dark.png').resize({width:1024,height:1024,fit:'cover',withoutEnlargement:true}).webp({quality:90,effort:6,smartSubsample:true}).toFile('static/img/home/code-and-pasta-dark.webp')"
 
-node -e "const sharp=require('sharp'); sharp('assets/source-images/home/code-and-pasta-dark.png').resize({width:416,height:416,fit:'cover',withoutEnlargement:true}).webp({quality:70,effort:6}).toFile('static/img/home/code-and-pasta-dark-mobile.webp')"
+node -e "const sharp=require('sharp'); sharp('assets/source-images/home/code-and-pasta-dark.png').resize({width:720,height:720,fit:'cover',withoutEnlargement:true}).webp({quality:88,effort:6,smartSubsample:true}).toFile('static/img/home/code-and-pasta-dark-mobile.webp')"
 
 # Feature icons
 node -e "const sharp=require('sharp'); sharp('assets/source-images/home/intro.png').resize({width:128,height:128,fit:'cover',withoutEnlargement:true}).webp({quality:68,effort:6}).toFile('static/img/home/intro.webp')"
@@ -110,7 +110,7 @@ node -e "const sharp=require('sharp'); sharp('assets/source-images/about-me/rand
   - mobile: `image-mobile.webp`
 - Source images live in `assets/source-images/`.
 - Optimized public images are generated into `static/img/`.
-- The home hero uses `720w` for desktop and `416w` for mobile because PageSpeed reports the rendered size around `416x416`.
+- The home hero uses `1024w` for desktop and `720w` for mobile to keep the image sharp on high-density screens.
 - Feature icons are generated at `128w` and `64w` because they are rendered at `4rem`.
 - Avoid `quality: 90` unless the image is visually critical.
 - Avoid using already optimized WebP files as source images.
