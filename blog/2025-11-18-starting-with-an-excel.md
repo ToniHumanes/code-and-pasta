@@ -4,6 +4,7 @@ title: "Cuando un Excel deja de ser suficiente"
 description: "Cómo muchas aplicaciones reales nacen de una hoja de cálculo y qué señales merece la pena observar para convertir necesidad en producto."
 image: ./img/excel.webp
 tags: [data, product, business, development, features]
+draft: true
 ---
 
 ![Imagen de una aplicación de finanzas abierta en el navegador](@site/blog/img/excel.webp)

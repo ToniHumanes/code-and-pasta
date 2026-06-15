@@ -4,7 +4,7 @@ title: "Quería sacar 100 en PageSpeed… y casi no publico el blog"
 description: "Obsesionarme con PageSpeed me frenó más de lo que me ayudó. Lo que aprendí sobre optimización, producto y entregar valor."
 image: ./img/optimization.webp
 tags: [development, optimization, product]
-# slug: custom-post-slug
+draft: true
 ---
 
 ![Imagen de un semáforo que tiene varias posibilidades](@site/blog/img/optimization.webp)

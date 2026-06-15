@@ -4,6 +4,7 @@ title: "Cómo evitamos duplicar un buscador cuando llegaron nuevos tipos de bús
 description: "Cómo resolvimos un problema real de escalabilidad además de mantener la consistencia entre distintos tipos de búsqueda sin duplicar lógica, componentes ni experiencia de usuario."
 image: ./img/strategy.webp
 tags: [development, technical, data, product, features]
+draft: true
 ---
 
 ![Imagen de unas piezas de lego unidas para crear una estructura](@site/blog/img/strategy.webp)

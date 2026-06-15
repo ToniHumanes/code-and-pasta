@@ -15,7 +15,7 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     eyebrow: "Sobre mí",
-    title: "Cuestiono decisiones, incluso las mías.",
+    title: "¿Qué quiero aportar?",
     image: {
       desktopSrc: "/img/home/intro.webp",
       mobileSrc: "/img/home/intro-mobile.webp",
@@ -23,8 +23,9 @@ const FeatureList: FeatureItem[] = [
     },
     description: (
       <>
-        Este espacio es donde comparto cómo construyo software y producto en el
-        día a día, con criterio en cada decisión técnica y de producto.
+        Este espacio es donde comparto aprendizajes reales sobre cómo construyo
+        software en el día a día: decisiones técnicas, dudas, errores y el
+        impacto que todo eso tiene en el producto.
       </>
     ),
   },
@@ -38,24 +39,25 @@ const FeatureList: FeatureItem[] = [
     },
     description: (
       <>
-        Trabajo con React y TypeScript, pero lo importante no es la tecnología:
-        es el criterio detrás de cada decisión de negocio, experiencia de
-        usuario y sostenibilidad técnica.
+        Trabajo principalmente con React y TypeScript, pero intento no quedarme
+        solo en la herramienta. Me interesa entender por qué se construye algo,
+        para quién, qué coste tiene mantenerlo y qué valor aporta de verdad.
       </>
     ),
   },
   {
     eyebrow: "¿Qué encontrarás?",
-    title: "Mi visión.",
+    title: "Decisiones, errores y contexto.",
     image: {
       desktopSrc: "/img/home/format.webp",
       mobileSrc: "/img/home/format-mobile.webp",
-      alt: "Mi visión.",
+      alt: "Decisiones, errores y contexto.",
     },
     description: (
       <>
         Reflexiones sobre desarrollo y producto: cosas que me han funcionado,
-        otras que no, y decisiones con las que quizá no estés de acuerdo.
+        otras que no, decisiones imperfectas y aprendizajes que solo aparecen
+        cuando bajas la teoría a tierra.
       </>
     ),
   },
