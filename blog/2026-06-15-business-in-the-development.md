@@ -18,25 +18,25 @@ Si no entiendes el negocio, es probable que te estés perdiendo algo muy importa
 
 ## Cómo empecé a interesarme por el negocio
 
-He trabajado para muchos proyectos, pero al inicio de mi carrera profesional, si te soy sincero, no estaba muy pendiente del negocio, de los usuarios ni de cómo se monetizaba.
+He trabajado en muchos proyectos, pero al inicio de mi carrera profesional, si te soy sincero, no prestaba mucha atención al negocio, a los usuarios ni a cómo se monetizaba.
 
 Hasta que mi manager me abrió los ojos.
 
 Nos preguntó lo siguiente: ¿Sabéis cómo esto está dando dinero y por qué todos podemos estar aquí?
 
-Contesté con lo que creía, no estaba muy desencaminado, pero me di cuenta de que me faltaban muchas piezas.
+Contesté lo que creía. No estaba muy desencaminado, pero me di cuenta de que me faltaban muchas piezas.
 
 Por aquel entonces solo me preocupaban los temas técnicos.
 
-Esta pregunta fue lanzada porque el proyecto estaba sufriendo algunos cambios, no terminaba de encajar, los stakeholders no estaban muy contentos.
+La pregunta surgió porque el proyecto estaba sufriendo algunos cambios. No terminaba de encajar y los stakeholders no estaban muy contentos.
 
-Después de la pregunta y de las respuestas más o menos acertadas nos comentó que nosotros debíamos entender que se quería, como se quería y que además debíamos ser parte del producto, interesarnos por las necesidades de los usuarios y además de paso saber que nos estaba financiando.
+Después de escuchar nuestras respuestas, más o menos acertadas, nos explicó que debíamos entender qué se quería construir y cómo se quería hacer. También debíamos ser parte del producto, interesarnos por las necesidades de los usuarios y saber qué financiaba nuestro trabajo.
 
-En aquella reunión se me abrió un mundo, pasé de ser alguien que solo le preocupaba si la arquitectura escalaba a pensar en, por qué hacemos lo que hacemos, para quién, con qué fin, como da dinero y como aporta a la empresa.
+En aquella reunión se me abrió un mundo. Pasé de preocuparme únicamente por si la arquitectura escalaba a preguntarme por qué hacíamos lo que hacíamos, para quién, con qué fin, cómo generaba dinero y cómo aportaba valor a la empresa.
 
-También llegué a la conclusión de que todos los que estemos en tecnología deberíamos tener esta mentalidad, developers, QAs, Devops, etc.
+También llegué a la conclusión de que todos los que trabajamos en tecnología deberíamos tener esta mentalidad: developers, QAs, DevOps, etc.
 
-Al final es la mentalidad que tienen los POs, PMs o cualquier puesto que implique más negocio.
+Al final, es la mentalidad que tienen los POs, PMs o cualquier puesto que implique más negocio.
 
 ## Algunas experiencias que cambiaron mi visión
 
@@ -77,7 +77,7 @@ Por cosas como estas un cliente puede decidir cambiar de banco.
 
 La monetización de una plataforma de búsqueda de empleo tiene una parte, quizás no visible a simple vista.
 
-Para el usuario es gratis y le ofrece muchas herramientas de búsqueda de empleo, creación de CV, ect.
+Para el usuario es gratis y le ofrece muchas herramientas de búsqueda de empleo, creación de CV, etc.
 
 Donde se monetiza es con las empresas que pagan para publicar ofertas, a las empresas les entregan candidatos ya filtrados y con el perfil más adecuado para la vacante y listos para trabajar.
 
