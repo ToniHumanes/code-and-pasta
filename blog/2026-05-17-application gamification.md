@@ -4,6 +4,7 @@ title: "Gamificación en una aplicación real: lo que funcionó y lo que no"
 description: "Cómo usamos gamificación en una plataforma de recursos humanos para reducir la fricción al completar perfiles y qué aprendí desde frontend, UX y producto."
 image: ./img/gamification.webp
 tags: [development, ux, product]
+draft: true
 ---
 
 ![Imagen de portada del artículo](./img/gamification.webp)
