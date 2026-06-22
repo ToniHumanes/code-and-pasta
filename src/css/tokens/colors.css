@@ -41,8 +41,8 @@
   --site-color-surface-0-rgb: 255 255 255;
   --site-color-ink-900-rgb: 8 19 29;
   --site-color-accent-500-rgb: 0 106 255;
-  --site-color-accent-glow-rgb: 84 164 255;
-  --site-color-info-soft-rgb: 132 180 236;
+  --site-color-accent-glow-rgb: 255 255 255;
+  --site-color-info-soft-rgb: 148 151 156;
   --site-color-footer-link-rgb: 235 243 250;
 }
 
@@ -84,9 +84,10 @@
 /* Semantic tokens */
 :root {
   --site-footer-border-color: rgb(255 255 255 / 0.08);
-  --site-footer-link-color: rgb(var(--site-color-footer-link-rgb) / 0.84);
+  --site-footer-title-color: var(--site-color-surface-0);
+  --site-footer-link-color: rgb(var(--site-color-footer-link-rgb) / 0.96);
   --site-footer-link-color-hover: var(--site-color-brand-100);
-  --site-footer-copyright-color: rgb(var(--site-color-footer-link-rgb) / 0.58);
+  --site-footer-copyright-color: rgb(var(--site-color-footer-link-rgb) / 0.82);
   --site-cta-primary-background: linear-gradient(
     135deg,
     var(--site-color-brand-500) 0%,

@@ -23,7 +23,7 @@
 
 .footer__title {
   margin-bottom: var(--site-margin-4);
-  color: var(--site-color-brand-900);
+  color: var(--site-footer-title-color);
   font-size: 0.92rem;
   font-weight: var(--site-font-weight-extrabold);
   letter-spacing: var(--site-letter-spacing-md);
