@@ -25,7 +25,7 @@ Y cuando funciona, deja de ser una solución improvisada y empieza a convertirse
 
 En la mayoría de los casos, alguien se da cuenta de que ese Excel tiene demasiada responsabilidad: demasiadas personas tocándolo, demasiadas dudas y demasiadas cosas dependiendo de él.
 
-Algunos problemas o señales claras de que el Excel pide a gritos ser una aplicación son:
+Algunos problemas o señales claras de que el Excel empieza a quedarse corto son:
 
 - Mucha gente depende del mismo archivo.
 - Hay errores recurrentes.
@@ -39,57 +39,56 @@ Algunos problemas o señales claras de que el Excel pide a gritos ser una aplica
 
 Suele pasar que alguien pide a IT una aplicación para cubrir esa necesidad. Entonces nace un proyecto, producto empieza a ordenar y, después, diseño y desarrollo se suman al proceso.
 
-Pero también hay excepciones:
+Cuando aparecen varias de estas señales, no significa automáticamente que haya que crear una aplicación.
 
-## Hay Excels que son perfectos como Excel
+Pero sí significa que hay una necesidad que merece ser entendida mejor.
 
-Hay Excels que son baratos, flexibles, rápidos y suficientes.
+A veces acabará en una aplicación.
+A veces bastará con mejorar el proceso.
+Y a veces el Excel seguirá siendo suficiente.
 
-Convertirlos en aplicación puede ser sobreingeniería.
+## Primero, entender la necesidad
 
-Debemos tener criterio para diferenciar cuándo un Excel está cumpliendo bien su objetivo de cuándo empieza a pedir una aplicación.
+Hay Excels que son baratos, flexibles, rápidos y suficientes. Para muchos pequeños negocios o incluso equipos internos convertirlos en aplicación sería añadir complejidad innecesaria.
 
-Esto aplica sobre todo a pequeños negocios que llevan mucho tiempo con su hoja de cálculo funcionando perfectamente para pedidos, stock, etc.
+La pregunta importante no es “¿podemos hacer una aplicación con esto?”.
 
-No todo Excel necesita convertirse en aplicación.
+Lo que debemos resolver es:
 
-Pero algunos empiezan a mostrar señales claras de que ya no son solo una hoja de cálculo y se quedan cortos en funcionalidad.
+¿Este Excel sigue ayudando?
 
-## Dos ejemplos personales
+Si un Excel provoca errores, dudas, versiones duplicadas, dependencias entre personas o falta de trazabilidad, quizá hemos dado con la clave.
 
-Te pongo dos ejemplos personales que utilizo a diario:
+Puede que haya una caso a analizar y una necesidad que resolver.
 
-### 1. Mi Excel de cursos, libros y rutas de aprendizaje
+Para aterrizarlo, me voy a ir a un ejemplo pequeño y personal.
+
+No es un caso de empresa ni un gran producto. Precisamente por eso me sirve para explicar el criterio que hay detrás.
+
+## Un ejemplo personal: Mi Excel de cursos, libros y rutas de aprendizaje
 
 Es el Excel que utilizo para seguir aprendiendo, registrando cursos, libros y artículos que tengo pendientes o que ya he realizado.
 
 Lo tengo todo clasificado por temas, estado (Sin empezar / En curso / Finalizado) y con detalles de cada recurso.
 
-Podría ser una aplicación. Mucha gente intenta organizar su aprendizaje entre cursos, libros, artículos y recursos sueltos.
+¿Podría convertirse en una aplicación?
 
-Si algún día me da la vida, lo transformaré en una aplicación.
+Sí, mucha gente intenta organizar su aprendizaje entre cursos, libros, artículos y recursos sueltos.
 
-### 2. Mi Excel de finanzas personales
+¿Tiene sentido hacerlo ahora?
 
-El clásico.  
-Una columna de “presupuesto”, otra de “gastado”, 12 columnas más para cada mes, filas con categorías y subcategorías: ocio → restaurantes, etc.
+No necesariamente, de momento me funciona, no me bloquea y no hay varias personas trabajando sobre él.
 
-No sé si apps como Fintonic empezaron así, pero no me cuesta imaginar que muchas aplicaciones de finanzas personales nacen de una necesidad parecida.
+Que algo pueda ser una aplicación no quiere decir que tenga que serlo.
 
 ## ¿Qué quiero transmitir con todo esto?
 
-Muy simple, y muy relacionado con estar alineados con negocio como desarrolladores:
+Cuando alguien pide una aplicación, muchas veces ya viene de meses o años forzando una solución improvisada, puede ser un Excel, un formulario o un documento compartido.
 
-Puede que el primer paso sea observar las necesidades de los demás y empezar a desarrollar cierta mentalidad de producto.
+Habrá que revisar si merece convertirse en una aplicación o no, pero ahí hay mucha información.
 
-Quizás un Excel funcione para siempre según la necesidad, pero no suele ser así. En la mayoría de casos, en algún punto se empieza a quedar pequeño.
+Antes de pensar en pantallas, componentes o arquitectura, merece la pena entender qué está intentando resolver realmente.
 
-Y si eso pasa, debemos ser capaces de acompañar al usuario desde lo que tiene en la cabeza hasta lo que realmente necesita. Y eso empieza bastante antes de escribir código.
+Porque muchas veces el producto no empieza con una gran idea.
 
-**Muchas veces detectar la necesidad es más importante que construir la solución.**
-
-:::info[En conclusión]
-A veces el producto no empieza con una gran idea.
-
-Empieza con alguien forzando un Excel porque no tiene nada mejor.
-:::
+Empieza con alguien usando un Excel porque no tiene nada mejor.
