@@ -1,33 +1,42 @@
 ---
 authors: antoniohumanes
-title: "Quería sacar 100 en PageSpeed… y casi no publico el blog"
+title: "Quería sacar 100 en PageSpeed y casi no publico el blog"
 description: "Obsesionarme con PageSpeed me frenó más de lo que me ayudó. Lo que aprendí sobre optimización, producto y entregar valor."
 image: ./img/optimization.webp
 tags: [development, optimization, product]
-draft: true
 ---
 
 ![Imagen de un semáforo que tiene varias posibilidades](@site/blog/img/optimization.webp)
 
-En el proceso de creación de este blog me he encontrado con varios retos, uno de ellos ha sido la performance.
+En el proceso de creación de este blog me he encontrado con varios problemas, uno de ellos ha sido la performance.
 
 Cada vez que pasaba la web por PageSpeed, quería ver ese 100.
 
 Y si no estaba… seguía tocando cosas, revisando el informe e intentando encontrar la solución.
 
-Me di cuenta de que estaba perdiendo demasiado tiempo o mejor dicho: no invirtiéndolo donde tocaba.
+Me di cuenta de que estaba perdiendo demasiado tiempo o, mejor dicho, no lo estaba invirtiendo donde tocaba.
+
+Y quizás te veas reflejado en esta historia.
+
+Porque puede que tú también estés dedicando demasiado tiempo a algo no tan prioritario al principio.
 
 <!-- truncate -->
 
+Esto no me parece algo exclusivo de un blog. Creo que pasa mucho cuando estás construyendo productos digitales.
+
 Estoy usando `Docusaurus`, que de base está bastante optimizado.
 
-Pero en cuanto empecé a personalizar:
+Pero en cuanto empecé a meter:
 
 - fuentes
 - estilos
 - imágenes
 
 la puntuación empezó a bajar y ahí empezaron los problemas.
+
+No era solo “quiero un 100 porque sí”.
+
+PageSpeed empezaba a señalar cosas concretas: el `LCP`, imágenes que podían pesar menos, recursos que bloqueaban el renderizado, CSS que quizá no estaba cargando como debería o mediciones que cambiaban bastante según si miraba una build real o algo más cercano al entorno de desarrollo.
 
 Esto me frenó bastante a la hora de tener el blog listo y empezar a publicar.
 
@@ -40,13 +49,16 @@ Publicar implica:
 - Que te lean.
 - Que te juzguen.
 - Que no guste.
+- Que todo sea un desierto.
 
 Estaba enfocado en:
 
 - Optimizar imágenes.
 - Revisar CSS.
-- Peleándome con fuentes.
-- Buscando cómo subir unos puntos más en PageSpeed.
+- Pelearme con fuentes.
+- Revisar el `LCP`.
+- Probar builds.
+- Buscar cómo subir unos puntos más en PageSpeed.
 
 Todo con ayuda de IA, iterando rápido… pero sin avanzar en lo importante.
 
@@ -55,11 +67,15 @@ Todo con ayuda de IA, iterando rápido… pero sin avanzar en lo importante.
 No digo que optimizar no sea necesario, es más, ahora hay que estar más atentos que nunca porque hay muchos casos que debemos tener en cuenta:
 
 - Usuarios con mala conexión (metro, zonas rurales).
-- Accesibilidad.
 - SEO.
+- Gente entrando desde móvil.
+
+Y una cosa tengo clara, el usuario no va a esperar a que cargue tu página.
+
+Se irá y perderás una visita, un usuario, un cliente o una venta.
 
 Pero no todo tiene el mismo impacto.
-No todo merece el mismo nivel de esfuerzo.
+No todo merece el mismo nivel de esfuerzo, por lo menos al principio.
 
 Por eso también estoy mirando otras señales, no solo PageSpeed.
 
@@ -69,7 +85,19 @@ Si los usuarios pueden entrar, leer y navegar sin complicaciones, quizá el prob
 
 ## La regla que me llevo
 
-Si te enfrascas en cosas con poco impacto y alto coste, deja de compensar.
+Hay una frase famosa en nuestro sector que dice lo siguiente:
+
+> Make it work, make it right, make it fast.
+
+La frase me viene al pelo porque empecé por el final.
+
+Estaba haciendo que todo fuera rápido y perfecto cuando nadie ha leído nada, cuando ni yo mismo sé si funciona.
+
+Espero que el blog funcione, que aporte valor y que os veáis reflejados en alguna historia que cuente por aquí.
+
+Primero necesito publicar, ver qué pasa y entender si realmente hay algo que mejorar.
+
+Y luego ya veremos si mejoramos algunos puntos.
 
 Dicho esto, prometo optimizar la web lo máximo posible con el tiempo.
 
@@ -96,6 +124,3 @@ Porque sin aportar:
 - No hay usuarios.
 - No hay feedback.
 - No hay producto.
-
-> Me di cuenta de que no estaba construyendo.
-> Estaba procrastinando técnicamente.
