@@ -1,17 +1,31 @@
 .heroBanner {
-  --hero-pattern-image: url("/img/home/pattern-light.svg");
+  --hero-pattern-color: var(--site-color-brand-500);
 
   position: relative;
   padding: var(--site-padding-20) 0 var(--site-padding-20);
   height: calc(100vh - 3.8rem);
-  background-image: var(--hero-pattern-image);
-  background-repeat: repeat;
-  background-position: center;
+  overflow: hidden;
+  background-color: var(--background-site-layout-main);
   isolation: isolate;
 }
 
 :global([data-theme="dark"]) .heroBanner {
-  --hero-pattern-image: url("/img/home/pattern-dark.svg");
+  --hero-pattern-color: var(--site-color-brand-900);
+}
+
+.heroBanner::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  content: "";
+  pointer-events: none;
+  background-color: var(--hero-pattern-color);
+  mask-image: url("/img/home/pattern.svg");
+  mask-position: center;
+  mask-repeat: repeat;
+  -webkit-mask-image: url("/img/home/pattern.svg");
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: repeat;
 }
 
 .heroContent {
@@ -36,8 +50,9 @@
   content: "";
   background-color: var(--background-site-layout-main);
   border-radius: 50%;
+  box-shadow: var(--site-cta-primary-shadow);
   transform: translate(-50%, -50%);
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 .heroMedia {
