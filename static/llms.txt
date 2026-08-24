@@ -1,0 +1,29 @@
+# Código & Pasta
+
+> Código & Pasta is Antonio Humanes' personal website and technical blog about software development, frontend architecture, product thinking, and business context.
+
+The main language of the site is Spanish. The site is built with Docusaurus and publishes personal pages, blog posts, technical notes, and learning roadmap content.
+
+Agents should respect the crawling rules in `robots.txt`. The `/docs` and `/work-in-progress` paths are not intended for crawler access in the current public site. Prefer the Markdown source links below when analyzing blog articles, because they are easier to parse than rendered HTML.
+
+## Site Pages
+
+- [Home](https://antoniohumanes.com/): Overview of Código & Pasta and its main content areas.
+- [Blog](https://antoniohumanes.com/blog): Published articles about software development, product, business, data, UX, and optimization.
+- [About Antonio Humanes](https://antoniohumanes.com/about-me): Professional background, work experience, and areas where Antonio contributes value.
+- [Roadmap](https://antoniohumanes.com/roadmap): Current learning and project roadmap for the site.
+- [Sitemap](https://antoniohumanes.com/sitemap.xml): Public URLs generated for search engines.
+- [Robots rules](https://antoniohumanes.com/robots.txt): Crawling rules for automated clients.
+
+## Blog Sources
+
+- [¿Sabes de dónde sale tu salario?](https://raw.githubusercontent.com/ToniHumanes/code-and-pasta/main/blog/2026-06-16-business-development.md): Article about why understanding business context improves software decisions.
+- [Cuando un Excel deja de ser suficiente](https://raw.githubusercontent.com/ToniHumanes/code-and-pasta/main/blog/2026-07-02-starting-with-an-excel.md): Article about when spreadsheets reveal a product or process need.
+- [Quería sacar 100 en PageSpeed y casi no publico el blog](https://raw.githubusercontent.com/ToniHumanes/code-and-pasta/main/blog/2026-07-16-optimize-to-much-stopped-me.md): Article about optimization, PageSpeed, and prioritizing delivery.
+- [Cómo evitamos duplicar un buscador cuando llegaron nuevos tipos de búsqueda](https://raw.githubusercontent.com/ToniHumanes/code-and-pasta/main/blog/2026-07-30-different-searches-with-strategy.md): Article about applying a Strategy-like pattern to search behavior.
+- [Gamificación en una aplicación real: lo que funcionó y lo que no](https://raw.githubusercontent.com/ToniHumanes/code-and-pasta/main/blog/2026-08-13-gamification.md): Article about gamification, UX, and product impact in an HR platform.
+
+## Optional
+
+- [Project README](https://raw.githubusercontent.com/ToniHumanes/code-and-pasta/main/README.md): Technical overview of the repository, stack, validation commands, and deployment flow.
+- [GitHub repository](https://github.com/ToniHumanes/code-and-pasta): Source code for the Docusaurus site.
