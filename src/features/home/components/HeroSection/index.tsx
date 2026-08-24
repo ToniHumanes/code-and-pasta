@@ -1,41 +1,14 @@
 import Heading from "@theme/Heading";
 import type { ReactNode } from "react";
 
-import { ThemedResponsiveImage } from "../../../../components/base/ThemedResponsiveImage";
 import { CtaLink } from "../../../../components/shared/CtaLink";
 import styles from "./styles.module.css";
-
-const heroImageSizes = "(max-width: 996px) 22rem, 24rem";
 
 function HomepageHeader(): ReactNode {
   return (
     <header className={styles.heroBanner}>
-      <div className="container">
+      <div className="container" style={{ height: "100%" }}>
         <section className={styles.heroContent}>
-          <div className={styles.heroMedia}>
-            <ThemedResponsiveImage
-              sources={{
-                light: {
-                  desktopSrc: "/img/home/code-and-pasta-light.webp",
-                  mobileSrc: "/img/home/code-and-pasta-light-mobile.webp",
-                  alt: "Código & Pasta",
-                },
-                dark: {
-                  desktopSrc: "/img/home/code-and-pasta-dark.webp",
-                  mobileSrc: "/img/home/code-and-pasta-dark-mobile.webp",
-                  alt: "Código & Pasta",
-                },
-              }}
-              className={styles.heroImage}
-              width="720"
-              height="720"
-              sizes={heroImageSizes}
-              loading="eager"
-              fetchPriority="high"
-              decoding="async"
-            />
-          </div>
-
           <div className={styles.heroCopy}>
             <Heading as="h1" className={styles.heroTitle}>
               Código & Pasta
