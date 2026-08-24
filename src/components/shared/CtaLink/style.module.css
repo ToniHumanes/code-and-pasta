@@ -36,3 +36,9 @@
 .ctaLink--secondary:focus-visible {
   color: var(--site-color-surface-0);
 }
+
+@media screen and (max-width: 996px) {
+  .ctaLink {
+    min-width: auto;
+  }
+}

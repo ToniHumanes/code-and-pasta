@@ -1,0 +1,7 @@
+:root {
+  --background-site-layout-main: #f4f9ff;
+}
+
+[data-theme="dark"] {
+  --background-site-layout-main: #08131d;
+}
