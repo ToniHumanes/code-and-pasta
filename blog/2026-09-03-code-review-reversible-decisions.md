@@ -84,7 +84,7 @@ Con la solución de encapsular la condición dentro del componente quería conse
 Pero por otro lado el comentario del reviewer tenía puntos a favor, se ganaban cosas importantes, como:
 
 - La condición queda visible en el punto donde se usa (se gana legibilidad).
-- No tienes un componente que silenciosamente devuelve vació.
+- No tienes un componente que silenciosamente devuelve vacío.
 - Encaja mejor con la convención/criterio del equipo.
 - La lectura del flujo es más explícita.
 
