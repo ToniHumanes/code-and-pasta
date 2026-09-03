@@ -47,3 +47,13 @@ ux:
   label: UX
   permalink: /ux
   description: Contenido sobre experiencia de usuario y diseño centrado en el usuario.
+
+pull-request:
+  label: Pull request
+  permalink: /pull-request
+  description: Artículos sobre Pull Requests, revisiones de código y colaboración en equipos de desarrollo.
+
+teamwork:
+  label: Trabajo en equipo
+  permalink: /teamwork
+  description: Reflexiones sobre colaboración, comunicación y toma de decisiones en equipos de desarrollo.
